@@ -7,4 +7,6 @@
   dnf:
     name:
       - htop
+      - rust
+      - cargo
     state: latest

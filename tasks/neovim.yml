@@ -1,7 +1,6 @@
 ---
 - name: Enable Fedora Copr for NeoVim
   command: "dnf copr enable -y agriffis/neovim-nightly"
-  creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
 - name: Install NeoVim from negativo
   dnf:
     name:

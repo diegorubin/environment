@@ -1,0 +1,10 @@
+---
+- name: Update System
+  dnf:
+    name: "*"
+    state: latest
+- name: Install System Packages
+  dnf:
+    name:
+      - htop
+    state: latest

@@ -8,7 +8,6 @@ This project uses ansible to make configurations.
 ## Execution
 
 ```
-export DESTINATION="<base directory>"
-sudo ansible-pull -U https://github.com/diegorubin/environment.git
+sudo ansible-pull -e destination=<local dir> -U https://github.com/diegorubin/environment.git
 ```
 

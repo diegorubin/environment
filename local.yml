@@ -1,8 +1,6 @@
 ---
 - hosts: localhost
   become: true
-  vars:
-    destination: "{{ lookup('env','DESTINATION') }}"
   tasks:
     - include: tasks/packages.yml
     - include: tasks/neovim.yml

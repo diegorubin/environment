@@ -1,6 +1,9 @@
 ---
 - hosts: localhost
   become: true
+  vars:
+    home: "{{ lookup('env','HOME') }}"
   tasks:
     - include: tasks/packages.yml
     - include: tasks/neovim.yml
+    - include: tasks/i3-gaps.yml

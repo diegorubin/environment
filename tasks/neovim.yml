@@ -9,4 +9,7 @@
 - debug:
     msg: "{{ destination }}"
 - name: Install Plug for NeoVim Plugins
+  remote_user: "diegorubin"
   command: "curl -fLo {{ destination }}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+- name: copy init.vim
+  copy: src=files/config/nvim/init.vim dest={{destination}}/.config/nvim owner={{user}} group={{user}} mode=0664

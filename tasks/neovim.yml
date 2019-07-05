@@ -6,7 +6,11 @@
     name:
       - neovim
     state: latest
+- name: Create NeoVim Base
+  command: "mkdir -p {{ destination }}/.config/nvim/"
 - name: Install Plug for NeoVim Plugins
-  command: "su {{user}} -c curl -fLo {{ destination }}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  command: "curl -fLo {{ destination }}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+- name: Change Permissions of NeoVim Base
+  command: "chown -R {{user}} {{ destination }}/.local/share/nvim/"
 - name: copy init.vim
   copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim owner={{user}} group={{user}} mode=0664

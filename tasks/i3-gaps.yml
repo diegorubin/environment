@@ -5,4 +5,11 @@
   dnf:
     name:
       - i3-gaps
+      - compton
+      - feh
+      - xscreensaver
     state: latest
+- name: copy i3 config
+  copy: src=config/i3/config dest={{destination}}/.config/i3 owner={{user}} group={{user}} mode=0664
+- name: copy i3 compton.conf
+  copy: src=config/i3/compton.conf dest={{destination}}/.config/i3 owner={{user}} group={{user}} mode=0664

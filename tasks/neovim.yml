@@ -14,3 +14,5 @@
   command: "chown -R {{user}} {{destination}}/.config/nvim/ {{destination}}/.local/share/nvim/"
 - name: copy init.vim
   copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim owner={{user}} group={{user}} mode=0664
+- pip:
+    name: neovim

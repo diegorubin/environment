@@ -7,4 +7,5 @@
   dnf:
     name:
       - htop
+      - terminator
     state: latest

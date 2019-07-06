@@ -1,0 +1,6 @@
+- name: Install i3-gaps from negativo
+  dnf:
+    name:
+      - conky
+    state: latest
+

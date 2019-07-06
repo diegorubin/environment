@@ -6,10 +6,13 @@
     name:
       - i3-gaps
       - compton
+      - dunst
       - feh
       - xscreensaver
     state: latest
+- pip:
+    name: flashfocus
 - name: copy i3 config
-  copy: src=config/i3/config dest={{destination}}/.config/i3 owner={{user}} group={{user}} mode=0664
+  copy: src=config/i3/config dest={{destination}}/.config/i3/config owner={{user}} group={{user}} mode=0664
 - name: copy i3 compton.conf
-  copy: src=config/i3/compton.conf dest={{destination}}/.config/i3 owner={{user}} group={{user}} mode=0664
+  copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} group={{user}} mode=0664

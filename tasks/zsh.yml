@@ -5,6 +5,10 @@
     name:
       - zsh
     state: latest
+- name: Download Oh My Zsh
+  command: "curl -fLo /tmp/oh-my-zsh-install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+- name: Change Owner Oh My Zsh
+  command: "chmod +x /tmp/oh-my-zsh-install.sh"
 - name: Install Oh My Zsh
-  command: "curl -fLo /tmp/oh-my-zsh-install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh && chmod +x /tmp/oh-my-zsh-install.sh && /tmp/oh-my-zsh-install.sh"
+  command: "/tmp/oh-my-zsh-install.sh"
 

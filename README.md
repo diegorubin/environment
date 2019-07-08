@@ -15,3 +15,9 @@ This project uses ansible to make configurations.
 sudo ansible-pull -e user=<user> -e destination=<local dir> -U https://github.com/diegorubin/environment.git
 ```
 
+## Manual Steps
+
+After running ansible, execute these steps:
+
+- Open nvim and execute: `:PlugInstall`
+

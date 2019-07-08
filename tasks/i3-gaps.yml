@@ -12,6 +12,12 @@
     state: latest
 - pip:
     name: flashfocus
+- name: Creates i3 config directory
+  file:
+    path: "{{destination}}/.config/i3/config"
+    owner: "{{user}}"
+    group: "{{user}}"
+    state: directory
 - name: copy i3 config
   copy: src=config/i3/config dest={{destination}}/.config/i3/config owner={{user}} group={{user}} mode=0664
 - name: copy i3 compton.conf

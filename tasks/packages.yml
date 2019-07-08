@@ -8,4 +8,5 @@
     name:
       - htop
       - terminator
+      - zsh
     state: latest

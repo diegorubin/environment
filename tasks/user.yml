@@ -1,5 +1,6 @@
 ---
 - name: Setting zsh as default shell
+  become_user: root
   user:
     name: "{{user}}"
     shell: /bin/zsh

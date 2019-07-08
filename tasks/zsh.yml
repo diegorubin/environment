@@ -1,9 +1,9 @@
 ---
-- name: Install i3-gaps from negativo
+- name: Install Zsh From Negativo
   become_user: root
   dnf:
     name:
       - zsh
     state: latest
-- name: Install Plug for NeoVim Plugins
+- name: Install Oh My Zsh
   command: "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""

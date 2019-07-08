@@ -1,4 +1,6 @@
+---
 - name: Install i3-gaps from negativo
+  become_user: root
   dnf:
     name:
       - conky

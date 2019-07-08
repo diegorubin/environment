@@ -3,7 +3,6 @@
   become_user: root
   command: "dnf copr enable -y nforro/i3-gaps"
 - name: Install i3-gaps from negativo
-  become: true
   become_user: root
   dnf:
     name:

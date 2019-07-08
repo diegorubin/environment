@@ -1,12 +1,10 @@
 ---
 - name: Update System
-  become: true
   become_user: root
   dnf:
     name: "*"
     state: latest
 - name: Install System Packages
-  become: true
   become_user: root
   dnf:
     name:

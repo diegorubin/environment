@@ -12,8 +12,9 @@
       - feh
       - xscreensaver
     state: latest
-- pip:
-    become_user: root
+- name: Install Flashfocus
+  become_user: root
+  pip:
     name: flashfocus
 - name: Creates i3 config directory
   file:

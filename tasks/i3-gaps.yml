@@ -1,7 +1,9 @@
 ---
 - name: Enable Fedora Copr for NeoVim
+  become_user: root
   command: "dnf copr enable -y nforro/i3-gaps"
 - name: Install i3-gaps from negativo
+  become_user: root
   dnf:
     name:
       - i3-gaps
@@ -11,12 +13,11 @@
       - xscreensaver
     state: latest
 - pip:
+    become_user: root
     name: flashfocus
 - name: Creates i3 config directory
   file:
     path: "{{destination}}/.config/i3"
-    owner: "{{user}}"
-    group: "{{user}}"
     state: directory
 - name: copy i3 config
   copy: src=config/i3/config dest={{destination}}/.config/i3/config owner={{user}} group={{user}} mode=0664

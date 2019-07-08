@@ -1,4 +1,7 @@
-- name: Install System Packages
+---
+- name: Install Go Lang Packages
+  become: true
+  become_user: root
   dnf:
     name:
       - golang

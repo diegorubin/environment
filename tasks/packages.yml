@@ -1,9 +1,11 @@
 ---
 - name: Update System
+  become: true
   dnf:
     name: "*"
     state: latest
 - name: Install System Packages
+  become: true
   dnf:
     name:
       - htop

@@ -5,10 +5,16 @@
     name:
       - zsh
     state: latest
+- name: Check for oh-my-zsh installation
+  stat: path={{destination}}/.oh-my-zsh
+  register: ohmyzsh
 - name: Download Oh My Zsh
   command: "curl -fLo /tmp/oh-my-zsh-install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+  when: not ohmyzsh.stat.exists
 - name: Change Owner Oh My Zsh
   command: "chmod +x /tmp/oh-my-zsh-install.sh"
+  when: not ohmyzsh.stat.exists
 - name: Install Oh My Zsh
   command: "/tmp/oh-my-zsh-install.sh"
+  when: not ohmyzsh.stat.exists
 

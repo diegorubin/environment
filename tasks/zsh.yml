@@ -6,4 +6,5 @@
       - zsh
     state: latest
 - name: Install Oh My Zsh
-  command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  command: "curl -fLo /tmp/oh-my-zsh-install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh && chmod +x /tmp/oh-my-zsh-install.sh && /tmp/oh-my-zsh-install.sh"
+

@@ -8,3 +8,4 @@
     - include: tasks/neovim.yml
     - include: tasks/zsh.yml
     - include: tasks/i3-gaps.yml
+    - include: tasks/user.yml

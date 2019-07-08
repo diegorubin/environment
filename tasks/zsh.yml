@@ -17,4 +17,3 @@
 - name: Install Oh My Zsh
   command: "/tmp/oh-my-zsh-install.sh"
   when: not ohmyzsh.stat.exists
-

@@ -1,0 +1,5 @@
+---
+- name: Setting zsh as default shell
+  user:
+    name: "{{user}}"
+    shell: /bin/zsh

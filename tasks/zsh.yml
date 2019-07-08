@@ -1,0 +1,8 @@
+---
+- name: Install i3-gaps from negativo
+  dnf:
+    name:
+      - zsh
+    state: latest
+- name: Install Plug for NeoVim Plugins
+  command: "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""

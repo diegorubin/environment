@@ -14,7 +14,7 @@
     name: flashfocus
 - name: Creates i3 config directory
   file:
-    path: "{{destination}}/.config/i3/config"
+    path: "{{destination}}/.config/i3"
     owner: "{{user}}"
     group: "{{user}}"
     state: directory

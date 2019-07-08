@@ -1,12 +1,12 @@
 ---
 - name: Update System
-  become: true
   dnf:
+    become: true
     name: "*"
     state: latest
 - name: Install System Packages
-  become: true
   dnf:
+    become: true
     name:
       - htop
       - terminator

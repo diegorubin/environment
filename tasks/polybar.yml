@@ -10,8 +10,13 @@
       - libcurl-devel
       - alsa-lib-devel
       - libmpd-devel
+      - mpc
       - pulseaudio-libs-devel
       - xcb-proto
+      - python2-devel
+      - libmpdclient-devel
+      - wireless-tools
+      - wireless-tools-devel
     state: latest
 - name: Clone polybar repository
   git:

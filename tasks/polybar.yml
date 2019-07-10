@@ -1,0 +1,11 @@
+---
+- name: Install dependencies for polybar
+  become_user: root
+  dnf:
+    name:
+      - cmake
+    state: latest
+- name: Clone polybar repository
+  git:
+    repo: 'https://github.com/polybar/polybar.git'
+    dest: /tmp/polybar

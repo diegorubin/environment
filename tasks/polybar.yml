@@ -3,12 +3,19 @@
   become_user: root
   dnf:
     name:
+      - make
       - cmake
+      - gcc-c++
+      - cairo-devel
+      - libcurl-devel
+      - alsa-lib-devel
+      - libmpd-devel
+      - pulseaudio-libs-devel
+      - xcb-proto
     state: latest
 - name: Clone polybar repository
   git:
     repo: 'https://github.com/polybar/polybar.git'
     dest: /tmp/polybar
 - name: copy polybar build script
-  copy: src=build/build-polybar dest=/tmp/polybar owner={{user}} group={{user}} mode=0774
-
+  copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} group={{user}} mode=0774

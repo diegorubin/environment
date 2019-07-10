@@ -9,3 +9,6 @@
   git:
     repo: 'https://github.com/polybar/polybar.git'
     dest: /tmp/polybar
+- name: copy polybar build script
+  copy: src=build/build-polybar dest=/tmp/polybar owner={{user}} group={{user}} mode=0774
+

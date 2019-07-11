@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+import os.path
+import re
+from subprocess import Popen, PIPE
+
+
+def convert_line(line):
+    time_search = re.search(r'\[(\d+):(\d+).\d+\](.*)', line)
+    in_seconds = 0
+    if time_search:
+        in_seconds = int(time_search.group(1)) * 60
+        in_seconds += int(time_search.group(2))
+        return (in_seconds, time_search.group(3))
+
+
+def lyric_exists(music, artist):
+    return os.path.exists('/tmp/{}_{}.txt'.format(music, artist))
+
+
+def save_lyric(music, artist, output):
+    with open('/tmp/{}_{}.txt'.format(music, artist), 'w') as file:
+        file.write(output)
+
+
+def recover_lyric(music, artist):
+    with open('/tmp/{}_{}.txt'.format(music, artist)) as file:
+        return file.read()
+
+
+result = os.popen(
+    '/home/diegorubin/.newenv/polybar/scripts/lyrics | trans :pt')
+result = result.readlines()[2]
+print(result)

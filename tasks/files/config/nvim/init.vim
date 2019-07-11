@@ -53,6 +53,10 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
 " }
 
+" Ansible Plugins {
+  Plug 'pearofducks/ansible-vim'
+" }
+
 " API Rest Plugins {
   Plug 'diepm/vim-rest-console'
   Plug 'xavierchow/vim-swagger-preview'
@@ -81,8 +85,10 @@ call plug#begin()
 " }
 
 " RubyPlugins {
+  Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-rvm'
   Plug 'ngmy/vim-rubocop'
+  Plug 'rainerborene/vim-reek'
 " }
 
 " Theme Plugins {
@@ -202,6 +208,9 @@ call plug#end()
 " }
 
 " Ruby Configurations {
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+  let g:reek_always_show = 0
   if !exists("rvm_loaded")
     au GUIEnter Rvm use 2.6.3
     au GUIEnter Rvm gemset use nvim

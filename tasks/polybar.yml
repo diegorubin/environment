@@ -32,3 +32,6 @@
 - name: Make and Install Polybar
   become_user: root
   command: "/tmp/polybar/build-polybar.sh"
+- name: Copy Polybar Configs
+  copy: src=config/polybar dest={{destination}}/.config/polybar owner={{user}} group={{user}}
+

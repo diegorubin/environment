@@ -211,8 +211,8 @@ bindsym --release Print exec "scrot -m '/home/diegorubin/Pictures/screenshots/%s
 bindsym --release Shift+Print exec "scrot -s '/home/diegorubin/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # start programs
-exec_always --no-startup-id feh --bg-fill ~/.newenv/wallpapers/ghost.jpg
-exec_always --no-startup-id ~/.newenv/polybar/launch.sh &
+exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/city.jpg
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id flashfocus &
 exec_always --no-startup-id dunst -config ~/.newenv/dunstrc &
 exec_always --no-startup-id ~/.newenv/conky/startconky.sh &

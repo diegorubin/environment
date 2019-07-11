@@ -19,6 +19,7 @@
       - wireless-tools
       - wireless-tools-devel
       - xcb-util-devel
+      - xcb-util-wm-devel
       - xcb-util-cursor-devel
       - xcb-util-xrm-devel
     state: latest
@@ -28,3 +29,6 @@
     dest: /tmp/polybar
 - name: copy polybar build script
   copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} group={{user}} mode=0774
+- name: Make and Install Polybar
+  become_user: root
+  command: "/tmp/polybar/build-polybar.sh"

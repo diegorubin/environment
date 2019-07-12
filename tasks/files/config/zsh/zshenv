@@ -1,7 +1,7 @@
 # Exports
 export EDITOR=nvim
 
-export PATH="$PATH:/opt/node/bin"
+export PATH="$PATH:~/.pkgs/node/bin"
 
 # Docker Functions
 clear_containers() {

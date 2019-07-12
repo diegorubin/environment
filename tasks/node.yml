@@ -6,5 +6,8 @@
   command: "curl -fLo {{destination}}/.pkgs/node.tar.xz https://nodejs.org/dist/v12.6.0/node-v12.6.0-linux-x64.tar.xz"
   when: not node.stat.exists
 - name: Extract Node
-  command: "tar xvf node.tar.xz"
+  command: "tar xvf {{destination}}/.pkgs/node.tar.xz -C {{destination}}/.pkgs"
+  when: not node.stat.exists
+- name: Create Link for Node
+  command: "ln -s {{destination}}/.pkgs/node-v12.6.0-linux-x64 {{destination}}/.pkgs/node"
   when: not node.stat.exists

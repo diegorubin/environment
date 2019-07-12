@@ -17,3 +17,6 @@
 - name: Install Oh My Zsh
   command: "/tmp/oh-my-zsh-install.sh"
   when: not ohmyzsh.stat.exists
+- name: copy zshenv
+  copy: src=config/zsh/zshenv dest={{destination}}/.zshenv owner={{user}} group={{user}} mode=0664
+

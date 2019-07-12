@@ -1,0 +1,12 @@
+---
+- name: Creates fonts directory
+  file:
+    path: "{{destination}}/.fonts"
+    state: directory
+- name: Copy fonts
+  copy:
+    src: "config/fonts/{{item}}"
+    dest: "{{destination}}/.fonts"
+  with_items:
+    - icomoon-feather.ttf
+    - Ubuntu-C.ttf

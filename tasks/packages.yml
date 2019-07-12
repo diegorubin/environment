@@ -11,3 +11,7 @@
       - htop
       - terminator
     state: latest
+- name: Creates pkg directory
+  file:
+    path: "{{destination}}/.pkgs"
+    state: directory

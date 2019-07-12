@@ -5,6 +5,7 @@
   tasks:
     - include: tasks/packages.yml
     - include: tasks/go.yml
+    - include: tasks/node.yml
     - include: tasks/neovim.yml
     - include: tasks/zsh.yml
     - include: tasks/i3-gaps.yml

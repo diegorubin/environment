@@ -36,4 +36,3 @@
   copy: src=config/polybar dest={{destination}}/.config owner={{user}} group={{user}}
 - name: Copy Launcher Script
   copy: src=config/polybar/launch.sh dest={{destination}}/.config/polybar owner={{user}} group={{user}} mode=0774
-

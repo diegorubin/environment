@@ -27,5 +27,3 @@
   copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} group={{user}} mode=0664
 - name: copy i3 wallpaper
   copy: src=config/wallpapers dest={{destination}}/.config owner={{user}} group={{user}}
-- name: Change scripts permission
-  command: "chmod +x {{destination}}/.config/polybar/scripts/*"

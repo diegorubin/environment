@@ -10,5 +10,6 @@
     - include: tasks/zsh.yml
     - include: tasks/fonts.yml
     - include: tasks/i3-gaps.yml
+    - include: tasks/termite.yml
     - include: tasks/polybar.yml
     - include: tasks/user.yml

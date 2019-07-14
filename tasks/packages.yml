@@ -9,7 +9,6 @@
   dnf:
     name:
       - htop
-      - terminator
     state: latest
 - name: Creates pkg directory
   file:

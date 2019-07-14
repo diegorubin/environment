@@ -1,0 +1,10 @@
+---
+- name: Enable Fedora Copr for Termite
+  become_user: root
+  command: "dnf copr enable -y skidnki/termite"
+- name: Install termite
+  become_user: root
+  dnf:
+    name:
+      - termite
+    state: latest

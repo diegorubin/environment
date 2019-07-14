@@ -1,8 +1,8 @@
 ---
-- name: Enable Fedora Copr for NeoVim
+- name: Enable Fedora Copr for i3-gaps
   become_user: root
   command: "dnf copr enable -y nforro/i3-gaps"
-- name: Install i3-gaps from negativo
+- name: Install i3-gaps
   become_user: root
   dnf:
     name:

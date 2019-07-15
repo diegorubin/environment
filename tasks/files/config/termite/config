@@ -59,8 +59,8 @@ color7  = #D0D0D0
 color15 = #FFFFFF
 
 # Correct
-color2  = #FF0048
-color10  = #FF0048
+color2  = #00FF99
+color10  = #00FF99
 
 # Error
 color1  = #FF0048

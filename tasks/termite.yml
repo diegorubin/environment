@@ -8,3 +8,9 @@
     name:
       - termite
     state: latest
+- name: Creates termite config directory
+  file:
+    path: "{{destination}}/.config/termite"
+    state: directory
+- name: copy termite config
+  copy: src=config/termite/config dest={{destination}}/.config/termite/config owner={{user}} group={{user}} mode=0664

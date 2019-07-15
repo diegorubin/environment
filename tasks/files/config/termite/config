@@ -1,0 +1,107 @@
+[options]
+#allow_bold = true
+#audible_bell = false
+#bold_is_bright = true
+#cell_height_scale = 1.0
+#cell_width_scale = 1.0
+#clickable_url = true
+#dynamic_title = true
+font = SourceCodePro 10
+#fullscreen = true
+#icon_name = terminal
+#mouse_autohide = false
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 10000
+#search_wrap = true
+#urgent_on_bell = true
+#hyperlinks = false
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# "system", "on" or "off"
+#cursor_blink = system
+
+# "block", "underline" or "ibeam"
+#cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+#scrollbar = off
+
+[colors]
+# Base16 Summerfruit Dark
+# Author: Christopher Corley (http://christop.club/)
+
+foreground          = #D0D0D0
+foreground_bold     = #E0E0E0
+cursor              = #E0E0E0
+cursor_foreground   = #151515
+background          = rgba(22, 10, 10, 0.8)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #151515
+color8  = #505050
+color7  = #D0D0D0
+color15 = #FFFFFF
+
+# Correct
+color2  = #FF0048
+color10  = #FF0048
+
+# Error
+color1  = #FF0048
+color9 = #FF0048
+
+# Yellow
+color3  = #ABA800
+color11 = #ABA800
+
+# Blue
+color4  = #3777E6
+color12 = #3777E6
+
+# Purple
+color5  = #AD00A1
+color13 = #AD00A1
+
+# Teal
+color6  = #1FAAAA
+color14 = #1FAAAA
+
+# Extra colors
+color16 = #FD8900
+color17 = #CC6633
+color18 = #202020
+color19 = #303030
+color20 = #B0B0B0
+color21 = #E0E0E0
+
+# Theme pallete
+color250 = #321515
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s

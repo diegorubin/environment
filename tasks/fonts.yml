@@ -9,4 +9,3 @@
     dest: "{{destination}}/.fonts"
   with_items:
     - icomoon-feather.ttf
-    - Ubuntu-C.ttf

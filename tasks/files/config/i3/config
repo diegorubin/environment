@@ -207,14 +207,14 @@ bindsym XF86AudioMute exec --no-startup-id mpc toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id mpc next
 bindsym XF86AudioLowerVolume exec --no-startup-id mpc prev
 
-bindsym --release Print exec "scrot -m '/home/diegorubin/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-bindsym --release Shift+Print exec "scrot -s '/home/diegorubin/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym --release Print exec "scrot -m '$HOME/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Shift+Print exec "scrot -s '$HOME/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # start programs
-exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/graveyard.jpg
+exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/forest.png
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id flashfocus &
-exec_always --no-startup-id dunst -config ~/.newenv/dunstrc &
+exec_always --no-startup-id dunst -config ~/.config/dunst/config &
 exec_always --no-startup-id ~/.newenv/conky/startconky.sh &
 
 exec --no-startup-id xset -dpms s off

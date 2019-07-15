@@ -12,3 +12,7 @@ clear_containers() {
 clear_images() {
 	docker rmi -f $(docker images -a -q)
 }
+
+# RVM configuration
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+

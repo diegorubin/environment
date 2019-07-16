@@ -18,5 +18,20 @@ sudo ansible-pull -e user=<user> -e destination=<local dir> -U https://github.co
 
 After running ansible, execute these steps:
 
-- Open nvim and execute: `:PlugInstall`
+- Open nvim and execute: `:PlugInstall` and `:UpdateRemotePlugins`
+
+## Content
+
+### Done
+
+- NeoVim (with plug)
+- i3 gaps (with compton support)
+- polybar (theme from https://github.com/adi1090x/polybar-themes)
+- termite
+- zsh (with oh-my-zsh)
+
+### WIP
+
+- Conky
+- Dunst
 

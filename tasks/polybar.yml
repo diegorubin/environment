@@ -32,6 +32,8 @@
 - name: Make and Install Polybar
   become_user: root
   command: "/tmp/polybar/build-polybar.sh"
+- name: Copy Rofi Configs
+  copy: src=config/rofi dest={{destination}}/.config owner={{user}} group={{user}}
 - name: Copy Polybar Configs
   copy: src=config/polybar dest={{destination}}/.config owner={{user}} group={{user}}
 - name: Copy Launcher Script

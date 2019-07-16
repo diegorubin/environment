@@ -211,11 +211,11 @@ bindsym --release Print exec "scrot -m '$HOME/Pictures/screenshots/%s_%H%M_%d.%m
 bindsym --release Shift+Print exec "scrot -s '$HOME/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # start programs
-exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/forest.png
+exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/city.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id flashfocus &
 exec_always --no-startup-id dunst -config ~/.config/dunst/config &
-exec_always --no-startup-id ~/.newenv/conky/startconky.sh &
+exec_always --no-startup-id ~/.config/conky/startconky.sh &
 
 exec --no-startup-id xset -dpms s off
 exec --no-startup-id compton --config ~/.config/i3/compton.conf

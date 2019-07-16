@@ -9,6 +9,7 @@
       - i3-gaps
       - compton
       - dunst
+      - scrot
       - feh
       - rofi
       - xscreensaver

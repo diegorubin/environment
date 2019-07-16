@@ -8,6 +8,13 @@ My Environment
 
 This project uses ansible to make configurations.
 
+## Screenshots
+
+![NeoVim](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/nvim.png)
+
+![Conky](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/conky_ncmpc.png)
+
+
 ## Execution
 
 ```
@@ -34,4 +41,5 @@ After running ansible, execute these steps:
 
 - Conky
 - Dunst
+- Mopidy
 

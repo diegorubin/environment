@@ -1,13 +1,16 @@
 ---
 - name: Check for node installation
-  stat: path={{destination}}/.pkgs/node
+  stat: path=/opt/node
   register: node
 - name: Download Node
-  command: "curl -fLo {{destination}}/.pkgs/node.tar.xz https://nodejs.org/dist/v12.6.0/node-v12.6.0-linux-x64.tar.xz"
+  command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v12.6.0/node-v12.6.0-linux-x64.tar.xz"
   when: not node.stat.exists
 - name: Extract Node
-  command: "tar xf {{destination}}/.pkgs/node.tar.xz -C {{destination}}/.pkgs"
+  command: "tar xf /opt/node.tar.xz -C /opt"
   when: not node.stat.exists
 - name: Create Link for Node
-  command: "ln -s {{destination}}/.pkgs/node-v12.6.0-linux-x64 {{destination}}/.pkgs/node"
+  command: "ln -s /opt/node-v12.6.0-linux-x64 /opt/node"
+  when: not node.stat.exists
+- name: Change Owner
+  command: "chown -R {{user}} /opt/node"
   when: not node.stat.exists

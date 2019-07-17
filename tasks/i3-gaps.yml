@@ -22,9 +22,15 @@
   file:
     path: "{{destination}}/.config/i3"
     state: directory
+- name: Creates dunst config directory
+  file:
+    path: "{{destination}}/.config/dunst"
+    state: directory
 - name: copy i3 config
   copy: src=config/i3/config dest={{destination}}/.config/i3/config owner={{user}} group={{user}} mode=0664
 - name: copy i3 compton.conf
   copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} group={{user}} mode=0664
 - name: copy i3 wallpaper
   copy: src=config/wallpapers dest={{destination}}/.config owner={{user}} group={{user}}
+- name: copy dunst config
+  copy: src=config/dunst/config dest={{destination}}/.config/dunst/config owner={{user}} group={{user}} mode=0664

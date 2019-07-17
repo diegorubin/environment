@@ -3,14 +3,18 @@
   stat: path=/opt/node
   register: node
 - name: Download Node
+  become_user: root
   command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v12.6.0/node-v12.6.0-linux-x64.tar.xz"
   when: not node.stat.exists
 - name: Extract Node
+  become_user: root
   command: "tar xf /opt/node.tar.xz -C /opt"
   when: not node.stat.exists
 - name: Create Link for Node
+  become_user: root
   command: "ln -s /opt/node-v12.6.0-linux-x64 /opt/node"
   when: not node.stat.exists
 - name: Change Owner
+  become_user: root
   command: "chown -R {{user}} /opt/node"
   when: not node.stat.exists

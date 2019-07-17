@@ -27,6 +27,8 @@
   npm:
     name: lyrics
     global: true
+  environment:
+    PATH:$PATH:{{destination}}/.pkgs/node/bin
 - name: Clone polybar repository
   git:
     repo: 'https://github.com/polybar/polybar.git'

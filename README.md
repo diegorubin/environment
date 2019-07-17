@@ -42,4 +42,5 @@ After running ansible, execute these steps:
 - Conky
 - Dunst
 - Mopidy
+- neovim-gtk
 

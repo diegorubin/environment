@@ -23,6 +23,10 @@
       - xcb-util-cursor-devel
       - xcb-util-xrm-devel
     state: latest
+- name: Install lyrics package globally.
+  npm:
+    name: lyrics
+    global: true
 - name: Clone polybar repository
   git:
     repo: 'https://github.com/polybar/polybar.git'

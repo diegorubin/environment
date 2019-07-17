@@ -26,7 +26,7 @@
 - name: Install lyrics package globally.
   become_user: root
   npm:
-    name: lyrics
+    name: lyrics-cli
     global: true
 - name: Clone polybar repository
   git:

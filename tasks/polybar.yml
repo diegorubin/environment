@@ -24,6 +24,7 @@
       - xcb-util-xrm-devel
     state: latest
 - name: Install lyrics package globally.
+  become_user: root
   npm:
     name: lyrics
     global: true

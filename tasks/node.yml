@@ -14,3 +14,7 @@
   become_user: root
   command: "ln -s /opt/node-v12.6.0-linux-x64 /opt/node"
   when: not node.stat.exists
+- name: Change Owner for Node
+  become_user: root
+  command: "chown -R {{user}} /opt/node-v12.6.0-linux-x64"
+  when: not node.stat.exists

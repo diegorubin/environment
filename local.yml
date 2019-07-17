@@ -2,6 +2,8 @@
 - hosts: localhost
   become: true
   become_user: "{{user}}"
+  environment:
+    PATH: "{{destination}}/.pkgs/node/bin:{{ ansible_env.PATH }}"
   tasks:
     - include: tasks/packages.yml
     - include: tasks/go.yml

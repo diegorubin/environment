@@ -36,11 +36,11 @@ After running ansible, execute these steps:
 - polybar (theme from https://github.com/adi1090x/polybar-themes)
 - termite
 - zsh (with oh-my-zsh)
+- Dunst
 
 ### WIP
 
 - Conky
-- Dunst
 - Mopidy
 - neovim-gtk
 

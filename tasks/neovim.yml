@@ -16,3 +16,9 @@
   copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim owner={{user}} group={{user}} mode=0664
 - pip:
     name: neovim
+- name: Install NeoVim Plugins
+  shell: >
+    vim
+    +PlugInstall
+    +UpdateRemotePlugins
+    +qall!

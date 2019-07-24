@@ -14,4 +14,5 @@
     - include: tasks/i3-gaps.yml
     - include: tasks/termite.yml
     - include: tasks/polybar.yml
+    - include: tasks/gtk.yml
     - include: tasks/user.yml

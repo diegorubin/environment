@@ -240,7 +240,7 @@ call plug#end()
 
 " Theme Options {
   colorscheme kuroi 
-  let g:airline_theme='kolor'
+  let g:airline_theme='challenger_deep'
   if exists('g:GtkGuiLoaded')
   else
     hi Normal guibg=NONE ctermbg=NONE

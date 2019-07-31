@@ -76,6 +76,7 @@ call plug#begin()
 
 " JavascriptPlugins {
   Plug 'mustache/vim-mustache-handlebars'
+  Plug 'posva/vim-vue'
 " }
 
 " PythonPlugins {

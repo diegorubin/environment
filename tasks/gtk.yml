@@ -1,0 +1,8 @@
+---
+- name: Extract Gtk Theme
+  become_user: root
+  command: "tar xf config/adapta-gtk-theme-colorpack_3.94.0.149.tar.xz -C /usr/share/themes"
+  when: not node.stat.exists
+- name: Copy Gtk configs
+  copy: src=config/gtk/gtkrc-2.0 dest={{destination}}/.gtkrc-2.0 owner={{user}} group={{user}} mode=0774
+

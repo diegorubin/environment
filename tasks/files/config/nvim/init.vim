@@ -74,13 +74,18 @@ call plug#begin()
   Plug 'artur-shaik/vim-javacomplete2'
 " }
 
+" JavascriptPlugins {
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'posva/vim-vue'
+" }
+
 " PythonPlugins {
   Plug 'vim-scripts/indentpython.vim'
   Plug 'nvie/vim-flake8'
   Plug 'tell-k/vim-autopep8'
 " }
 
-" JavaPlugins {
+" RustPlugins {
   Plug 'rust-lang/rust.vim'
 " }
 
@@ -98,6 +103,7 @@ call plug#begin()
   Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
   Plug 'christophermca/meta5'
   Plug 'tomasr/molokai'
+  Plug 'morhetz/gruvbox'
 " }
 call plug#end()
 
@@ -239,8 +245,8 @@ call plug#end()
 " }
 
 " Theme Options {
-  colorscheme kuroi 
-  let g:airline_theme='kolor'
+  colorscheme gruvbox
+  let g:airline_theme='gruvbox'
   if exists('g:GtkGuiLoaded')
   else
     hi Normal guibg=NONE ctermbg=NONE

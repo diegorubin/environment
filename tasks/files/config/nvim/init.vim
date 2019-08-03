@@ -103,6 +103,7 @@ call plug#begin()
   Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
   Plug 'christophermca/meta5'
   Plug 'tomasr/molokai'
+  Plug 'morhetz/gruvbox'
 " }
 call plug#end()
 
@@ -244,8 +245,8 @@ call plug#end()
 " }
 
 " Theme Options {
-  colorscheme kuroi 
-  let g:airline_theme='challenger_deep'
+  colorscheme gruvbox
+  let g:airline_theme='gruvbox'
   if exists('g:GtkGuiLoaded')
   else
     hi Normal guibg=NONE ctermbg=NONE

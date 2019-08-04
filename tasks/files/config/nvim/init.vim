@@ -29,7 +29,7 @@ call plug#begin()
   " Format tables
   Plug 'godlygeek/tabular'
   " Fuzzy finder
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   " Git integration
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
@@ -260,7 +260,7 @@ call plug#end()
   " }
   " Search {
     " Start file search 
-    map <leader>f :CtrlP<CR>
+    " map <leader>f :CtrlP<CR>
     " Show next result after vimgrep
     map <leader>n :cn!<CR>
     map <leader>N :cp!<CR>

@@ -260,7 +260,7 @@ call plug#end()
   " }
   " Search {
     " Start file search 
-    " map <leader>f :CtrlP<CR>
+    map <leader>f :FZF<CR>
     " Show next result after vimgrep
     map <leader>n :cn!<CR>
     map <leader>N :cp!<CR>

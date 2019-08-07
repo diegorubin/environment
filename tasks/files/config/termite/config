@@ -1,10 +1,10 @@
 [options]
-font = Fantasque Sans Mono 10
+font = Fantasque Sans Mono 12
 scrollback_lines = 0
 
 [colors]
 # hard contrast: background = #1d2021
-background = #282828
+background = rgba(63, 63, 63, 0.8)
 # soft contrast: background = #32302f
 foreground = #ebdbb2
 foreground_bold = #ebdbb2

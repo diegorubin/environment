@@ -16,3 +16,4 @@
     - include: tasks/polybar.yml
     - include: tasks/gtk.yml
     - include: tasks/user.yml
+    - include: tasks/scripts.yml

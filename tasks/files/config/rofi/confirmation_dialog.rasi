@@ -1,12 +1,12 @@
 configuration {
     theme:              "config";
     show-icons:         false;
-    font:               "Font Awesome 70";
+    font:               "Font Awesome 30";
 }
 
 mainbox {
     children:           [message, listview];
-    padding:            600px 1520px;
+    padding:            600px 300px;
 }
 
 textbox {

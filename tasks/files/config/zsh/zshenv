@@ -4,6 +4,7 @@ export EDITOR=nvim
 export PATH="$PATH:/opt/node/bin"
 export PATH="$PATH:/opt/maven/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.scripts/bin"
 
 # Docker Functions
 clear_containers() {

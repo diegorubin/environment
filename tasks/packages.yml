@@ -9,4 +9,5 @@
   dnf:
     name:
       - htop
+      - powerline-fonts
     state: latest

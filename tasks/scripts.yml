@@ -1,0 +1,15 @@
+---
+- name: Creates scripts directory
+  file:
+    path: "{{destination}}/.scripts/bin"
+    state: directory
+- name: Creates scripts bin directory
+  file:
+    path: "{{destination}}/.scripts/bin"
+    state: directory
+- name: Copy scripts bin files
+  copy:
+    src: "scripts/bin/{{item}}"
+    dest: "{{destination}}/.scripts/bin"
+  with_items:
+    - FantasqueSansMono-Bold.ttf

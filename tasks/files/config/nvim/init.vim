@@ -248,6 +248,7 @@ call plug#end()
   colorscheme gruvbox
   let g:airline_theme='gruvbox'
   if exists('g:GtkGuiLoaded')
+    set guifont=Fantasque\ Sans\ Mono\ 12
   else
     hi Normal guibg=NONE ctermbg=NONE
   end

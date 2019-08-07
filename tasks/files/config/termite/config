@@ -1,107 +1,44 @@
 [options]
-#allow_bold = true
-#audible_bell = false
-#bold_is_bright = true
-#cell_height_scale = 1.0
-#cell_width_scale = 1.0
-#clickable_url = true
-#dynamic_title = true
-font = SourceCodePro 10
-#fullscreen = true
-#icon_name = terminal
-#mouse_autohide = false
-#scroll_on_output = false
-#scroll_on_keystroke = true
-# Length of the scrollback buffer, 0 disabled the scrollback buffer
-# and setting it to a negative value means "infinite scrollback"
-scrollback_lines = 10000
-#search_wrap = true
-#urgent_on_bell = true
-#hyperlinks = false
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
-
-# "system", "on" or "off"
-#cursor_blink = system
-
-# "block", "underline" or "ibeam"
-#cursor_shape = block
-
-# Hide links that are no longer valid in url select overlay mode
-#filter_unmatched_urls = true
-
-# Emit escape sequences for extra modified keys
-#modify_other_keys = false
-
-# set size hints for the window
-#size_hints = false
-
-# "off", "left" or "right"
-#scrollbar = off
+font = Fantasque Sans Mono 10
+scrollback_lines = 0
 
 [colors]
-# Base16 Summerfruit Dark
-# Author: Christopher Corley (http://christop.club/)
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 
-foreground          = #D0D0D0
-foreground_bold     = #E0E0E0
-cursor              = #E0E0E0
-cursor_foreground   = #151515
-background          = rgba(22, 10, 10, 0.8)
+# dark0 + gray
+color0 = #282828
+color8 = #928374
 
-# 16 color space
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
 
-# Black, Gray, Silver, White
-color0  = #151515
-color8  = #505050
-color7  = #D0D0D0
-color15 = #FFFFFF
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
 
-# Correct
-color2  = #00FF99
-color10  = #00FF99
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
 
-# Error
-color1  = #FF0048
-color9 = #FF0048
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
 
-# Yellow
-color3  = #ABA800
-color11 = #ABA800
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
 
-# Blue
-color4  = #3777E6
-color12 = #3777E6
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
 
-# Purple
-color5  = #AD00A1
-color13 = #AD00A1
-
-# Teal
-color6  = #1FAAAA
-color14 = #1FAAAA
-
-# Extra colors
-color16 = #FD8900
-color17 = #CC6633
-color18 = #202020
-color19 = #303030
-color20 = #B0B0B0
-color21 = #E0E0E0
-
-# Theme pallete
-color250 = #E0E0E0
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
 
 # vim: ft=dosini cms=#%s

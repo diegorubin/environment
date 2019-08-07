@@ -5,7 +5,11 @@
     state: directory
 - name: Copy fonts
   copy:
-    src: "config/fonts/{{item}}"
+    src: "fonts/{{item}}"
     dest: "{{destination}}/.fonts"
   with_items:
+    - FantasqueSansMono-Bold.ttf
+    - FantasqueSansMono-BoldItalic.ttf
+    - FantasqueSansMono-Italic.ttf
+    - FantasqueSansMono-Regular.ttf
     - icomoon-feather.ttf

@@ -38,3 +38,12 @@ sudo ansible-pull -e user=<user> -e destination=<local dir> -U https://github.co
 - Mopidy
 - neovim-gtk
 
+## Sources
+
+- Polybar theme base from [https://github.com/adi1090x/polybar-themes](https://github.com/adi1090x/polybar-themes)
+- Rofi themes from [https://github.com/ntcarlson/dotfiles](https://github.com/ntcarlson/dotfiles)
+
+### Fonts
+
+- [https://github.com/belluzj/fantasque-sans](https://github.com/belluzj/fantasque-sans)
+

@@ -12,4 +12,8 @@
     src: "scripts/bin/{{item}}"
     dest: "{{destination}}/.scripts/bin"
   with_items:
-    - FantasqueSansMono-Bold.ttf
+    - confirm
+- name: Change scripts permission
+  command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
+  with_items:
+    - confirm

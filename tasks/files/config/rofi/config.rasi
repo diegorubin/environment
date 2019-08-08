@@ -5,7 +5,6 @@ configuration {
 
 * {
     background-color:               transparent;
-
     background:                     #2E3440CC;
     background-alt:                 #5E81AC80;
     text-color:                     #D8DEE9;
@@ -23,7 +22,7 @@ window {
 
 mainbox {
     children:                       [ entry, listview, message ];
-    padding:                        400px 1400px;
+    padding:                        400px 400px;
 }
 
 entry {

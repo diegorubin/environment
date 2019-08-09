@@ -276,3 +276,8 @@ call plug#end()
   " }
 " }
 
+" Settings from environment {
+  if exists('$OPEN_TREE')
+    autocmd VimEnter * NERDTree
+  end
+" }

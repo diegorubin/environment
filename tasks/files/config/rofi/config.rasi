@@ -5,10 +5,10 @@ configuration {
 
 * {
     background-color:               transparent;
-    background:                     #2E3440CC;
-    background-alt:                 #5E81AC80;
-    text-color:                     #D8DEE9;
-    primary:                        #A3BE8C;
+    background:                     #1d2021c5;
+    background-alt:                 #d7992198;
+    text-color:                     #ebdbb2;
+    primary:                        #fabd2f;
     urgent:                         #BF616A;
 }
 
@@ -21,7 +21,7 @@ window {
 }
 
 mainbox {
-    children:                       [ entry, listview, message ];
+    children:                       [ message, entry, listview ];
     padding:                        400px 400px;
 }
 
@@ -70,4 +70,12 @@ element-icon {
     border-color:                   @primary;
     border-radius:                  5;
     padding:                        6px;
+}
+
+textbox {
+    horizontal-align:   0.5;
+    border:             0px 0px 2px;
+    border-color:       @primary;
+    margin:             12px;
+    padding:            12px;
 }

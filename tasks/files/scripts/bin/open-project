@@ -15,7 +15,7 @@ for root, _dirs, files in walk(project_base_dir):
 
 echo = subprocess.Popen(
     ["echo", "-e", "\n".join(projects)], stdout=subprocess.PIPE)
-rofi = subprocess.Popen(["rofi", "-dmenu"],
+rofi = subprocess.Popen(["rofi", "-dmenu", "-mesg", "Projects"],
                         stdin=echo.stdout, stdout=subprocess.PIPE)
 result = rofi.communicate()[0].decode('utf-8')
 

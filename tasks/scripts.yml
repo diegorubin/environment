@@ -17,4 +17,4 @@
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
     - confirm
-    - open-projects
+    - open-project

@@ -36,3 +36,32 @@
   copy: src=config/wallpapers dest={{destination}}/.config owner={{user}} group={{user}}
 - name: copy dunst config
   copy: src=config/dunst/config dest={{destination}}/.config/dunst/config owner={{user}} group={{user}} mode=0664
+- name: Install i3-color dependencies
+  become_user: root
+  dnf:
+    name:
+      - cairo-devel
+      - libev
+      - libev-devel
+      - libjpeg-devel
+      - libjpeg-turbo
+      - libxcb
+      - libxkbcommon
+      - libxkbcommon-x11
+      - libxkbcommon-x11-devel
+      - pam-devel
+      - pkg-config
+      - xcb-util-devel
+      - xcb-util-image
+      - xcb-util-image-devel
+    state: latest
+- name: Clone i3lock-color repository
+  git:
+    repo: 'https://github.com/PandorasFox/i3lock-color.git'
+    dest: /tmp/i3lock-color
+- name: copy i3lock build script
+  copy: src=build/build-i3lock-color.sh dest=/tmp/i3lock-color owner={{user}} group={{user}} mode=0774
+  - name: Make and Install i3lock-color
+  become_user: root
+  command: "/tmp/polybar/build-i3lock-color.sh"
+

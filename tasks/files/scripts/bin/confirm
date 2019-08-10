@@ -1,8 +1,0 @@
-#!/bin/bash
-
-case "$(echo -e "Cancel\nConfirm" | rofi -dmenu -theme confirmation_dialog -mesg "X")" in
-    "Cancel")  exit 1;;
-    "Confirm") exit 0;;
-esac
-
-exit 1

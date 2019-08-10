@@ -61,7 +61,6 @@
     dest: /tmp/i3lock-color
 - name: copy i3lock build script
   copy: src=build/build-i3lock-color.sh dest=/tmp/i3lock-color owner={{user}} group={{user}} mode=0774
-  - name: Make and Install i3lock-color
+- name: Make and Install i3lock-color
   become_user: root
   command: "/tmp/polybar/build-i3lock-color.sh"
-

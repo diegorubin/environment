@@ -5,7 +5,7 @@ killall conky
 cd .config/conky
 
 sleep 1
-conky -c baterry &
+conky -c battery &
 
 sleep 1
 conky -c cpu &

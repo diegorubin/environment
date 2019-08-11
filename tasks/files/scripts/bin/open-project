@@ -3,15 +3,18 @@
 import subprocess
 from os import environ, chdir, walk, path
 
-project_base_dir = "{}/Repos".format(environ.get('HOME'))
+PROJECT_FILE = '.nproject'
+
+project_base_dir = "{}/Repos/".format(environ.get('HOME'))
 chdir(project_base_dir)
 
 projects = []
 
 for root, _dirs, files in walk(project_base_dir):
     for file in files:
-        if file == '.nproject':
-            projects.append("{}/{}".format(root, file))
+        if file == PROJECT_FILE:
+            project = root.replace(project_base_dir, '')
+            projects.append(project)
 
 echo = subprocess.Popen(
     ["echo", "-e", "\n".join(projects)], stdout=subprocess.PIPE)
@@ -21,5 +24,6 @@ result = rofi.communicate()[0].decode('utf-8')
 
 if result:
     script = result.replace("\n", '')
+    script = "{}{}/{}".format(project_base_dir, script, PROJECT_FILE)
     chdir(path.dirname(script))
     subprocess.call(script.split(' '))

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+killall conky
+
+cd .config/conky
+
+conky -c baterry
+conky -c cpu
+conky -c file_systems
+conky -c memory
+conky -c network
+conky -c time

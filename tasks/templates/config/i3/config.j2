@@ -196,8 +196,8 @@ gaps inner 10
 bindsym $mod+Shift+a exec pavucontrol
 bindsym $mod+c exec /usr/bin/horimetro-dialog-create-task
 bindsym $mod+n exec /usr/local/bin/nvim-gtk
-bindsym $mod+p exec xscreensaver-command -activate
-bindsym $mod+Shift+p exec xscreensaver-command -activate && systemctl suspend
+bindsym $mod+p exec /usr/bin/lock
+bindsym $mod+Shift+p exec /usr/bin/lock && systemctl suspend
 
 bindsym $mod+b exec setxkbmap -layout us
 bindsym $mod+Shift+b exec setxkbmap -layout us -variant intl
@@ -223,5 +223,4 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
 exec --no-startup-id dropbox start
 exec --no-startup-id mopidy &
-exec --no-startup-id xscreensaver &
 exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --off --output HDMI-0 --auto --off

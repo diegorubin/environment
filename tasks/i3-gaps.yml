@@ -64,3 +64,6 @@
 - name: Make and Install i3lock-color
   become_user: root
   command: "/tmp/i3lock-color/build-i3lock-color.sh"
+- name: Install lock script
+  become_user: root
+  copy: src=bin/lock dest=/usr/bin/lock mode=0774

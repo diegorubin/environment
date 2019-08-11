@@ -17,7 +17,7 @@ entry {
 }
 
 listview {
-    columns:           3;
+    columns:           6;
 }
 
 

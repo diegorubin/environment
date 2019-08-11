@@ -6,3 +6,9 @@
       - conky
       - jq
     state: latest
+- name: Copy Conky Configs
+  copy: src=config/conky dest={{destination}}/.config owner={{user}} group={{user}}
+- name: Change conky scripts permission
+  command: "chmod +x {{destination}}/.config/conky/{{item}}"
+  with_items:
+    - start

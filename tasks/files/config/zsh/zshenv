@@ -1,6 +1,7 @@
 # Exports
 export EDITOR=nvim
 
+export PATH="/opt/java/bin:$PATH"
 export PATH="$PATH:/opt/node/bin"
 export PATH="$PATH:/opt/maven/bin"
 export PATH="$PATH:$HOME/.cargo/bin"

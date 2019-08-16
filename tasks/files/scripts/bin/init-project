@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
+import os
+import stat
 
-with open('.nproject', 'w') as file_project:
+PROJECT_FILE = '.nproject'
+
+with open(PROJECT_FILE, 'w') as file_project:
     file_project.write('#!/bin/bash\n\n')
 
     while(True):
@@ -14,3 +18,4 @@ with open('.nproject', 'w') as file_project:
     if resp:
         file_project.write('rvm use ' + resp + '\n')
     file_project.write('nvim-gtk\n')
+os.chmod(PROJECT_FILE, stat.S_IRWXU | stat.S_IRWXG)

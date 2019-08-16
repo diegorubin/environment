@@ -31,10 +31,10 @@ sudo ansible-pull -e user=<user> -e destination=<local dir> -U https://github.co
 - termite
 - zsh (with oh-my-zsh)
 - Dunst
+- Conky
 
 ### WIP
 
-- Conky
 - Mopidy
 - neovim-gtk
 

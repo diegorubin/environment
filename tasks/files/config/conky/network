@@ -15,7 +15,7 @@ conky.config = {
     extra_newline = false,
     font = 'Fantasque Sans Mono:size=12',
     gap_x = 60,
-    gap_y = 480,
+    gap_y = 392,
     minimum_height = 5,
     minimum_width = 330,
     net_avg_samples = 2,

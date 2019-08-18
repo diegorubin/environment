@@ -1,6 +1,6 @@
 conky.config = {
     color1 = '#d79921',
-    alignment = 'top_right',
+    alignment = 'top_left',
     background = false,
     border_width = 30,
     cpu_avg_samples = 2,
@@ -14,7 +14,7 @@ conky.config = {
     draw_shades = false,
     extra_newline = false,
     font = 'Fantasque Sans Mono:size=12',
-    gap_x = 60,
+    gap_x = 470,
     gap_y = 70,
     minimum_height = 5,
     minimum_width = 300,
@@ -75,4 +75,6 @@ ${color}${font}${top name 2}${alignr}${top cpu 2}%
 ${color}${font}${top name 3}${alignr}${top cpu 3}%
 ${color}${font}${top name 4}${alignr}${top cpu 4}%
 ${color}${font}${top name 5}${alignr}${top cpu 5}%
+${color}${font}${top name 6}${alignr}${top cpu 6}%
+${color}${font}${top name 7}${alignr}${top cpu 7}%
 ]]

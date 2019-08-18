@@ -1,6 +1,6 @@
 conky.config = {
     color1 = '#d79921',
-    alignment = 'top_right',
+    alignment = 'top_left',
     background = false,
     border_width = 30,
     cpu_avg_samples = 2,
@@ -14,8 +14,8 @@ conky.config = {
     draw_shades = false,
     extra_newline = false,
     font = 'Fantasque Sans Mono:size=12',
-    gap_x = 60,
-    gap_y = 780,
+    gap_x = 470,
+    gap_y = 800,
     minimum_height = 5,
     minimum_width = 300,
     net_avg_samples = 2,
@@ -51,4 +51,5 @@ ${top_mem name 2}${alignr}${top_mem mem_res 2}
 ${top_mem name 3}${alignr}${top_mem mem_res 3}
 ${top_mem name 4}${alignr}${top_mem mem_res 4}
 ${top_mem name 5}${alignr}${top_mem mem_res 5}
+${top_mem name 6}${alignr}${top_mem mem_res 6}
 ]]

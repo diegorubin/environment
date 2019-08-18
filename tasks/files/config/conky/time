@@ -41,14 +41,12 @@ conky.config = {
 }
 
 conky.text = [[
-${color1}${font Fantasque Sans Mono:size=16}Date and Time
-${font}${color}${time %B %d %Y}
-${font}${time %A}
-${font Fantasque Sans Mono:size=30}${color}${time %I:%M%p}
-${color1}${font}HERE        ${color}${tztime}
-
-${color1}${font}UPTIME
-${color}$uptime
-
-${battery_percent BAT0}%
+${color1}${font Fantasque Sans Mono:size=16}Calendar
+${font Fantasque Sans Mono:size=14}
+${execpi 60 cal | sed \
+-e '1 s:[A-Z][a-z]*:\${color1}&:' \
+-e '1 s:[0-9][0-9][0-9][0-9]:\${color}&:' \
+-e '2 s:.*:\${color}&\${color}:' \
+-e '2 s:'"$(date +%a |cut -c 1-2)"':\${color}&\${color}:' \
+-e '3,8 s:'"$(date +%_d)"':\${color1}&\${color}:'}
 ]]

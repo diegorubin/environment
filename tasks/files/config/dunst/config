@@ -24,7 +24,7 @@
     horizontal_padding = 14
 
     # The frame color and width of the notification
-    frame_color = "#c2b3b8"
+    frame_color = "#d79921"
     frame_width = 2
     line_height = 0
 
@@ -32,7 +32,7 @@
     idle_threshold = 120
 
     # Font and typography settings
-    font = Source Code Pro 11
+    font = Fantasque Sans Mono 11
     alignment = center
     show_age_threshold = 60
     ellipsize = middle
@@ -71,16 +71,16 @@
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
     background = "#0a0710"
-    foreground = "#fbf7f6"
+    foreground = "#ebdbb2"
     timeout = 4
 [urgency_normal]
     background = "#0a0710"
-    foreground = "#fbf7f6"
+    foreground = "#ebdbb2"
     timeout = 6
 [urgency_critical]
     background = "#cc2421"
-    foreground = "#fbf7f6"
-    frame_color = "#c2b3b8"
+    foreground = "#ebdbb2"
+    frame_color = "#d79921"
     timeout = 5
 # vim:ft=cfg
 

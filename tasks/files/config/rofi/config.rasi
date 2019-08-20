@@ -1,6 +1,6 @@
 configuration {
     show-icons:                     false;
-    font:                           "DejaVu Sans 20";
+    font:                           "Fantasque Sans Mono 16";
 }
 
 * {
@@ -22,7 +22,7 @@ window {
 
 mainbox {
     children:                       [ message, entry, listview ];
-    padding:                        400px 400px;
+    padding:                        300px 300px;
 }
 
 entry {

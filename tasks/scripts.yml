@@ -12,10 +12,12 @@
     src: "scripts/bin/{{item}}"
     dest: "{{destination}}/.scripts/bin"
   with_items:
+    - index-projects
     - init-project
     - open-project
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
+    - index-projects
     - init-project
     - open-project

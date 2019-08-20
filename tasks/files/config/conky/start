@@ -5,20 +5,4 @@ killall conky
 cd .config/conky
 
 sleep 1
-conky -c battery &
-
-sleep 1
-conky -c cpu &
-
-sleep 1
-conky -c file_systems &
-
-sleep 1
-conky -c memory &
-
-sleep 1
-conky -c network & 
-
-sleep 1
-conky -c time &
-
+conky -c bar &

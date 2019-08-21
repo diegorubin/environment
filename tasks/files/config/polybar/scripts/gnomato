@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import dbus
+import re
+
+bus = dbus.SessionBus()
+
+
+def get_current_cycle(str_cyles):
+    cyles = str_cyles.split(' -')
+    for cycle in cyles:
+        if 'span' in cycle:
+            cycle = re.sub(r'</?span.*?>', '', cycle)
+            return re.sub(r'</?b>', '', cycle)
+    return ''
+
+
+def limit_task_description(description):
+    if description and len(description) > 20:
+        return description[0:20] + '...'
+    return description
+
+
+try:
+    remote_object = bus.get_object("com.diegorubin.Gnomato",
+                                   "/com/diegorubin/Gnomato")
+
+    dbus_interface = "com.diegorubin.Gnomato"
+    cycle = get_current_cycle(
+        remote_object.GetCycle(dbus_interface=dbus_interface))
+    remainer = remote_object.GetRemainer(dbus_interface=dbus_interface)
+    current_task = remote_object.GetCurrentTask(dbus_interface=dbus_interface)
+
+    print("{} ({}) - {}".format(cycle, remainer,
+                                limit_task_description(current_task)))
+except:
+    print('')

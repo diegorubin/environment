@@ -46,6 +46,7 @@
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
   with_items:
+    - gnomato
     - lyrics
     - powermenu
     - translate_lyrics

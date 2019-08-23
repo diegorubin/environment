@@ -33,6 +33,7 @@ call plug#begin()
   " Git integration
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
+  Plug 'junegunn/gv.vim'
   " Manipulation of surraunding parents, quotes, etc.
   Plug 'tpope/vim-surround'
   " Navigation

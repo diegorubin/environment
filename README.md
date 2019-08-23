@@ -12,7 +12,7 @@ This project uses ansible to make configurations.
 
 ![NeoVim](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/nvim.png)
 
-![Conky](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/conky_ncmpc.png)
+![Conky](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/conky.png)
 
 
 ## Execution

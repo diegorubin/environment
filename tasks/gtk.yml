@@ -1,9 +1,11 @@
 ---
 - name: Extract Gtk Theme
-  become_user: root
-  command: "tar -zxf config/flatcolor.tar.gz -C {{destination}}/.local/share/themes"
+  unarchive:
+    src: config/flatcolor.tar.gz
+    dest: {{destination}}/.local/share/themes
 - name: Extract Gtk Icon
-  become_user: root
-  command: "tar -zxf config/flattrcolor.tar.gz -C {{destination}}/.local/share/icons"
+  unarchive:
+    src: config/flattrcolor.tar.gz
+    dest: {{destination}}/.local/share/icons
 - name: Copy Gtk configs
   copy: src=config/gtk/gtkrc-2.0 dest={{destination}}/.gtkrc-2.0 owner={{user}} group={{user}} mode=0774

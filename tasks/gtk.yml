@@ -2,10 +2,10 @@
 - name: Extract Gtk Theme
   unarchive:
     src: config/flatcolor.tar.gz
-    dest: {{destination}}/.local/share/themes
+    dest: "{{destination}}/.local/share/themes"
 - name: Extract Gtk Icon
   unarchive:
     src: config/flattrcolor.tar.gz
-    dest: {{destination}}/.local/share/icons
+    dest: "{{destination}}/.local/share/icons"
 - name: Copy Gtk configs
   copy: src=config/gtk/gtkrc-2.0 dest={{destination}}/.gtkrc-2.0 owner={{user}} group={{user}} mode=0774

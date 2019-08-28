@@ -268,11 +268,8 @@ call plug#end()
     map <leader>N :cp!<CR>
   " }
 
-  " Terminal {
-    map <leader>t :terminal /bin/zsh<CR>
-  " }
-
   " Windows {
+    map <C-t> :tabNext<CR>
     map <leader>p :NERDTreeToggle<CR>
   " }
 " }

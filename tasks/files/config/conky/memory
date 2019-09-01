@@ -1,0 +1,48 @@
+conky.config = {
+    color1 = '#d79921',
+    alignment = 'bottom_left',
+    background = false,
+    border_width = 10,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'Fantasque Sans Mono:size=10',
+    gap_x = 680,
+    gap_y = 48,
+    minimum_height = 5,
+    minimum_width = 300,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 190,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 2,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+conky.text = [[
+${color1}${font Fantasque Sans Mono:size=12}Memory
+${font}Usage:${alignr}${color}${font}${mem} / ${memmax}(${memperc}%)
+${membar}
+
+]]

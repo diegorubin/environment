@@ -5,4 +5,7 @@ killall conky
 cd .config/conky
 
 sleep 1
-conky -c bar &
+conky -c cpu &
+conky -c processes &
+conky -c hardware_resources &
+conky -c networking &

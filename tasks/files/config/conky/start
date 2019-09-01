@@ -9,3 +9,4 @@ conky -c cpu &
 conky -c processes &
 conky -c hardware_resources &
 conky -c networking &
+conky -c calendar &

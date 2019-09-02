@@ -43,6 +43,8 @@ call plug#begin()
   " Snippets
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
+  " Start Screen
+  Plug 'mhinz/vim-startify'
   " Syntaxe checking on save
   Plug 'neomake/neomake'
   " Tagbar
@@ -78,6 +80,10 @@ call plug#begin()
 " JavascriptPlugins {
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'posva/vim-vue'
+" }
+
+" JiraPlugin {
+  Plug 'paulkass/jira-vim'
 " }
 
 " PythonPlugins {

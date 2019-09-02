@@ -99,6 +99,7 @@ call plug#begin()
 " }
 
 " Theme Plugins {
+  Plug 'ryanoasis/vim-devicons'
   Plug 'altercation/vim-colors-solarized'
   Plug 'jdsimcoe/abstract.vim'
   Plug 'aonemd/kuroi.vim'
@@ -139,6 +140,30 @@ call plug#end()
   let g:deoplete#sources = {}
   let g:deoplete#sources._ = []
   let g:deoplete#file#enable_buffer_path = 1
+" }
+
+" Devicons {
+  let g:DevIconsEnableFoldersOpenClose = 1
+  
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
+  
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.json'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ'
+  
+  let g:NERDTreeHighlightFolders = 1
+  let g:NERDTreeHighlightFoldersFullName = 1
 " }
 
 " Neomake Options {

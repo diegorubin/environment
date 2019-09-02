@@ -17,7 +17,7 @@ def get_current_cycle(str_cyles):
 
 def limit_task_description(description):
     if description and len(description) > 20:
-        return description[0:20] + '...'
+        return description
     return description
 
 

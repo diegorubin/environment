@@ -95,6 +95,7 @@ call plug#begin()
   Plug 'tpope/vim-rvm'
   Plug 'ngmy/vim-rubocop'
   Plug 'rainerborene/vim-reek'
+  Plug 'tpope/vim-cucumber'
 " }
 
 " Theme Plugins {

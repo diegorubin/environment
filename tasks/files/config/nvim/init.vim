@@ -313,3 +313,8 @@ call plug#end()
    end
   end
 " }
+
+" Load private settings {
+  source ~/.config/nvim/private.vim
+" }
+

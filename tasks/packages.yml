@@ -10,4 +10,5 @@
     name:
       - htop
       - powerline-fonts
+      - tidy
     state: latest

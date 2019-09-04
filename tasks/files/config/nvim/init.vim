@@ -16,12 +16,7 @@ call plug#begin()
 
 " General Plugins {
   " Autocomplete
-  Plug 'alvan/vim-closetag'
-  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-  Plug 'Shougo/deoplete-clangx'
-  Plug 'Shougo/neoinclude.vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'deoplete-plugins/deoplete-jedi'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Code formater
   Plug 'sbdchd/neoformat'
   " Colors
@@ -34,10 +29,13 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/gv.vim'
+  " Languages Support
+  Plug 'sheerun/vim-polyglot'
   " Manipulation of surraunding parents, quotes, etc.
   Plug 'tpope/vim-surround'
   " Navigation
   Plug 'scrooloose/nerdtree'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " Search and replace plugin
   Plug 'brooth/far.vim'
   " Snippets
@@ -52,10 +50,6 @@ call plug#begin()
   " Window
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-" }
-
-" Ansible Plugins {
-  Plug 'pearofducks/ansible-vim'
 " }
 
 " API Rest Plugins {
@@ -134,12 +128,21 @@ call plug#end()
   set wildignore+=.git/** 
 " }
 
-" Deoplete Options {
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#omni_patterns = {}
-  let g:deoplete#sources = {}
-  let g:deoplete#sources._ = []
-  let g:deoplete#file#enable_buffer_path = 1
+" COC {
+  let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-tsserver',
+      \ 'coc-html',
+      \ 'coc-emmet',
+      \ 'coc-css',
+      \ 'coc-python'
+  \ ]
+  
+  " Remap keys for gotos
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
 " }
 
 " Devicons {
@@ -161,7 +164,8 @@ call plug#end()
   let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ'
-  
+
+  let NERDTreeMinimalUI = 1
   let g:NERDTreeHighlightFolders = 1
   let g:NERDTreeHighlightFoldersFullName = 1
 " }
@@ -222,8 +226,6 @@ call plug#end()
   au BufReadPost *.java set tabstop=4
   au BufReadPost *.java set softtabstop=4
   au BufReadPost *.java set shiftwidth=4
-  let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " }
 
 " Javascript Configurations {
@@ -261,6 +263,7 @@ call plug#end()
   au BufReadPost *.py set fileformat=unix
   au BufReadPost *.robot set tw=0
   set wildignore+=venv/**
+  set wildignore+=*.pyc 
 " }
 
 " Rest Configurations {

@@ -129,16 +129,9 @@ call plug#end()
 " }
 
 " COC {
-  let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-tsserver',
-      \ 'coc-html',
-      \ 'coc-emmet',
-      \ 'coc-css',
-      \ 'coc-python'
-  \ ]
-  
-  " Remap keys for gotos
+" }  
+
+" Remap keys for gotos
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)

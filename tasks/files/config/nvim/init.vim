@@ -102,6 +102,10 @@ call plug#begin()
   Plug 'tomasr/molokai'
   Plug 'morhetz/gruvbox'
 " }
+
+" V Plugins {
+  Plug 'ollykel/v-vim'
+" }
 call plug#end()
 
 " Filetype Options {

@@ -12,7 +12,7 @@
   when: ansible_distribution == 'Fedora' 
 - name: "[Archlinux] Install NeoVim"
   become_user: root
-  dnf:
+  pacman:
     name:
       - neovim
     state: present

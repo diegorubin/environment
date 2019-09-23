@@ -7,14 +7,14 @@
       - jq
     state: latest
   when: ansible_distribution == 'Fedora'
-- name: "[Manjaro] Install i3-gaps from negativo"
+- name: "[Archlinux] Install i3-gaps from negativo"
   become_user: root
   pacman:
     name:
       - conky
       - jq
     state: present
-  when: ansible_distribution == 'Manjaro'
+  when: ansible_distribution == 'Archlinux'
 - name: Copy Conky Configs
   copy: src=config/conky dest={{destination}}/.config owner={{user}} group={{user}}
 - name: Change conky scripts permission

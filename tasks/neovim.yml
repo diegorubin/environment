@@ -27,7 +27,7 @@
     name: neovim
 - name: Install NeoVim Plugins
   shell: >
-    vim
+    nvim
     +PlugInstall
     +UpdateRemotePlugins
     +qall!

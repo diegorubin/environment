@@ -1,0 +1,4 @@
+---
+- name: "Ansible Distribution"
+  debug:
+    msg: "The operating system is {{ ansible_distribution }}"

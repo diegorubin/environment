@@ -1,7 +1,15 @@
 ---
-- name: Install Go Lang Packages
+- name: "[Fedora] Install Go Lang Packages"
   become_user: root
   dnf:
     name:
       - golang
     state: latest
+  when: ansible_distribution == 'Fedora'
+- name: "[Manjaro] Install Go Lang Packages"
+  become_user: root
+  dnf:
+    name:
+      - golang
+    state: present
+  when: ansible_distribution == 'Manjaro'

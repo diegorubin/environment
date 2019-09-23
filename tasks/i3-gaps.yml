@@ -39,20 +39,8 @@
       - scrot
       - feh
       - rofi
-      - cairo-devel
       - libev
-      - libev-devel
-      - libjpeg-devel
-      - libjpeg-turbo
-      - libxcb
-      - libxkbcommon
-      - libxkbcommon-x11
-      - libxkbcommon-x11-devel
-      - pam-devel
-      - pkg-config
-      - xcb-util-devel
-      - xcb-util-image
-      - xcb-util-image-devel
+      - xcb-util-xrm
     state: present
   when: ansible_distribution == 'Archlinux' 
 - name: Install Flashfocus

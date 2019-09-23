@@ -1,5 +1,5 @@
 ---
-- name: "[Fedora] Install i3-gaps from negativo"
+- name: "[Fedora] Install conky"
   become_user: root
   dnf:
     name:
@@ -7,7 +7,7 @@
       - jq
     state: latest
   when: ansible_distribution == 'Fedora'
-- name: "[Archlinux] Install i3-gaps from negativo"
+- name: "[Archlinux] Install conky"
   become_user: root
   pacman:
     name:

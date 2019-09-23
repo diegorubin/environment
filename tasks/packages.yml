@@ -14,7 +14,7 @@
       - tidy
     state: latest
   when: ansible_distribution == 'Fedora'
-- name: "[Manjaro] Install System Packages"
+- name: "[Archlinux] Install System Packages"
   become_user: root
   pacman:
     name:
@@ -22,4 +22,4 @@
       - powerline-fonts
       - tidy
     state: present
-  when: ansible_distribution == 'Manjaro'
+  when: ansible_distribution == 'Archlinux'

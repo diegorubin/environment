@@ -1,8 +1,9 @@
 ---
-- name: Enable Fedora Copr for i3-gaps
+- name: "[Fedora] Enable Fedora Copr for i3-gaps"
   become_user: root
   command: "dnf copr enable -y nforro/i3-gaps"
-- name: Install i3-gaps
+  when: ansible_distribution == 'Fedora' 
+- name: "[Fedora] Install i3-gaps"
   become_user: root
   dnf:
     name:
@@ -12,8 +13,48 @@
       - scrot
       - feh
       - rofi
-      - xscreensaver
+      - cairo-devel
+      - libev
+      - libev-devel
+      - libjpeg-devel
+      - libjpeg-turbo
+      - libxcb
+      - libxkbcommon
+      - libxkbcommon-x11
+      - libxkbcommon-x11-devel
+      - pam-devel
+      - pkg-config
+      - xcb-util-devel
+      - xcb-util-image
+      - xcb-util-image-devel
     state: latest
+  when: ansible_distribution == 'Fedora' 
+- name: "[Archlinux] Install i3-gaps"
+  become_user: root
+  pacman:
+    name:
+      - i3-gaps
+      - compton
+      - dunst
+      - scrot
+      - feh
+      - rofi
+      - cairo-devel
+      - libev
+      - libev-devel
+      - libjpeg-devel
+      - libjpeg-turbo
+      - libxcb
+      - libxkbcommon
+      - libxkbcommon-x11
+      - libxkbcommon-x11-devel
+      - pam-devel
+      - pkg-config
+      - xcb-util-devel
+      - xcb-util-image
+      - xcb-util-image-devel
+    state: present
+  when: ansible_distribution == 'Archlinux' 
 - name: Install Flashfocus
   become_user: root
   pip:
@@ -36,25 +77,6 @@
   copy: src=config/wallpapers dest={{destination}}/.config owner={{user}} group={{user}}
 - name: copy dunst config
   copy: src=config/dunst/config dest={{destination}}/.config/dunst/config owner={{user}} group={{user}} mode=0664
-- name: Install i3-color dependencies
-  become_user: root
-  dnf:
-    name:
-      - cairo-devel
-      - libev
-      - libev-devel
-      - libjpeg-devel
-      - libjpeg-turbo
-      - libxcb
-      - libxkbcommon
-      - libxkbcommon-x11
-      - libxkbcommon-x11-devel
-      - pam-devel
-      - pkg-config
-      - xcb-util-devel
-      - xcb-util-image
-      - xcb-util-image-devel
-    state: latest
 - name: Clone i3lock-color repository
   git:
     repo: 'https://github.com/PandorasFox/i3lock-color.git'

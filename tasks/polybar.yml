@@ -1,5 +1,5 @@
 ---
-- name: Install dependencies for polybar
+- name: "[Fedora] Install dependencies for polybar"
   become_user: root
   dnf:
     name:
@@ -23,6 +23,7 @@
       - xcb-util-cursor-devel
       - xcb-util-xrm-devel
     state: latest
+  when: ansible_distribution == 'Fedora' 
 - name: Install lyrics package globally.
   become_user: root
   npm:

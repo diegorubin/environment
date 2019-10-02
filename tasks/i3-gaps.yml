@@ -47,6 +47,7 @@
   become_user: root
   pip:
     name: flashfocus
+    extra_args: --user
 - name: Creates i3 config directory
   file:
     path: "{{destination}}/.config/i3"

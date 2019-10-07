@@ -1,8 +1,6 @@
 # Exports
 export EDITOR=nvim
 
-source $HOME/.cargo/env
-
 export PATH="/opt/java/bin:$PATH"
 export PATH="$PATH:/opt/node/bin"
 export PATH="$PATH:/opt/maven/bin"
@@ -18,6 +16,9 @@ clear_containers() {
 clear_images() {
 	docker rmi -f $(docker images -a -q)
 }
+
+# Rust Configuration
+[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 # RVM configuration
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

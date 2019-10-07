@@ -213,7 +213,7 @@ bindsym --release Print exec "scrot -m '{{destination}}/Pictures/screenshots/%s_
 bindsym --release Shift+Print exec "scrot -s '{{destination}}/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # start programs
-exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/knight.jpg
+exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/fishes.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id flashfocus &
 exec_always --no-startup-id dunst -config ~/.config/dunst/config &
@@ -223,4 +223,5 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
 exec --no-startup-id dropbox start
 exec --no-startup-id mopidy &
+exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
 exec --no-startup-id xrandr --output eDP-1-1 --auto --primary --output DP-1-1 --off --output HDMI-0 --auto --off

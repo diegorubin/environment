@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PIDOFCONKY=`pgrep conky`
+if [ "${PIDOFCONKY:-null}" = null ]; then
+  cd .config/conky
+  conky -c bar &
+  conky -c conky-spotify &
+else
+  killall conky
+fi

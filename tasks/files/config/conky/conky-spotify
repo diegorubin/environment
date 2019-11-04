@@ -1,0 +1,56 @@
+conky.config = {
+    background = false,
+    color1 = '#83CB3B',
+    font = 'Fantasque Sans Mono:size=10',
+    uppercase = false,
+    override_utf8_locale = true,
+    default_color = '#0a0710',
+
+    alignment = 'top_right',
+    gap_x = 12,
+    gap_y = 40,
+    minimum_width = 650,
+    minimum_height = 164,
+
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'normal',
+    own_window_transparent = false,
+    own_window_argb_visual = false,
+    own_window_argb_value = 0,
+    own_window_colour = 'ecf6ee',
+    own_window_hints = 'below,sticky,skip_taskbar,skip_pager',
+
+    double_buffer = true,
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = false,
+
+    no_buffers = true,
+    use_xft = true,
+    xftalpha = 0.1,
+    cpu_avg_samples = 2,
+    update_interval = 1,
+    total_run_times = 0,
+    imlib_cache_size = 0,
+};
+
+conky.text = [[
+# --- Get Spotify Cover ---
+${if_running spotify}
+${exec ~/.config/conky/spotify/scripts/cover.sh}
+# --- Show wallpaper and cover ---
+${image ~/.config/conky/spotify/current/current.jpg -p 0,0 -s 164x164}
+# --- Show now playing information ---
+${voffset -50}
+${goto 180}${color1}${font Fantasque Sans Mono:size=10}Title:
+${goto 190}${color}${font Fantasque Sans Mono:size=14}${exec ~/.config/conky/spotify/scripts/title.sh}
+${voffset 10}
+${goto 180}${color1}${font Fantasque Sans Mono:size=10}Artist:
+${goto 190}${color}${font Fantasque Sans Mono:size=14}${exec ~/.config/conky/spotify/scripts/artist.sh}
+${voffset 10}
+${goto 180}${color1}${font Fantasque Sans Mono:size=10}Album:
+${goto 190}${color}${font Fantasque Sans Mono:size=14}${exec ~/.config/conky/spotify/scripts/album.sh}
+${endif}
+]];

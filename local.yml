@@ -6,8 +6,6 @@
     PATH: "/opt/node/bin:{{ ansible_env.PATH }}"
   tasks:
     - include: tasks/debug.yml
-    - include: tasks/packages.yml
-    - include: tasks/go.yml
     - include: tasks/node.yml
     - include: tasks/neovim.yml
     - include: tasks/zsh.yml
@@ -15,7 +13,6 @@
     - include: tasks/i3-gaps.yml
     - include: tasks/termite.yml
     - include: tasks/polybar.yml
-    - include: tasks/gtk.yml
     - include: tasks/user.yml
     - include: tasks/conky.yml
     - include: tasks/scripts.yml

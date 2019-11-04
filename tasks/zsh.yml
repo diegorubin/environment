@@ -1,18 +1,4 @@
 ---
-- name: "[Archlinux] Install Zsh"
-  become_user: root
-  pacman:
-    name:
-      - zsh
-    state: present
-  when: ansible_distribution == 'Archlinux' 
-- name: "[Fedora] Install Zsh"
-  become_user: root
-  dnf:
-    name:
-      - zsh
-    state: latest
-  when: ansible_distribution == 'Fedora' 
 - name: Check for oh-my-zsh installation
   stat: path={{destination}}/.oh-my-zsh
   register: ohmyzsh

@@ -20,7 +20,7 @@ call plug#begin()
   " Code formater
   Plug 'sbdchd/neoformat'
   " Colors
-  Plug 'chrisbra/Colorizer'
+  Plug 'norcalli/nvim-colorizer.lua'
   " Format tables
   Plug 'godlygeek/tabular'
   " Fuzzy finder
@@ -50,6 +50,7 @@ call plug#begin()
   " Window
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'voldikss/vim-floaterm'
 " }
 
 " API Rest Plugins {
@@ -72,6 +73,10 @@ call plug#begin()
 " JavascriptPlugins {
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'posva/vim-vue'
+" }
+
+" JsonnetPlugins {
+  Plug 'google/vim-jsonnet'
 " }
 
 " PythonPlugins {
@@ -111,6 +116,8 @@ call plug#end()
 " Filetype Options {
   filetype plugin indent on
   syntax enable
+  set termguicolors
+  lua require'colorizer'.setup()
 " }
 
 " Default Options {
@@ -301,10 +308,8 @@ call plug#end()
 " }
 
 " Settings from environment {
-  if exists('g:GtkGuiLoaded')
-   if exists('$OPEN_TREE')
-     autocmd VimEnter * NERDTree
-   end
+  if exists('$OPEN_TREE')
+    autocmd VimEnter * NERDTree
   end
 " }
 

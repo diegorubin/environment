@@ -7,9 +7,9 @@ configuration {
     background-color:               transparent;
     background:                     #1d2021c5;
     background-alt:                 #d7992198;
-    text-color:                     #ebdbb2;
-    primary:                        #fabd2f;
-    urgent:                         #BF616A;
+    text-color:                     #fbf7f6;
+    primary:                        #039be5;
+    urgent:                         #e53935;
 }
 
 window {

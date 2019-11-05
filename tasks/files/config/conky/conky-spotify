@@ -1,13 +1,13 @@
 conky.config = {
     background = false,
-    color1 = '#83CB3B',
+    color1 = '#039BE5',
     font = 'Fantasque Sans Mono:size=10',
     uppercase = false,
     override_utf8_locale = true,
-    default_color = '#0a0710',
+    default_color = '#fbf7f6',
 
-    alignment = 'top_right',
-    gap_x = 12,
+    alignment = 'top_left',
+    gap_x = 1255,
     gap_y = 40,
     minimum_width = 650,
     minimum_height = 164,
@@ -18,7 +18,7 @@ conky.config = {
     own_window_transparent = false,
     own_window_argb_visual = false,
     own_window_argb_value = 0,
-    own_window_colour = 'ecf6ee',
+    own_window_colour = '0a0710',
     own_window_hints = 'below,sticky,skip_taskbar,skip_pager',
 
     double_buffer = true,

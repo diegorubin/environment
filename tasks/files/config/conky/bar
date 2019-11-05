@@ -1,12 +1,12 @@
 conky.config = {
-    color1 = '#83CB3B',
+    color1 = '#039BE5',
     alignment = 'top_left',
     background = false,
     border_width = 10,
     cpu_avg_samples = 2,
-    default_color = '#0a0710',
-    default_outline_color = '#83CB3B',
-    default_shade_color = '#83CB3B',
+    default_color = '#fbf7f6',
+    default_outline_color = '#039BE5',
+    default_shade_color = '#039BE5',
     double_buffer = true,
     draw_borders = false,
     draw_graph_borders = true,
@@ -16,7 +16,7 @@ conky.config = {
     font = 'Fantasque Sans Mono:size=10',
     gap_x = 20,
     gap_y = 48,
-    minimum_height = 1012,
+    minimum_height = 900,
     minimum_width = 300,
     net_avg_samples = 2,
     no_buffers = true,
@@ -29,7 +29,7 @@ conky.config = {
     own_window_type = 'normal',
     own_window_argb_visual = false,
     own_window_argb_value = 0,
-    own_window_colour = 'ecf6ee',
+    own_window_colour = '0a0710',
     own_window_hints = 'below,sticky,skip_taskbar,skip_pager',
     show_graph_range = false,
     show_graph_scale = false,
@@ -93,9 +93,9 @@ ${color}${font}wlp60s0
 
 ${color1}${font}Download:${color}   ${downspeed wlp60s0}
 ${color1}${font}Total:${color}      ${totaldown wlp60s0}
-${color1}${color1}${downspeedgraph wlp60s0 50,330 444444 0a0710}
+${color1}${color1}${downspeedgraph wlp60s0 50,330 444444 fbf7f6}
  
 ${color1}${font}Upload:${color}     ${upspeed wlp60s0} 
 ${color1}${font}Total${color}       ${totalup wlp60s0} 
-${color1}${upspeedgraph wlp60s0 50,330 444444 0a0710}
+${color1}${upspeedgraph wlp60s0 50,330 444444 fbf7f6}
 ]]

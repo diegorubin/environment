@@ -14,5 +14,6 @@
       - autoconf
       - gitk
       - xscreensaver
+      - cmake
     state: latest
   when: ansible_distribution == 'Fedora'

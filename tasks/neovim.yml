@@ -1,4 +1,15 @@
 ---
+- name: "[Fedora] Enable Fedora Copr for NeoVim"
+  become_user: root
+  command: "dnf copr enable -y agriffis/neovim-nightly"
+  when: ansible_distribution == 'Fedora' 
+- name: "[Fedora] Install NeoVim from negativo"
+  become_user: root
+  dnf:
+    name:
+      - neovim
+    state: latest
+  when: ansible_distribution == 'Fedora' 
 - name: Create NeoVim Base
   command: "mkdir -p {{destination}}/.config/nvim/"
 - name: Install Plug for NeoVim Plugins

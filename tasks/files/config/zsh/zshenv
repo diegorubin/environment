@@ -25,7 +25,7 @@ clear_images() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Load private resources
 [[ -s "$HOME/.zsh_private" ]] && source "$HOME/.zsh_private"

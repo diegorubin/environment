@@ -1,0 +1,16 @@
+- name: "[Fedora] Update System"
+  become_user: root
+  dnf:
+    name: "*"
+    state: latest
+  when: ansible_distribution == 'Fedora'
+- name: "[Fedora] Install System Packages"
+  become_user: root
+  dnf:
+    name:
+      - htop
+      - powerline-fonts
+      - tidy
+      - autoconf
+    state: latest
+  when: ansible_distribution == 'Fedora'

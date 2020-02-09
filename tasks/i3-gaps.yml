@@ -1,9 +1,38 @@
 ---
+- name: "[Fedora] Enable Fedora Copr for i3-gaps"
+  become_user: root
+  command: "dnf copr enable -y nforro/i3-gaps"
+  when: ansible_distribution == 'Fedora' 
+- name: "[Fedora] Install i3-gaps"
+  become_user: root
+  dnf:
+    name:
+      - i3-gaps
+      - compton
+      - dunst
+      - scrot
+      - feh
+      - rofi
+      - cairo-devel
+      - libev
+      - libev-devel
+      - libjpeg-devel
+      - libjpeg-turbo
+      - libxcb
+      - libxkbcommon
+      - libxkbcommon-x11
+      - libxkbcommon-x11-devel
+      - pam-devel
+      - pkg-config
+      - xcb-util-devel
+      - xcb-util-image
+      - xcb-util-image-devel
+    state: latest
+  when: ansible_distribution == 'Fedora'
 - name: Install Flashfocus
   become_user: root
   pip:
     name: flashfocus
-    extra_args: --user
 - name: Creates i3 config directory
   file:
     path: "{{destination}}/.config/i3"

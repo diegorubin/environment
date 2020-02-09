@@ -6,6 +6,7 @@
     PATH: "/opt/node/bin:{{ ansible_env.PATH }}"
   tasks:
     - include: tasks/debug.yml
+    - include: tasks/packages.yml
     - include: tasks/node.yml
     - include: tasks/termite.yml
     - include: tasks/zsh.yml

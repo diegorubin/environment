@@ -4,6 +4,18 @@
   npm:
     name: lyrics-cli
     global: true
+- name: Clone polybar repository
+  git:
+    repo: 'https://github.com/polybar/polybar.git'
+    dest: /tmp/polybar
+  when: ansible_distribution == 'Fedora' 
+- name: copy polybar build script
+  copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} group={{user}} mode=0774
+  when: ansible_distribution == 'Fedora' 
+- name: Make and Install Polybar
+  become_user: root
+  command: "/tmp/polybar/build-polybar.sh"
+  when: ansible_distribution == 'Fedora' 
 - name: Copy Rofi Configs
   copy: src=config/rofi dest={{destination}}/.config owner={{user}} group={{user}}
 - name: Copy Polybar Configs

@@ -1,4 +1,15 @@
 ---
+- name: "[Fedora] Enable Fedora Copr for Termite"
+  become_user: root
+  command: "dnf copr enable -y skidnik/termite"
+  when: ansible_distribution == 'Fedora' 
+- name: "[Fedora] Install termite"
+  become_user: root
+  dnf:
+    name:
+      - termite
+    state: latest
+  when: ansible_distribution == 'Fedora' 
 - name: Creates termite config directory
   file:
     path: "{{destination}}/.config/termite"

@@ -18,6 +18,7 @@
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
+    - applications_menu
     - index-projects
     - init-project
     - open-project

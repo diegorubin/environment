@@ -2,7 +2,7 @@
 
 ## Created By Aditya Shakya
 
-MENU="$(rofi -sep "|" -dmenu -i -p 'System' -location 5 -hide-scrollbar <<< " Lock| Logout| Suspend|  Reboot| Shutdown")"
+MENU="$(rofi -sep "|" -dmenu -i -p 'System' -location 5 -hide-scrollbar <<< " Lock| Logout| Suspend| Reboot| Shutdown")"
             case "$MENU" in
                 *Lock) /usr/bin/lock ;;
                 *Logout) i3-msg exit;;

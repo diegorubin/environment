@@ -1,4 +1,29 @@
 ---
+- name: "[Fedora] Install dependencies for polybar"
+  become_user: root
+  dnf:
+    name:
+      - make
+      - cmake
+      - gcc-c++
+      - cairo-devel
+      - libcurl-devel
+      - alsa-lib-devel
+      - libmpd-devel
+      - mpc
+      - pulseaudio-libs-devel
+      - xcb-proto
+      - python2-devel
+      - libmpdclient
+      - libmpdclient-devel
+      - wireless-tools
+      - wireless-tools-devel
+      - xcb-util-devel
+      - xcb-util-wm-devel
+      - xcb-util-cursor-devel
+      - xcb-util-xrm-devel
+    state: latest
+  when: ansible_distribution == 'Fedora' 
 - name: Install lyrics package globally.
   become_user: root
   npm:

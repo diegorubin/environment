@@ -12,6 +12,7 @@
     src: "scripts/bin/{{item}}"
     dest: "{{destination}}/.scripts/bin"
   with_items:
+    - applications_menu
     - index-projects
     - init-project
     - open-project

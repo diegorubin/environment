@@ -15,5 +15,6 @@
       - gitk
       - xscreensaver
       - cmake
+      - gcc-c++
     state: latest
   when: ansible_distribution == 'Fedora'

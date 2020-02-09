@@ -209,8 +209,8 @@ bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-bindsym --release Print exec "scrot -m '{{destination}}/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-bindsym --release Shift+Print exec "scrot -s '{{destination}}/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym --release Print exec "maim '{{destination}}/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Shift+Print exec "maim -s '{{destination}}/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # start programs
 exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/ori.png

@@ -10,7 +10,7 @@
       - i3-gaps
       - compton
       - dunst
-      - scrot
+      - maim
       - feh
       - rofi
       - cairo-devel

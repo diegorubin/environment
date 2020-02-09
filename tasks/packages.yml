@@ -12,5 +12,6 @@
       - powerline-fonts
       - tidy
       - autoconf
+      - gitk
     state: latest
   when: ansible_distribution == 'Fedora'

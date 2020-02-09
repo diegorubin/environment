@@ -13,5 +13,6 @@
       - tidy
       - autoconf
       - gitk
+      - xscreensaver
     state: latest
   when: ansible_distribution == 'Fedora'

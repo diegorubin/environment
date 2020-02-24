@@ -290,6 +290,10 @@ call plug#end()
   end
 " }
 
+" Window Configurations {
+  let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
+" }
+
 " Map Options {
   " Buffers {
     map <leader>> :bnext<CR>

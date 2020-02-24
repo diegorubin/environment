@@ -1,0 +1,3 @@
+---
+- name: copy tidy config
+  copy: src=config/tidyrc dest={{destination}}/.tidyrc owner={{user}} group={{user}} mode=0664

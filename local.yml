@@ -17,3 +17,4 @@
     - include: tasks/user.yml
     - include: tasks/conky.yml
     - include: tasks/scripts.yml
+    - include: tasks/configs.yml

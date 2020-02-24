@@ -50,6 +50,8 @@ call plug#begin()
   " Window
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'camspiers/animate.vim'
+  Plug 'camspiers/lens.vim'
   Plug 'voldikss/vim-floaterm'
 " }
 

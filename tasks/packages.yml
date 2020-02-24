@@ -16,5 +16,6 @@
       - xscreensaver
       - cmake
       - gcc-c++
+      - astyle
     state: latest
   when: ansible_distribution == 'Fedora'

@@ -8,6 +8,19 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.scripts/bin"
 
+# Screen functions
+home_screen_layout() {
+  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --auto --above eDP-1-1 --output DP-1-1 --auto --right-of HDMI-0 --rotate right
+}
+
+work_screen_layout() {
+  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --auto --right-of eDP-1-1 --output DP-1-1 --auto --left-of eDP-1-1
+}
+
+clone_hdmi_screen_layout() {
+  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --auto
+}
+
 # Docker Functions
 clear_containers() {
 	docker stop $(docker ps -a -q)

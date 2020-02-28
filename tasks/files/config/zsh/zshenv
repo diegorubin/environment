@@ -21,6 +21,10 @@ clone_hdmi_screen_layout() {
   xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --auto
 }
 
+disable_external_monitors() {
+  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --off --output DP-1-1 --off
+}
+
 # Docker Functions
 clear_containers() {
 	docker stop $(docker ps -a -q)

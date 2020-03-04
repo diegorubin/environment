@@ -35,6 +35,15 @@ clear_images() {
 	docker rmi -f $(docker images -a -q)
 }
 
+# Open Mapper 
+open_private() {
+  sudo cryptsetup -v luksOpen /dev/sda2 private
+}
+
+open_secret() {
+  sudo cryptsetup -v luksOpen /dev/sda1 secret
+}
+
 # Rust Configuration
 [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 

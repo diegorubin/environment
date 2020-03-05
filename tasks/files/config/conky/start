@@ -5,4 +5,4 @@ killall conky
 cd .config/conky
 
 sleep 1
-conky -c bar &
+conky -c center &

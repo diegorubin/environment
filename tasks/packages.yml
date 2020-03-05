@@ -17,5 +17,6 @@
       - cmake
       - gcc-c++
       - astyle
+      - conky
     state: latest
   when: ansible_distribution == 'Fedora'

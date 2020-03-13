@@ -44,42 +44,6 @@ font-0 = "scientifica:size=9;233"
 font-2 = Iosevka Nerd Font:style=Medium:size=12;234
 
 
-[bar/full]
-monitor = VGA1
-enable-ipc = true
-override-redirect = false
-bottom = true
-
-height = 23
-width = 100%
-offset-y = 0%
-offset-x = 0%
-radius-top = 0
-radius-bottom  = 0
-fixed-center = true
-spacing = 0
-;overline-size = 0
-line-size = 2
-module-margin-left = 0
-module-margin-right = 0
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-;font-4 = "Misc Termsyn:size=10;3"
-font-1 = "Siji:size=11;2"
-font-4 = "Material:size=8;3"
-font-3 = "xos4 Terminus:size=8;3"
-font-0 = "Terminus (TTF):size=9;2"
-font-2 = Iosevka Nerd Font:style=Medium:size=14;3
-;font-0 = "Digital Readout Thick Upright:size=12;3"
-
-modules-left = launcher right1 mpd right2 i3 right3
-modules-center = xwindow
-modules-right = left1 pulseaudio2 network left2 date right6
-;undo redo pgdown pgup pen eraser highlighter select space ruler shape save open cut quit
-padding-right = 2
-
 #-----------------------------------------------------------------------------#
 #-------------------------------- Left panel ---------------------------------#
 #-----------------------------------------------------------------------------#
@@ -103,89 +67,6 @@ font-0 = "scientifica:size=9;140"
 font-2 = Iosevka Nerd Font:style=Medium:size=12;140
 
 modules-left =launcher2
-
-
-#------------------------------- Left modules --------------------------------#
-
-[module/i32]
-type = internal/i3
-format = <label-state> <label-mode>
-
-strip-wsnumbers = true
-
-label-focused = %name%
-label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.primary}
-label-focused-underline  = #88F2A90C
-;label-focused-overline  = ${colors.secondary}
-label-focused-padding = 2
-
-label-unfocused = %name%
-label-unfocused-padding = 1
-
-label-occupied = %name%
-label-occupied-padding = 1
-
-label-urgent = %name%
-label-urgent-background = ${colors.urgent}
-label-urgent-overline  = ${colors.background}
-label-urgent-padding = 1
-
-label-empty = %name%
-label-empty-foreground = ${colors.foreground}
-label-empty-padding = 1
-
-index-sort = true
-wrapping-scroll = false
-
-label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-label-visible = %name%
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-
-strip-wsnumbers = true
-
-label-focused = %name%
-label-focused-background = ${colors.foreground}
-label-focused-foreground = #595959
-label-focused-underline  = ${colors.foreground}
-label-focused-overline  = ${colors.foreground}
-label-focused-padding = 2
-
-label-unfocused = %name%
-label-unfocused-padding = 2
-label-unfocused-background = ${colors.foreground}
-label-unfocused-foreground = ${colors.background}
-
-label-occupied = %name%
-label-occupied-padding = 1
-
-label-urgent = %name%
-label-urgent-background = ${colors.urgent}
-label-urgent-overline  = ${colors.background}
-label-urgent-padding = 2
-
-label-empty = %name%
-label-empty-foreground = ${colors.foreground}
-label-empty-padding = 2
-
-index-sort = true
-wrapping-scroll = false
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-label-visible = %name%
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
 
 [module/launcher]
 type = custom/text

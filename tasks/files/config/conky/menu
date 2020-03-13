@@ -1,0 +1,75 @@
+conky.config = {
+	use_xft                = true,
+	xftalpha               = 1,
+	update_interval        = 1,
+	total_run_times        = 0,
+
+	background             = true,
+    out_to_console         = false,
+    out_to_stderr          = false,
+
+	own_window             = true,
+	own_window_colour      = '#000000',
+    own_window_class       = 'Conky',
+	own_window_type        = 'override',
+	own_window_argb_visual = true,
+    own_window_transparent = true,
+
+	double_buffer          = true,
+
+	minimum_width          = 300,
+	maximum_width          = 300,
+
+	minimum_height         = 150,
+
+	draw_shades            = false,
+	draw_outline           = false,
+	draw_borders           = false,
+	draw_graph_borders     = true,
+
+    default_color          = 'C0E341',
+    color0                 = 'ffffff',
+    color1                 = 'D08770',
+    color2                 = 'EBCB8B',
+    color3                 = 'A3BE8C',
+    color4                 = 'B48EAD',
+
+	alignment              = 'top_left',
+	gap_x                  = 55,
+	gap_y                  = 387,
+	no_buffers             = true,
+	text_buffer_size       = 2048,
+	uppercase              = false,
+	cpu_avg_samples        = 4,
+	net_avg_samples        = 2,
+	override_utf8_locale   = true,
+
+	font                   = 'scientifica:size=9',
+
+};
+
+conky.text = [[
+ ${voffset -5}${font Font Awesome:style=Regular:size=15}                 ${font}${font DejaVu Sans:style=bold:size=9}${uid_name 1000}@${nodename}${font} ${alignr}
+${image ~/.config/conky/res/separator2.png -p 35,15 -s 220x1}
+${image ~/.config/conky/res/cover.png -p 100,30 -s 100x100}
+${voffset 98}${offset 100} ${font Roboto Regular:size=7} ${if_running mpd}${mpd_title}${else}Music${endif}\
+${voffset 10}
+${offset 100} ${font Roboto Regular:Bold:size=9} ${if_running mpd}${mpd_artist}${else}Is not playing${endif}
+\
+${image ~/.config/conky/res/separator2.png -p 35,185 -s 220x1}
+${voffset 0}
+${offset 30} ${time %a}
+${offset 37} ${time %-d}
+${voffset -24}${offset 100} ${font Roboto Regular:size=15} ${time %H : %M}
+${image ~/.config/conky/res/clock2.png -p 220,199 -s 24x24}
+${image ~/.config/conky/res/separator2.png -p 35,235 -s 220x1}
+${voffset -18}${offset 100} ${font Roboto Regular:size=9} ${execi 1800 ~/.config/conky/res/weather}
+${offset 40}${font Roboto Regular:size=7}${execi 1800 ~/.config/conky/res/weather -t}
+${image ~/.config/conky/res/sun.png -p 220,245 -s 24x24}
+${image ~/.config/conky/res/separator2.png -p 35,333 -s 220x1}
+${voffset 8}${offset 90} ${font Roboto Regular:size=9}Grocery Shopping
+${voffset 0}${offset 115} ${font Roboto Regular:size=7}${time %-a/%d/%b}
+${image ~/.config/conky/res/calendar.png -p 220,305 -s 24x24}
+${voffset 6}${offset 20} Have a nice day ${execi 600 whoami}! Here is some wise words for You :)
+${voffset 6} ${execi 600 ~/.config/conky/res/quote-online}
+]];

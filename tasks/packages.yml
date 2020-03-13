@@ -18,5 +18,6 @@
       - gcc-c++
       - astyle
       - conky
+      - xdotool
     state: latest
   when: ansible_distribution == 'Fedora'

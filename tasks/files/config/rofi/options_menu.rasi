@@ -1,0 +1,98 @@
+configuration {
+    
+    window-format:                  "{t}";
+    show-icons:                     true;
+    font:                           "DejaVu Sans 12";
+    columns:                        1;
+}
+
+* {
+    background-color:               transparent;
+
+    background:                     @background;
+    background-alt:                 #fefefe80;
+    text-color:                     #0F131C;
+    primary:                        #fefefe;
+    urgent:                         #BF616A;
+}
+
+window {
+    height:                         495; // 1 - 0*0
+    width:                          45px;
+    location:                       northwest;
+    anchor:                         northwest;
+    x-offset:                       5;
+    y-offset:                       379;
+    background-color:               #C0E341;
+    border-radius:                  8px;
+}
+
+entry {
+    expand:                         false;
+    margin:                         4px 4px;
+    background-color:               @background-alt;
+    padding:                        2px;
+    border:                         2px;
+    border-color:                   #252A2D;
+    
+}
+
+mainbox {
+    children:                       [ listview, message ];
+    padding:                        0px 0px;
+    margin:                         15px 10px;
+    background-color:               #C0E341;
+}
+
+element {
+    padding:                        10px 11px;
+    orientation:                    horizontal;
+    margin:                         0px -25px;
+    text-color:                     #0F131C;
+    background-color:               #C0E341;
+    border:                         0px 0px solid 1px 0px;
+    border-color:                   #C0E341;
+}
+
+element normal.urgent, element alternate.urgent {
+    background-color:               #C0E341;
+}
+
+element normal.active, element alternate.active {
+    background-color:               #C0E341;
+    border:                         1px 1px solid 1px 1px;
+    border-radius:                  1;
+    border-color:                   #252A2D;
+}
+
+element selected {
+    border:                         0px 0px solid 2px 0px;
+    border-radius:                  0;
+    border-color:                   #252A2D;
+    background-color:               #C0E341;
+    text-color:                     #595959;
+}
+
+element selected.urgent {
+    background-color:               #252A2D;
+}
+
+element selected.active {
+    background-color:               #ff00ff;
+}
+
+element-icon {
+    border:                         1px;
+    border-color:                   #252A2D;
+    border-radius:                  5;
+    padding:                        9px;
+    background-color:               #252A2D;
+}
+
+element-icon {
+    size: 32; /* Must be a power of 2 */
+}
+
+element-text {
+    vertical-align: -10.5;
+}

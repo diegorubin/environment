@@ -1,0 +1,705 @@
+#-----------------------------------------------------------------------------#
+#----------------------------- Global settings -------------------------------#
+#-----------------------------------------------------------------------------#
+
+[colors]
+include-file = ~/.config/polybar/menu/colors
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[section/base_panel]
+monitor = eDP-1-1
+enable-ipc = true
+override-redirect = true
+bottom = false
+
+height = 500
+width = 360
+offset-y = 377
+offset-x = 1
+fixed-center = true
+radius-top = 8
+
+background = #0f131c
+foreground = ${colors.foreground}
+
+overline-size = 0
+overline-color = ${colors.background}
+underline-size = 0
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+# Fonts
+# Very large offset to move the text to the bottom of the bar
+font-4 = "Misc Termsyn:size=10;233"
+font-1 = "Material:size=8;233"
+font-3 = "xos4 Terminus:size=8;233"
+font-0 = "scientifica:size=9;233"
+font-2 = Iosevka Nerd Font:style=Medium:size=12;234
+
+
+[bar/full]
+monitor = VGA1
+enable-ipc = true
+override-redirect = false
+bottom = true
+
+height = 23
+width = 100%
+offset-y = 0%
+offset-x = 0%
+radius-top = 0
+radius-bottom  = 0
+fixed-center = true
+spacing = 0
+;overline-size = 0
+line-size = 2
+module-margin-left = 0
+module-margin-right = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;font-4 = "Misc Termsyn:size=10;3"
+font-1 = "Siji:size=11;2"
+font-4 = "Material:size=8;3"
+font-3 = "xos4 Terminus:size=8;3"
+font-0 = "Terminus (TTF):size=9;2"
+font-2 = Iosevka Nerd Font:style=Medium:size=14;3
+;font-0 = "Digital Readout Thick Upright:size=12;3"
+
+modules-left = launcher right1 mpd right2 i3 right3
+modules-center = xwindow
+modules-right = left1 pulseaudio2 network left2 date right6
+;undo redo pgdown pgup pen eraser highlighter select space ruler shape save open cut quit
+padding-right = 2
+
+#-----------------------------------------------------------------------------#
+#-------------------------------- Left panel ---------------------------------#
+#-----------------------------------------------------------------------------#
+
+[bar/left]
+inherit = section/base_panel
+height = 500
+width = 300
+offset-x = 1298
+padding-left = 3
+overline-size = 4
+overline-color = ${colors.background}
+radius-top = 8
+
+# Fonts
+# Very large offset to move the text to the bottom of the bar
+font-4 = "Misc Termsyn:size=10;140"
+font-1 = "Wuncon Siji:size=8;140"
+font-3 = "xos4 Terminus:size=8;140"
+font-0 = "scientifica:size=9;140"
+font-2 = Iosevka Nerd Font:style=Medium:size=12;140
+
+modules-left =launcher2
+
+
+#------------------------------- Left modules --------------------------------#
+
+[module/i32]
+type = internal/i3
+format = <label-state> <label-mode>
+
+strip-wsnumbers = true
+
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.primary}
+label-focused-underline  = #88F2A90C
+;label-focused-overline  = ${colors.secondary}
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.urgent}
+label-urgent-overline  = ${colors.background}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
+
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-visible = %name%
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+
+strip-wsnumbers = true
+
+label-focused = %name%
+label-focused-background = ${colors.foreground}
+label-focused-foreground = #595959
+label-focused-underline  = ${colors.foreground}
+label-focused-overline  = ${colors.foreground}
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+label-unfocused-background = ${colors.foreground}
+label-unfocused-foreground = ${colors.background}
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.urgent}
+label-urgent-overline  = ${colors.background}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-visible = %name%
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+[module/launcher]
+type = custom/text
+content = "     "
+;content = "  "
+
+; "content" has the same properties as "format-NAME"
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
+content-padding = 0
+click-left = ~/.config/i3/scripts/polybar_wrapper options
+
+[module/launcher2]
+type = custom/text
+content = "     "
+
+; "content" has the same properties as "format-NAME"
+content-background = ${colors.background}
+content-foreground = ${colors.background}
+content-padding = 0
+click-left = ~/.config/i3/scripts/polybar_wrapper options
+
+#-----------------------------------------------------------------------------#
+#------------------------------- Center panel --------------------------------#
+#-----------------------------------------------------------------------------#
+
+[bar/center]
+inherit = section/base_panel
+width = 20%
+offset-x = 40%
+modules-center = xwindow
+radius-bottom = 8
+# Fonts
+# Very large offset to move the text to the bottom of the bar
+font-4 = "Misc Termsyn:size=10;130"
+font-1 = "Material:size=15;130"
+font-3 = "xos4 Terminus:size=8;130"
+font-0 = "scientifica:size=9;130"
+font-2 = Iosevka Nerd Font:style=Medium:size=18;130
+
+#------------------------------ Center modules -------------------------------#
+
+[module/xwindow]
+type = internal/xwindow
+label = %{T2}%title:0:45:...%%{T-}
+label-foreground = ${colors.foreground}
+
+[module/right1]
+type = custom/text
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+content = "%{T3}%{T-}"
+;content-overline = ${colors.background}
+;content-underline = ${colors.background}
+
+[module/right2]
+type = custom/text
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
+content = "%{T3}%{T-}"
+;content-overline = ${colors.background}
+;content-underline = ${colors.background}
+
+[module/right3]
+type = custom/text
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+content = "%{T3}%{T-}"
+;content-overline = ${colors.background}
+;content-underline = ${colors.background}
+
+
+[module/right6]
+type = custom/text
+content-background = ${colors.foreground}
+content-foreground = ${colors.background}
+content = " %{T3}%{T-}"
+;content-overline = ${colors.background}
+;content-underline = ${colors.background}
+
+[module/left1]
+type = custom/text
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+content = "%{T3} %{T-}"
+content-overline = ${colors.background}
+content-underline = ${colors.background}
+
+
+[module/left2]
+type = custom/text
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+content = "%{T3}%{T-}"
+;content-overline = ${colors.background}
+;content-underline = ${colors.background}
+
+#-----------------------------------------------------------------------------#
+#------------------------------- Right panel ---------------------------------#
+#-----------------------------------------------------------------------------#
+
+[bar/right]
+inherit = section/base_panel
+padding-right = 2
+modules-right = options_close
+
+#-----------------------------=- Right modules -------------------------------#
+
+
+[module/options_open]
+type = custom/text
+content-foreground = ${colors.foreground}
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_wrapper options
+
+[module/options_close]
+type = custom/text
+content-foreground = ${colors.background}
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_wrapper options
+
+
+
+[module/date]
+type = internal/date
+interval = 5
+time ="%I:%M | %a %d %b"
+label ="%time%"
+format=<label>
+format-foreground = ${colors.background}
+format-background = ${colors.foreground}
+format-prefix ="  "
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.foreground}
+
+[module/date2]
+type = internal/date
+interval = 5
+time ="%I:%M | %a %d %b"
+label ="%time%"
+format=<label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix ="   "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = "<animation-charging> <label-charging> "
+format-discharging = "<ramp-capacity> <label-discharging> "
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.foreground}
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = "  "
+animation-charging-1 = "  "
+animation-charging-2 = "  "
+animation-charging-3 = "  "
+animation-charging-4 = "  "
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+[module/pulseaudio2]
+type = internal/alsa
+format-volume = %{T2}%{F#fefefe}<ramp-volume> <label-volume>
+label-volume = " %percentage%% "
+format-volume-background =${colors.background}
+format-muted = <label-muted>
+label-muted = ""
+label-muted-foreground = ${colors.foreground}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+; Only applies if <bar-volume> is used
+bar-volume-width = 6
+bar-volume-gradient = false
+
+bar-volume-indicator ="█"
+bar-volume-indicator-foreground = ${colors.fg1}
+bar-volume-indicator-font = 1
+
+bar-volume-fill ="█"
+bar-volume-foreground-0 = ${colors.fg1}
+bar-volume-foreground-1 = ${colors.fg1}
+bar-volume-foreground-2 = ${colors.fg1}
+bar-volume-foreground-3 = ${colors.fg1}
+bar-volume-foreground-4 = ${colors.fg1}
+bar-volume-foreground-5 = ${colors.fg1}
+bar-volume-foreground-6 = ${colors.fg1}
+bar-volume-foreground-7 = ${colors.fg1}
+bar-volume-foreground-8 = ${colors.fg1}
+bar-volume-fill-font = 1
+
+bar-volume-empty ="█"
+bar-volume-empty-foreground = ${colors.fg3}
+bar-volume-empty-font = 1
+
+[module/volume2]
+type = custom/ipc
+hook-0 = $HOME/.config/i3/scripts/polybar_modules/volume icon
+scroll-up = $HOME/.config/i3/scripts/polybar_modules/volume increase
+scroll-down = $HOME/.config/i3/scripts/polybar_modules/volume decrease
+click-left = $HOME/.config/i3/scripts/polybar_modules/volume mute
+initial = 1
+
+
+[module/cpu_bar]
+type = internal/cpu
+
+interval = 0.5
+format =<label>
+format-prefix = " "
+format-prefix-foreground = #C0E341
+format-prefix-background = ${colors.background}
+label-foreground = #C0E341
+label-background = ${colors.background}
+
+label = "%percentage%%"
+
+bar-load-width = 6
+bar-load-gradient = false
+
+bar-load-indicator ="█"
+bar-load-indicator-foreground = ${colors.fg1}
+bar-load-indicator-background = ${colors.background}
+bar-load-indicator-font = 1
+
+bar-load-fill ="█"
+bar-load-fill-foreground = ${colors.fg1}
+bar-load-fill-background = ${colors.background}
+
+bar-load-foreground-0 = ${colors.fg1}
+bar-load-background-0 = ${colors.background}
+bar-load-foreground-1 = ${colors.fg1}
+bar-load-background-1 = ${colors.background}
+bar-load-foreground-2 = ${colors.fg1}
+bar-load-background-2 = ${colors.background}
+bar-load-foreground-3 = ${colors.fg1}
+bar-load-background-3 = ${colors.background}
+bar-load-foreground-4 = ${colors.fg1}
+bar-load-background-4 = ${colors.background}
+
+bar-load-fill-font = 1
+
+bar-load-empty ="█"
+bar-load-empty-foreground = ${colors.fg3}
+bar-load-empty-background = ${colors.background}
+bar-load-empty-font = 1
+
+[module/memory_bar]
+type = internal/memory
+
+interval = 2
+
+format = <label>
+format-background = ${colors.background}
+format-foreground = #C0E341
+format-padding = 1
+format-prefix = " "
+label = "%mb_used%   "
+
+bar-used-width = 6
+bar-used-gradient = false
+
+bar-used-indicator =
+bar-used-indicator-foreground = ${colors.fg1}
+bar-used-indicator-font = 1
+
+bar-used-fill = "█"
+bar-used-foreground-0 = ${colors.fg1}
+bar-used-background-0 = ${colors.background}
+bar-used-foreground-1 = ${colors.fg1}
+bar-used-background-1 = ${colors.background}
+bar-used-foreground-2 = ${colors.fg1}
+bar-used-background-2 = ${colors.background}
+bar-used-foreground-3 = ${colors.fg1}
+bar-used-background-3 = ${colors.background}
+bar-used-foreground-4 = ${colors.fg1}
+bar-used-background-4 = ${colors.background}
+bar-used-foreground-5 = ${colors.fg1}
+bar-used-background-5 = ${colors.background}
+bar-used-foreground-6 = ${colors.foreground}
+bar-used-background-6 = ${colors.background}
+bar-used-foreground-7 = ${colors.fg1}
+bar-used-background-7 = ${colors.background}
+bar-used-foreground-8 = ${colors.fg1}
+bar-used-background-8 = ${colors.background}
+bar-used-fill-font = 1
+bar-used-empty = "█"
+bar-used-empty-foreground = ${colors.fg3}
+bar-used-empty-font = 1
+
+[module/song]
+type = internal/mpd
+interval = 2
+format-online =<label-song>
+format-online-background = ${colors.foreground}
+format-online-padding = 0
+label-song = "  %title%"
+label-song-background = ${colors.background}
+label-song-foreground = ${colors.foreground}
+label-song-maxlen = 20
+label-song-ellipsis = true
+label-offline = "MPD is offline"
+
+[module/mpd]
+type = internal/mpd
+
+interval = 2
+
+format-online =<icon-prev><icon-stop><toggle><icon-next>
+format-online-background = ${colors.background}
+format-online-padding = 0
+
+label-song =  "%artist% - %title%"
+label-song-maxlen = 20
+label-song-ellipsis = true
+
+label-offline = "MPD is offline"
+
+icon-play = 
+icon-play-foreground =${colors.foreground}
+icon-play-background =${colors.background}
+icon-pause = 
+icon-pause-foreground =${colors.foreground}
+icon-pause-background =${colors.background}
+icon-stop = 
+icon-stop-foreground =${colors.foreground}
+icon-stop-background =${colors.background}
+icon-prev = "  "
+icon-prev-foreground =${colors.foreground}
+icon-prev-background =${colors.background}
+icon-next = "  "
+icon-next-foreground =${colors.foreground}
+icon-next-background =${colors.background}
+
+[module/mpd_bar]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+format-online = <label-time><bar-progress>
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+label-time ="%elapsed%"
+label-time-foreground = ${colors.fg3}
+label-time-background = ${colors.background}
+
+label-offline = "mpd is offline"
+
+; Only applies if <bar-progress> is used
+bar-progress-width =15
+bar-progress-background = #bcbcbc
+bar-progress-foreground = #bcbcbc
+bar-progress-gradient = false
+
+bar-progress-indicator ="█"
+bar-progress-indicator-foreground = ${colors.foreground}
+bar-progress-indicator-background = ${colors.background}
+bar-progress-indicator-font = 1
+
+bar-progress-fill ="█"
+bar-progress-fill-background= ${colors.background}
+bar-progress-fill-foreground= ${colors.background}
+
+bar-progress-foreground-0 = ${colors.fg1}
+bar-progress-background-0 = ${colors.background}
+bar-progress-foreground-1 = ${colors.fg1}
+bar-progress-background-1 = ${colors.background}
+bar-progress-foreground-2 = ${colors.fg1}
+bar-progress-background-2 = ${colors.background}
+bar-progress-foreground-3 = ${colors.fg1}
+bar-progress-background-3 = ${colors.background}
+bar-progress-foreground-4 = ${colors.fg1}
+bar-progress-background-4 = ${colors.background}
+bar-progress-foreground-5 = ${colors.fg1}
+bar-progress-background-5 = ${colors.background}
+bar-progress-foreground-6 = ${colors.fg1}
+bar-progress-background-6 = ${colors.background}
+bar-progress-foreground-7 = ${colors.fg1}
+bar-progress-background-7 = ${colors.background}
+bar-progress-foreground-8 = ${colors.fg1}
+bar-progress-background-8 = ${colors.background}
+bar-progress-fill-font = 1
+
+bar-progress-empty ="█"
+bar-progress-empty-foreground = ${colors.foreground}
+bar-progress-empty-background = ${colors.background}
+bar-progress-empty-font = 1
+
+;;;;;;;;;;;;;;;;;;;
+;;   MPD_BAR2    ;;
+;;;;;;;;;;;;;;;;;;;
+[module/mpd_bar2]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+format-online = <label-time>
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+label-time = " %total%"
+label-time-foreground = ${colors.fg3}
+label-time-background = ${colors.background}
+label-offline = "mpd is offline"
+
+[module/applauncher]
+type = custom/ipc
+hook-0 = ~/.config/i3/scripts/polybar_modules/tablet_launcher icon
+initial = 1
+format = <output>
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher toggle
+
+[module/chrome]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch chrome
+
+[module/web]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch web
+
+[module/notes]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch notes
+
+[module/pdf]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch pdf
+
+[module/terminal]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch terminal
+
+[module/music]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch music
+
+[module/calculator]
+type = custom/text
+content = "  "
+click-left = ~/.config/i3/scripts/polybar_modules/tablet_launcher launch calculator
+
+
+[module/decor-glyph]
+type = custom/text
+content-background = #00000000
+content-foreground = ${colors.background}
+
+[module/left-end-top]
+inherit = module/decor-glyph
+content = "%{T3}%{T-}"
+
+[module/right-end-top]
+inherit = module/decor-glyph
+content = "%{T3}%{T-}"
+
+
+[module/network]
+type = internal/network
+interface = enp1s0
+
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <ramp-signal>
+format-connected-background = ${colors.background}
+format-connected-foreground = ${colors.foreground}
+format-connected-padding = 1
+
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.background}
+format-disconnected-foreground = ${colors.foreground}
+format-disconnected-padding = 1
+
+label-disconnected = 
+
+ramp-signal-0 = "  "
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+[module/weather]
+type = custom/script
+interval = 1800
+exec = "~/.config/polybar/scripts/weather "
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+;format-prefix = "  "
+format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground}

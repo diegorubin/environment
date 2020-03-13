@@ -1,0 +1,20 @@
+# Set colors from .Xresources and use Solarized color scheme as a fallback
+
+background     = #0F131C
+background2    = #0F131C
+background-alt = ${xrdb:color1}
+
+foreground-alt = ${xrdb:color2}
+foreground     = #C0E341
+
+primary        = ${xrdb:primary       :#268BD2}
+secondary      = ${xrdb:secondary     :#859900}
+urgent         = ${xrdb:urgent        :#DC322F}
+
+fg1 = ${xrdb:color1}
+fg2 = ${xrdb:color2}
+fg3 = ${xrdb:color3}
+fg4 = ${xrdb:color4}
+fg5 = ${xrdb:color5}
+fg6 = ${xrdb:color6}
+fg7 = ${xrdb:color7}

@@ -43,12 +43,9 @@ animation_close() {
 }
 
 conky_launch() {
-  # Hacky X11 magic to make Conky appear above polybar
   CONKY_ID=$(ps aux | grep conky | grep menu | awk  '{print $2}')
   kill $CONKY_ID
-  # xdotool search can't find Conky's window but fortunately Conky outputs it
   conky -c ~/.config/conky/menu 2> /tmp/conky_menu
-  # Extract the hex window id from Conky's output
   HEX=$(awk '/drawing to created window/ {print $NF}' /tmp/conky_menu | tr -d '()' | awk -Fx '{print $2}')
   echo $HEX
   WIN_ID=$(( 16#$HEX )) # convert to decimal
@@ -83,12 +80,9 @@ menu_options() {
   echo -e "\tpoweroff"
   echo -e "\treboot"
   echo -e "\tLock"
-  echo -e "\tLogout"
-  echo -e "鈴\tsuspend"
+  echo -e " \tLogout"
+  echo -e " \tsuspend"
   echo -e "\tScreenshot"
-  echo -e "\tstacked"
-  echo -e "ﬓ\ttabbed"
-  echo -e "\tsplit"
   
 }
 
@@ -96,34 +90,22 @@ menu_selection() {
   case "$2" in
   poweroff)
       systemctl poweroff
-      ;;
-      reboot)
+    ;;
+  reboot)
       systemctl reboot
-      ;;
+    ;;
   Lock)
-    i3lock
+      i3lock
     ;;
   Logout)
-    i3-msg exit
+      i3-msg exit
     ;;
-    suspend)
-    mpc -q pause
-      amixer set Master mute
+  suspend)
       systemctl suspend
     ;;
-    Screenshot)
+  Screenshot)
       exec scrot -e 'feh $f -x' --delay 1 &
     ;;
-    tabbed)
-    i3-msg layout tabbed
-    ;;
-    stacked)
-    i3-msg layout stacked
-    ;;
-    split)
-    i3-msg layout toggle split
-    ;;
-    
   esac
 }
 

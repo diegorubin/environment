@@ -19,5 +19,7 @@
       - astyle
       - conky
       - xdotool
+      - pavucontrol
+      - automake
     state: latest
   when: ansible_distribution == 'Fedora'

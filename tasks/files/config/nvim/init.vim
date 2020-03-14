@@ -36,6 +36,7 @@ call plug#begin()
   " Navigation
   Plug 'scrooloose/nerdtree'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'ludovicchabant/vim-gutentags'
   " Search and replace plugin
   Plug 'brooth/far.vim'
   " Snippets

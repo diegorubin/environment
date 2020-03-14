@@ -21,5 +21,9 @@
       - xdotool
       - pavucontrol
       - automake
+      - python3-devel
+      - gtkmm30-devel
+      - sqlite-devel
+      - libnotify-devel
     state: latest
   when: ansible_distribution == 'Fedora'

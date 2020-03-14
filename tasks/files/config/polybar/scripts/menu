@@ -77,13 +77,11 @@ search_open() {
 }
 
 menu_options() {
-  echo -e "\tpoweroff"
-  echo -e "\treboot"
   echo -e "\tLock"
   echo -e " \tLogout"
-  echo -e " \tsuspend"
-  echo -e "\tScreenshot"
-  
+  echo -e "\tsuspend"
+  echo -e "\treboot"
+  echo -e "\tpoweroff"
 }
 
 menu_selection() {
@@ -102,9 +100,6 @@ menu_selection() {
     ;;
   suspend)
       systemctl suspend
-    ;;
-  Screenshot)
-      exec scrot -e 'feh $f -x' --delay 1 &
     ;;
   esac
 }

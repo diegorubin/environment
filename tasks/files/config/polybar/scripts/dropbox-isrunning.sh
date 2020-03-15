@@ -10,9 +10,9 @@ case "$1" in
         ;;
     *)
         if [ "$(pgrep dropbox)" ]; then
-            echo ""
+            echo "#1 "
         else
-            echo ""
+            echo "#2"
         fi
         ;;
 esac

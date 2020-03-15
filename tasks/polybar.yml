@@ -56,3 +56,4 @@
     - translate_lyrics
     - menu
     - dropbox-isrunning.sh
+    - player-mpris-simple.sh

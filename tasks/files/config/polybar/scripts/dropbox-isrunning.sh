@@ -1,11 +1,9 @@
 #!/bin/bash
 
-dropbox=$(ps aux | grep dropbox | grep -v "grep")
-
-echo "$dropbox"
+dropbox=$(ps aux | grep dropbox-dist | grep -v "grep")
 
 if [ -z "$dropbox" ]; then
-    echo ""
-else
     echo ""
+else
+    echo ""
 fi

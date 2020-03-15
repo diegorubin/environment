@@ -25,5 +25,7 @@
       - gtkmm30-devel
       - sqlite-devel
       - libnotify-devel
+      - intltool
+      - boost-devel
     state: latest
   when: ansible_distribution == 'Fedora'

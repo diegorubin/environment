@@ -281,6 +281,10 @@ call plug#end()
   let g:rustfmt_autosave=1
 " }
 
+" Tags {
+  let g:gutentags_cache_dir='~/.tags'
+" }
+
 " Theme Options {
   colorscheme molokai
   let g:airline_theme='molokai'

@@ -45,6 +45,10 @@ open_secret() {
   sudo cryptsetup -v luksOpen /dev/sda1 secret
 }
 
+open_external() {
+  sudo cryptsetup -v luksOpen /dev/sdc2 external
+}
+
 # Rust Configuration
 [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 

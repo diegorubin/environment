@@ -27,5 +27,6 @@
       - libnotify-devel
       - intltool
       - boost-devel
+      - blueman
     state: latest
   when: ansible_distribution == 'Fedora'

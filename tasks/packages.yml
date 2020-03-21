@@ -28,5 +28,7 @@
       - intltool
       - boost-devel
       - blueman
+      - cppcheck
+      - uncrustify
     state: latest
   when: ansible_distribution == 'Fedora'

@@ -57,3 +57,4 @@
     - menu
     - dropbox-isrunning.sh
     - player-mpris-simple.sh
+    - pysense-isrunning.sh

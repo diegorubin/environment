@@ -23,8 +23,6 @@ call plug#begin()
   Plug 'norcalli/nvim-colorizer.lua'
   " Format tables
   Plug 'godlygeek/tabular'
-  " Fuzzy finder
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   " Git integration
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
@@ -39,6 +37,8 @@ call plug#begin()
   Plug 'ludovicchabant/vim-gutentags'
   " Search and replace plugin
   Plug 'brooth/far.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'jremmen/vim-ripgrep'
   " Snippets
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'

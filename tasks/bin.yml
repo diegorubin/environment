@@ -1,0 +1,17 @@
+---
+- name: Copy scripts bin files
+  become_user: root
+  copy:
+    src: "bin/{{item}}"
+    dest: "/usr/bin/{{item}}"
+  with_items:
+    - lock
+    - set_playback
+    - unset_playback
+- name: Change scripts permission
+  become_user: root
+  command: "chmod +x /usr/bin/{{item}}"
+  with_items:
+    - lock
+    - set_playback
+    - unset_playback

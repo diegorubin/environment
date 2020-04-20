@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+
+import json
+import os.path
+import re
+import shutil
+from urllib.request import urlopen
+import subprocess
+import yaml
+from pathlib import Path
+
+import gi
+import requests
+
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gdk, Gtk
+
+
+CONFIGS = {
+    "home": str(Path.home()),
+    "purity": "100",
+    "categories": "111",
+    "destination_thumbs": "/tmp/",
+    "current_wallpaper": "{}/.wallpaper".format(str(Path.home())),
+}
+URL = "https://wallhaven.cc/api/v1/search"
+
+with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
+    configs = yaml.load(file, Loader=yaml.FullLoader)
+    CONFIGS.update(configs)
+
+
+class Dialog:
+    def __init__(self):
+        self.window = Gtk.Window()
+        self.window.set_title("Wallapapers")
+
+        self.window.set_default_size(150, 100)
+        self.window.connect("destroy", Gtk.main_quit)
+
+        label = Gtk.Label("Choose an wallpaper:")
+
+        self.entry = Gtk.Entry()
+        self.entry.set_activates_default(True)
+
+        btn_search = Gtk.Button("Buscar")
+        btn_search.connect("clicked", self.__search)
+
+        box = Gtk.VBox()
+        box.pack_start(label, expand=False, fill=True, padding=0)
+        box.pack_start(self.entry, expand=False, fill=True, padding=0)
+        box.pack_start(btn_search, expand=False, fill=True, padding=0)
+        self.window.add(box)
+
+        scrolled_window = Gtk.ScrolledWindow()
+        scrolled_window.set_border_width(10)
+        scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+        box.add(scrolled_window)
+
+        table = Gtk.Table(8, 3, True)
+        table.set_row_spacings(5)
+        table.set_col_spacings(5)
+        scrolled_window.add(table)
+
+        self.pagination = Gtk.HBox()
+        box.pack_start(self.pagination, expand=False, fill=True, padding=0)
+
+        for i in range(0, 30):
+            btn = Gtk.Button(str(i + 1))
+            btn.connect("clicked", self.__change_page, i + 1)
+            self.pagination.pack_start(btn, expand=False, fill=False, padding=1)
+
+        self.current_page = 1
+        self.images = []
+
+        position = 0
+        for i in range(0, 3):
+            for j in range(0, 8):
+                button = Gtk.Button()
+
+                image = Gtk.Image()
+                image.set_size_request(300, 200)
+
+                button.connect("clicked", self.__set_background, position)
+                button.add(image)
+
+                table.attach(button, i, i + 1, j, j + 1)
+                self.images.append(image)
+                position += 1
+
+        self.window.show_all()
+        Gtk.main()
+
+    def __display_image(self, position, url):
+        filename = re.sub(r".*?/", "", url)
+        destination = "{}/{}".format(CONFIGS["destination_thumbs"], filename)
+
+        if not os.path.exists(destination):
+            response = requests.get(url, stream=True)
+            if response.status_code == 200:
+                with open(destination, "wb") as f:
+                    response.raw.decode_content = True
+                    shutil.copyfileobj(response.raw, f)
+                    print(destination)
+
+        self.images[position].set_from_file(destination)
+
+    def __set_background(self, _widget, position):
+        destination = CONFIGS["current_wallpaper"]
+        url = self.wallpapers[position]
+        response = requests.get(url, stream=True)
+        if response.status_code == 200:
+            with open(destination, "wb") as f:
+                response.raw.decode_content = True
+                shutil.copyfileobj(response.raw, f)
+        subprocess.run(["feh", "--bg-fill", destination])
+
+    def __change_page(self, _widget, page):
+        self.current_page = page
+        self.__search(_widget)
+
+    def __search(self, _widget):
+        response = requests.get(
+            URL,
+            params={
+                "apikey": CONFIGS["apikey"],
+                "q": self.entry.get_text(),
+                "page": self.current_page,
+                "purity": CONFIGS["purity"],
+                "categories": CONFIGS["categories"],
+            },
+        )
+        data = json.loads(response.content)
+
+        i = 0
+        self.wallpapers = []
+        for entry in data["data"]:
+            self.__display_image(i, entry["thumbs"]["small"])
+            self.wallpapers.append(entry["path"])
+
+            i += 1
+
+
+Dialog()

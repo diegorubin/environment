@@ -31,5 +31,6 @@
       - cppcheck
       - uncrustify
       - ripgrep
+      - meld
     state: latest
   when: ansible_distribution == 'Fedora'

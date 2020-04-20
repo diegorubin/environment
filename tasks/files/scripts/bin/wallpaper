@@ -4,16 +4,16 @@ import json
 import os.path
 import re
 import shutil
-from urllib.request import urlopen
 import subprocess
-import yaml
 from pathlib import Path
+from urllib.request import urlopen
 
 import gi
 import requests
+import yaml
+from gi.repository import Gdk, Gtk
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gdk, Gtk
 
 
 CONFIGS = {
@@ -22,6 +22,12 @@ CONFIGS = {
     "categories": "111",
     "destination_thumbs": "/tmp/",
     "current_wallpaper": "{}/.wallpaper".format(str(Path.home())),
+    "screens": ["1"],
+    "ratios": [
+        ["wide", "16x9,16x10"],
+        ["ultrawide", "21x9,32x9,48x9"],
+        ["portrait", "9x16"],
+    ],
 }
 URL = "https://wallhaven.cc/api/v1/search"
 
@@ -40,15 +46,34 @@ class Dialog:
 
         label = Gtk.Label("Choose an wallpaper:")
 
+        # options
+        options_box = Gtk.HBox()
+
         self.entry = Gtk.Entry()
-        self.entry.set_activates_default(True)
+        options_box.pack_start(self.entry, expand=True, fill=True, padding=0)
+
+        self.screens_combo = Gtk.ComboBoxText()
+        self.screens_combo.set_entry_text_column(0)
+        for screen in CONFIGS["screens"]:
+            self.screens_combo.append_text(screen)
+        self.screens_combo.set_active(0)
+        options_box.pack_start(self.screens_combo, expand=False, fill=True, padding=0)
+
+        ratios_store = Gtk.ListStore(str, str)
+        for ratio in CONFIGS["ratios"]:
+            ratios_store.append(ratio)
+        self.ratios_combo = Gtk.ComboBox.new_with_model_and_entry(ratios_store)
+        self.ratios_combo.set_entry_text_column(0)
+        options_box.pack_start(self.ratios_combo, expand=False, fill=True, padding=0)
+
+        # end options
 
         btn_search = Gtk.Button("Buscar")
         btn_search.connect("clicked", self.__search)
 
         box = Gtk.VBox()
         box.pack_start(label, expand=False, fill=True, padding=0)
-        box.pack_start(self.entry, expand=False, fill=True, padding=0)
+        box.pack_start(options_box, expand=False, fill=True, padding=0)
         box.pack_start(btn_search, expand=False, fill=True, padding=0)
         self.window.add(box)
 
@@ -62,13 +87,15 @@ class Dialog:
         table.set_col_spacings(5)
         scrolled_window.add(table)
 
-        self.pagination = Gtk.HBox()
-        box.pack_start(self.pagination, expand=False, fill=True, padding=0)
+        pagination_scrolled_window = Gtk.ScrolledWindow()
+        pagination_scrolled_window.set_border_width(10)
+        pagination_scrolled_window.set_policy(
+            Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC
+        )
+        box.pack_start(pagination_scrolled_window, expand=False, fill=True, padding=0)
 
-        for i in range(0, 30):
-            btn = Gtk.Button(str(i + 1))
-            btn.connect("clicked", self.__change_page, i + 1)
-            self.pagination.pack_start(btn, expand=False, fill=False, padding=1)
+        self.pagination = Gtk.HBox()
+        pagination_scrolled_window.add(self.pagination)
 
         self.current_page = 1
         self.images = []
@@ -106,30 +133,42 @@ class Dialog:
         self.images[position].set_from_file(destination)
 
     def __set_background(self, _widget, position):
-        destination = CONFIGS["current_wallpaper"]
+        current_screen = self.screens_combo.get_active_text()
+        destination = CONFIGS["current_wallpaper"].replace(r"screen", current_screen)
         url = self.wallpapers[position]
         response = requests.get(url, stream=True)
         if response.status_code == 200:
             with open(destination, "wb") as f:
                 response.raw.decode_content = True
                 shutil.copyfileobj(response.raw, f)
-        subprocess.run(["feh", "--bg-fill", destination])
+
+        command = ["feh"]
+        for screen in CONFIGS["screens"]:
+            command.append("--bg-fill")
+            command.append(CONFIGS["current_wallpaper"].replace(r"screen", screen))
+
+        print(command)
+        subprocess.run(command)
 
     def __change_page(self, _widget, page):
         self.current_page = page
         self.__search(_widget)
 
     def __search(self, _widget):
-        response = requests.get(
-            URL,
-            params={
-                "apikey": CONFIGS["apikey"],
-                "q": self.entry.get_text(),
-                "page": self.current_page,
-                "purity": CONFIGS["purity"],
-                "categories": CONFIGS["categories"],
-            },
-        )
+        params = {
+            "apikey": CONFIGS["apikey"],
+            "q": self.entry.get_text(),
+            "page": self.current_page,
+            "purity": CONFIGS["purity"],
+            "categories": CONFIGS["categories"],
+        }
+
+        tree_iter = self.ratios_combo.get_active_iter()
+        if tree_iter is not None:
+            model = self.ratios_combo.get_model()
+            params["ratios"] = model[tree_iter][:2][1]
+
+        response = requests.get(URL, params=params)
         data = json.loads(response.content)
 
         i = 0
@@ -139,6 +178,16 @@ class Dialog:
             self.wallpapers.append(entry["path"])
 
             i += 1
+
+        children = self.pagination.get_children()
+        for child in children:
+            self.pagination.remove(child)
+
+        for i in range(0, data["meta"]["last_page"]):
+            btn = Gtk.Button(str(i + 1))
+            btn.connect("clicked", self.__change_page, i + 1)
+            self.pagination.pack_start(btn, expand=False, fill=False, padding=1)
+        self.pagination.show_all()
 
 
 Dialog()

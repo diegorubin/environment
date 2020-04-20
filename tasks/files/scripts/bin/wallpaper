@@ -30,6 +30,7 @@ CONFIGS = {
     ],
 }
 URL = "https://wallhaven.cc/api/v1/search"
+COLLECTIONS_URL = "https://wallhaven.cc/api/v1/collections"
 
 with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
     configs = yaml.load(file, Loader=yaml.FullLoader)
@@ -65,6 +66,18 @@ class Dialog:
         self.ratios_combo = Gtk.ComboBox.new_with_model_and_entry(ratios_store)
         self.ratios_combo.set_entry_text_column(0)
         options_box.pack_start(self.ratios_combo, expand=False, fill=True, padding=0)
+
+        collections_store = Gtk.ListStore(str, str)
+        collections = self.__get_collections()
+        for collection in collections:
+            collections_store.append(collection)
+        self.collections_combo = Gtk.ComboBox.new_with_model_and_entry(
+            collections_store
+        )
+        self.collections_combo.set_entry_text_column(0)
+        options_box.pack_start(
+            self.collections_combo, expand=False, fill=True, padding=0
+        )
 
         # end options
 
@@ -154,7 +167,19 @@ class Dialog:
         self.current_page = page
         self.__search(_widget)
 
+    def __get_collections(self):
+        params = {
+            "apikey": CONFIGS["apikey"],
+        }
+        response = requests.get(COLLECTIONS_URL, params=params)
+        data = json.loads(response.content)
+
+        return [
+            [collection["label"], str(collection["id"])] for collection in data["data"]
+        ]
+
     def __search(self, _widget):
+        url = URL
         params = {
             "apikey": CONFIGS["apikey"],
             "q": self.entry.get_text(),
@@ -168,7 +193,13 @@ class Dialog:
             model = self.ratios_combo.get_model()
             params["ratios"] = model[tree_iter][:2][1]
 
-        response = requests.get(URL, params=params)
+        tree_iter = self.collections_combo.get_active_iter()
+        if tree_iter is not None:
+            model = self.collections_combo.get_model()
+            collection_id = model[tree_iter][:2][1]
+            url = "{}/{}/{}".format(COLLECTIONS_URL, CONFIGS["username"], collection_id)
+
+        response = requests.get(url, params=params)
         data = json.loads(response.content)
 
         i = 0

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pysense=$(think remind live)
+pysense=$(ps aux | grep pysense | grep -v "grep")
 
 if [ "$pysense" = "ok" ]; then
     echo ""

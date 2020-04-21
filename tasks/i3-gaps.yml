@@ -27,6 +27,7 @@
       - xcb-util-devel
       - xcb-util-image
       - xcb-util-image-devel
+      - meld
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: Install Flashfocus
@@ -47,7 +48,5 @@
     dest: "{{destination}}/.config/i3/config"
 - name: copy i3 compton.conf
   copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} group={{user}} mode=0664
-- name: copy i3 wallpaper
-  copy: src=config/wallpapers dest={{destination}}/.config owner={{user}} group={{user}}
 - name: copy dunst config
   copy: src=config/dunst/config dest={{destination}}/.config/dunst/config owner={{user}} group={{user}} mode=0664

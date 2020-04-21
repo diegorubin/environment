@@ -7,6 +7,7 @@
   set number 
   set relativenumber
   set autoread
+  set tw=0
 
   " copy to clipboard
   set clipboard+=unnamedplus

@@ -2,7 +2,7 @@
 
 pysense=$(ps aux | grep pysense | grep -v "grep")
 
-if [ "$pysense" = "ok" ]; then
+if [ -z "$pysense" ]; then
     echo ""
 else
     echo ""

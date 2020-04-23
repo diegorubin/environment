@@ -7,7 +7,6 @@
   set number 
   set relativenumber
   set autoread
-  set tw=0
 
   " copy to clipboard
   set clipboard+=unnamedplus
@@ -139,6 +138,7 @@ call plug#end()
   set smarttab
   set cursorline
   set cursorcolumn
+  set tw=0
 
   set wildignore+=.git/** 
 " }

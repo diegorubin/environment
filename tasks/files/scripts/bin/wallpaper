@@ -268,7 +268,7 @@ class Dialog:
         self.history_list = []
         try:
             with open("{}/.wallhaven/history".format(CONFIGS["home"])) as file:
-                self.history_list = file.readlines()
+                self.history_list = [line.strip() for line in file.readlines()]
 
             for entry in self.history_list:
                 self.__append_history_item(entry.strip())
@@ -278,7 +278,9 @@ class Dialog:
     def __save_history(self, url):
         file = re.sub(r".*?-", "", url)
         wallpaper_id = re.sub(r"\..*", "", file)
-        self.history_list.append(wallpaper_id)
+
+        if wallpaper_id not in self.history_list:
+            self.history_list.append(wallpaper_id)
         with open("{}/.wallhaven/history".format(CONFIGS["home"]), "w") as file:
             file.write("\n".join(self.history_list))
 

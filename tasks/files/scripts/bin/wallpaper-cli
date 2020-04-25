@@ -88,7 +88,7 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         download(entry["path"])
 
     if data["meta"]["last_page"] > current_page:
-        sleep(2)
+        sleep(1.2)
         search(
             query=query,
             current_page=current_page + 1,
@@ -98,4 +98,4 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         )
 
 
-search(colors="ffffff")
+search(colors="ffffff", current_page=300)

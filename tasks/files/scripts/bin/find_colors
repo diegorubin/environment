@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+
+import json
+import os
+from pathlib import Path
+from threading import Thread
+
+import colorgram
+import yaml
+
+CONFIGS = {
+    "home": str(Path.home()),
+}
+
+with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
+    configs = yaml.load(file, Loader=yaml.FullLoader)
+    CONFIGS.update(configs)
+
+FILES_IN_QUEUE = []
+
+
+def process_file(destination):
+    json_destination = "{}.json".format(destination)
+
+    options = {}
+    try:
+        with open(json_destination) as file:
+            saved_options = json.loads(file.read())
+            options.update(saved_options)
+    except:
+        print("file not found: {}".format(json_destination))
+
+    if "colors" not in options:
+        options["colors"] = []
+        colors = colorgram.extract(destination, 6)
+
+        for color in colors:
+            options["colors"].append("#%02x%02x%02x" % (color.rgb))
+
+        with open(json_destination, "w") as file:
+            new_options = json.dumps(options)
+            file.write(new_options)
+            print("saving: {}".format(json_destination))
+    else:
+        print("skipping color analysis")
+
+
+class ExecutionThread(Thread):
+    def __init__(self, destination):
+        Thread.__init__(self)
+        self.destination = destination
+
+    def run(self):
+        process_file(self.destination)
+
+
+def execute_queue():
+    if len(FILES_IN_QUEUE) == 10:
+        threads = []
+        while len(FILES_IN_QUEUE) > 0:
+            thread = ExecutionThread(FILES_IN_QUEUE.pop())
+            thread.start()
+            threads.append(thread)
+
+        for thread in threads:
+            thread.join()
+
+
+for root, dirs, files in os.walk(CONFIGS["destination_wallpapers"]):
+    for file in files:
+        execute_queue()
+        if ".json" not in file:
+            destination = os.path.join(root, file)
+            FILES_IN_QUEUE.append(destination)

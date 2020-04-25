@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+
+import json
+import os.path
+import re
+import shutil
+import subprocess
+from pathlib import Path
+from urllib.request import urlopen
+from time import sleep
+
+import requests
+import yaml
+
+
+CONFIGS = {
+    "home": str(Path.home()),
+    "purity": "100",
+    "categories": "111",
+    "destination_thumbs": "/tmp/",
+    "current_wallpaper": "{}/.wallpaper".format(str(Path.home())),
+    "screens": ["1"],
+    "ratios": [
+        ["wide", "16x9,16x10"],
+        ["ultrawide", "21x9,32x9,48x9"],
+        ["portrait", "9x16"],
+    ],
+}
+
+URL = "https://wallhaven.cc/api/v1/search"
+COLLECTIONS_URL = "https://wallhaven.cc/api/v1/collections"
+WALLPAPER_URL = "https://wallhaven.cc/api/v1/w/"
+
+with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
+    configs = yaml.load(file, Loader=yaml.FullLoader)
+    CONFIGS.update(configs)
+
+
+def get_collections():
+    params = {
+        "apikey": CONFIGS["apikey"],
+    }
+    response = requests.get(COLLECTIONS_URL, params=params)
+    data = json.loads(response.content)
+
+    return [[collection["label"], str(collection["id"])] for collection in data["data"]]
+
+
+def download(url):
+
+    filename = re.sub(r".*?/", "", url)
+    destination = "{}/{}".format(CONFIGS["destination_wallpapers"], filename)
+
+    if not os.path.exists(destination):
+        response = requests.get(url, stream=True)
+        if response.status_code == 200:
+            with open(destination, "wb") as f:
+                response.raw.decode_content = True
+                shutil.copyfileobj(response.raw, f)
+
+
+def search(query=None, current_page=1, ratios=None, collection_id=None, colors=None):
+    url = URL
+    params = {
+        "apikey": CONFIGS["apikey"],
+        "page": current_page,
+        "purity": CONFIGS["purity"],
+        "categories": CONFIGS["categories"],
+    }
+
+    if query is not None:
+        params["q"] = query
+
+    if colors is not None:
+        params["colors"] = colors
+
+    if ratios is not None:
+        params["ratios"] = ratios
+
+    if collection_id is not None:
+        url = "{}/{}/{}".format(COLLECTIONS_URL, CONFIGS["username"], collection_id)
+
+    response = requests.get(url, params=params)
+    data = json.loads(response.content)
+
+    print("downloading page {}/{}".format(current_page, data["meta"]["last_page"]))
+    for entry in data["data"]:
+        download(entry["path"])
+
+    if data["meta"]["last_page"] > current_page:
+        sleep(2)
+        search(
+            query=query,
+            current_page=current_page + 1,
+            ratios=ratios,
+            collection_id=collection_id,
+            colors=colors,
+        )
+
+
+search(colors="ffffff")

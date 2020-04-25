@@ -17,6 +17,9 @@
     - init-project
     - open-project
     - wallpaper
+    - wallpaper-cli
+    - find_attribute
+    - find_colors
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
@@ -25,3 +28,6 @@
     - init-project
     - open-project
     - wallpaper
+    - wallpaper-cli
+    - find_attribute
+    - find_colors

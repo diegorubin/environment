@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+import os
+import yaml
+import json
+import subprocess
+
+from pathlib import Path
+
+CONFIGS = {
+    "home": str(Path.home()),
+}
+
+with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
+    configs = yaml.load(file, Loader=yaml.FullLoader)
+    CONFIGS.update(configs)
+
+MIN_FIRST_COLOR = "#eeeeee"
+MAX_FIRST_COLOR = "#ffffff"
+
+MIN_SECOND_COLOR = "#eeeeee"
+MAX_SECOND_COLOR = "#ffffff"
+
+command = ["eog"]
+for root, dirs, files in os.walk(CONFIGS["destination_wallpapers"]):
+    for file in files:
+        if ".json" in file:
+            destination = os.path.join(root, file)
+
+            options = None
+            with open(destination) as file:
+                options = json.loads(file.read())
+
+            colors = options["colors"]
+            if (MIN_FIRST_COLOR <= colors[0] and colors[0] <= MAX_FIRST_COLOR) and (
+                MIN_SECOND_COLOR <= colors[1] and colors[1] <= MAX_SECOND_COLOR
+            ):
+                command.append("{}".format(destination.replace(".json", "")))
+
+print(command)
+subprocess.run(command)

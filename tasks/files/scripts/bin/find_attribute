@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import os
-import yaml
 import json
+import os
 import subprocess
-
 from pathlib import Path
+
+import yaml
 
 CONFIGS = {
     "home": str(Path.home()),
@@ -15,27 +15,94 @@ with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
     configs = yaml.load(file, Loader=yaml.FullLoader)
     CONFIGS.update(configs)
 
-MIN_FIRST_COLOR = "#eeeeee"
-MAX_FIRST_COLOR = "#ffffff"
 
-MIN_SECOND_COLOR = "#eeeeee"
-MAX_SECOND_COLOR = "#ffffff"
+def get_color_from_position(colors, position):
+    color = {
+        "hex": colors["hex"][position],
+    }
+    color["h"], color["s"], color["l"] = colors["hsl"][position]
+    color["r"], color["g"], color["b"] = colors["rgb"][position]
+    return color
 
-command = ["eog"]
-for root, dirs, files in os.walk(CONFIGS["destination_wallpapers"]):
-    for file in files:
-        if ".json" in file:
-            destination = os.path.join(root, file)
 
-            options = None
-            with open(destination) as file:
-                options = json.loads(file.read())
+def in_range(color, min_values, max_values):
+    result = True
+    for attribute, value in min_values.items():
+        local_result = (
+            value <= color[attribute] and color[attribute] <= max_values[attribute]
+        )
+        result = result and local_result
+    return result
 
-            colors = options["colors"]
-            if (MIN_FIRST_COLOR <= colors[0] and colors[0] <= MAX_FIRST_COLOR) and (
-                MIN_SECOND_COLOR <= colors[1] and colors[1] <= MAX_SECOND_COLOR
-            ):
-                command.append("{}".format(destination.replace(".json", "")))
 
-print(command)
-subprocess.run(command)
+def find_color(color, query):
+    result = True
+    for key, values in query.items():
+        if key == "range":
+            result = result and in_range(color, values["min"], values["max"])
+        elif key == "exact":
+            result = result and color["hex"] == values
+    return result
+
+
+def execute_primary_color(colors, query):
+    color = get_color_from_position(colors, 0)
+    return find_color(color, query)
+
+
+def execute_has_color(colors, query):
+    result = False
+    for index in range(0, len(colors["hex"])):
+        color = get_color_from_position(colors, index)
+        result = result or find_color(color, query)
+    return result
+
+
+def has_conditions(options, query={}):
+    result = True
+    colors = options["colors"]
+    for key, values in query.items():
+        if key == "primary_color":
+            result = result and execute_primary_color(colors, values)
+        elif key == "has_color":
+            for conditions in values:
+                result = result and execute_has_color(colors, conditions)
+    return result
+
+
+def search(directory_root, query):
+    command = ["eog"]
+    for root, _dirs, files in directory_root:
+        for file in files:
+            if ".json" in file:
+                destination = os.path.join(root, file)
+
+                options = None
+                with open(destination) as file:
+                    options = json.loads(file.read())
+
+                if has_conditions(options, query):
+                    command.append("{}".format(destination.replace(".json", "")))
+
+    print(command)
+    subprocess.run(command)
+
+
+# {
+#     "primary_color": {"range": {"min": {"h": 10}, "max": {"h": 25}}},
+#     "has_color": [{"exact": "#7e584b"}],
+# }
+search(
+    os.walk(CONFIGS["wallpapers_storage"]),
+    {
+        "primary_color": {
+            "range": {
+                "min": {"r": 240, "g": 240, "b": 240},
+                "max": {"r": 255, "g": 255, "b": 255},
+            }
+        },
+        "has_color": [
+            {"range": {"min": {"h": 220, "s": 0.6}, "max": {"h": 234, "s": 0.71}}}
+        ],
+    },
+)

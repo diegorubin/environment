@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import colorsys
 import json
 import os
 from pathlib import Path
@@ -31,11 +32,16 @@ def process_file(destination):
         print("file not found: {}".format(json_destination))
 
     if "colors" not in options:
-        options["colors"] = []
+        options["colors"] = {"hex": [], "hsl": [], "rgb": []}
         colors = colorgram.extract(destination, 6)
 
         for color in colors:
-            options["colors"].append("#%02x%02x%02x" % (color.rgb))
+            r, g, b = color.rgb
+            options["colors"]["hex"].append("#%02x%02x%02x" % (color.rgb))
+            options["colors"]["rgb"].append([r, g, b])
+
+            h, l, s = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
+            options["colors"]["hsl"].append([h * 360, s, l])
 
         with open(json_destination, "w") as file:
             new_options = json.dumps(options)
@@ -55,7 +61,7 @@ class ExecutionThread(Thread):
 
 
 def execute_queue():
-    if len(FILES_IN_QUEUE) == 10:
+    if len(FILES_IN_QUEUE) == 24:
         threads = []
         while len(FILES_IN_QUEUE) > 0:
             thread = ExecutionThread(FILES_IN_QUEUE.pop())

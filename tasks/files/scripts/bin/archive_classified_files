@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+
+import re
+import os
+import yaml
+import shutil
+from pathlib import Path
+
+CONFIGS = {
+    "home": str(Path.home()),
+}
+
+with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
+    configs = yaml.load(file, Loader=yaml.FullLoader)
+    CONFIGS.update(configs)
+
+
+def archive():
+    for root, _dirs, files in os.walk(CONFIGS["destination_wallpapers"]):
+        for file in files:
+            if ".json" in file:
+                id_file = file.replace("wallhaven-", "")
+                id_file = re.sub(r"\..*$", "", id_file)
+
+                original_file = file.replace(".json", "")
+
+                options_destination_file = os.path.join(root, file)
+                original_destination_file = os.path.join(root, original_file)
+
+                id1, id2, id3 = [x for x in re.split(r"(\w{2})", id_file) if x]
+
+                destination = "{}/{}/{}/{}".format(
+                    CONFIGS["wallpapers_storage"], id1, id2, id3
+                )
+                Path(destination).mkdir(parents=True, exist_ok=True)
+
+                shutil.move(
+                    original_destination_file,
+                    "{}/{}".format(destination, original_file),
+                )
+                shutil.move(options_destination_file, "{}/{}".format(destination, file))
+
+
+archive()

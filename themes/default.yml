@@ -1,0 +1,5 @@
+---
+- set_fact:
+    theme_name: |
+      Default Theme
+  when: theme == "default"

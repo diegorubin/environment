@@ -46,12 +46,26 @@ def get_collections():
     return [[collection["label"], str(collection["id"])] for collection in data["data"]]
 
 
+def fetch_in_storage(filename):
+    id_file = filename.replace("wallhaven-", "")
+    id_file = re.sub(r"\..*$", "", id_file)
+    id1, id2, id3 = [x for x in re.split(r"(\w{2})", id_file) if x]
+    destination = "{}/{}/{}/{}/{}".format(
+        CONFIGS["wallpapers_storage"], id1, id2, id3, filename
+    )
+    result = os.path.exists(destination)
+    if result:
+        print("skipping wallpaper {} because exists in storage".format(destination))
+    return result
+
+
 def download(url):
 
     filename = re.sub(r".*?/", "", url)
     destination = "{}/{}".format(CONFIGS["destination_wallpapers"], filename)
 
-    if not os.path.exists(destination):
+    exists_in_storage = fetch_in_storage(filename)
+    if not os.path.exists(destination) and not exists_in_storage:
         response = requests.get(url, stream=True)
         if response.status_code == 200:
             with open(destination, "wb") as f:
@@ -98,4 +112,4 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         )
 
 
-search(query="final fantasy", current_page=1)
+search(colors="0099cc", current_page=1)

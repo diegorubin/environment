@@ -1,0 +1,5 @@
+---
+- set_fact:
+    theme_name: |
+      Clean Theme
+  when: theme == "clean"

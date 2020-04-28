@@ -4,8 +4,6 @@
   become_user: "{{user}}"
   environment:
     PATH: "/opt/node/bin:{{ ansible_env.PATH }}"
-  vars:
-    theme: "default"
   tasks:
     - include: tasks/debug.yml
     - include: tasks/packages.yml
@@ -20,3 +18,5 @@
     - include: tasks/conky.yml
     - include: tasks/scripts.yml
     - include: tasks/configs.yml
+    - include: themes/clean.yml
+    - include: themes/default.yml

@@ -112,4 +112,4 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         )
 
 
-search(colors="0099cc", current_page=1)
+search(colors="0066cc", current_page=1)

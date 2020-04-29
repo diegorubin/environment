@@ -2,4 +2,23 @@
 - set_fact:
     theme_name: |
       Default Theme
+    polybar_colors: |
+      ;; Active Colors
+      bg = #c90a0710
+      fg = #fbf7f6
+      ac = #00c0ff
+      mf = #fbf7f6
+      
+      ;; Bars
+      bi = #00c0ff
+      be = #e53935
+      bf = #43a047
+      bn = #43a047
+      bm = #fdd835
+      bd = #e53935
+      
+      trans = #00000000
+      white = #FFFFFF
+      black = #000000
+
   when: theme == "default"

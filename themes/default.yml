@@ -1,7 +1,6 @@
 ---
 - set_fact:
-    theme_name: |
-      Default Theme
+    theme_name: Default Theme
     polybar_colors: |
       ;; Active Colors
       bg = #c90a0710

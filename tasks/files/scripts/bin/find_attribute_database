@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
+from pymongo import MongoClient
 import json
 import os
 import subprocess
 from pathlib import Path
 
 import yaml
+
+MONGO_URL = "mongodb://localhost:27017/"
+CLIENT = MongoClient(MONGO_URL)
+DATABASE = CLIENT["wallpapers"]
+wallpapers = DATABASE.wallpapers
 
 CONFIGS = {
     "home": str(Path.home()),
@@ -72,17 +78,11 @@ def has_conditions(options, query={}):
 
 def search(directory_root, query):
     command = ["eog"]
-    for root, _dirs, files in directory_root:
-        for file in files:
-            if ".json" in file:
-                destination = os.path.join(root, file)
-
-                options = None
-                with open(destination) as file:
-                    options = json.loads(file.read())
-
-                if has_conditions(options, query):
-                    command.append("{}".format(destination.replace(".json", "")))
+    for wallpaper in wallpapers.find({}):
+        if has_conditions(wallpaper["options"], query):
+            command.append(
+                "{}{}".format(CONFIGS["wallpapers_storage"], wallpaper["path"])
+            )
 
     print(command)
     subprocess.run(command)

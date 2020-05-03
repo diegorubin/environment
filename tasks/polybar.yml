@@ -45,12 +45,12 @@
   copy: src=config/rofi dest={{destination}}/.config owner={{user}} group={{user}}
 - name: Copy Polybar Configs
   copy: src=config/polybar dest={{destination}}/.config owner={{user}} group={{user}}
-- name: copy polybar colors 
+- name: copy polybar dark colors 
   template:
-    src: config/polybar/colors.ini.j2
-    dest: "{{destination}}/.config/polybar/colors.ini"
-- name: Copy Launcher Script
-  copy: src=config/polybar/launch.sh dest={{destination}}/.config/polybar owner={{user}} group={{user}} mode=0774
+    src: config/polybar/dark/colors.ini.j2
+    dest: "{{destination}}/.config/polybar/dark/colors.ini"
+- name: Copy Dark Launcher Script
+  copy: src=config/polybar/dark/launch.sh dest={{destination}}/.config/polybar/dark owner={{user}} group={{user}} mode=0774
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
   with_items:

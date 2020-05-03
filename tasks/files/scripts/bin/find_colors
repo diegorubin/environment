@@ -61,7 +61,7 @@ class ExecutionThread(Thread):
 
 
 def execute_queue():
-    if len(FILES_IN_QUEUE) == 24:
+    if len(FILES_IN_QUEUE) == 48:
         threads = []
         while len(FILES_IN_QUEUE) > 0:
             thread = ExecutionThread(FILES_IN_QUEUE.pop())

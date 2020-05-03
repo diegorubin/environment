@@ -205,7 +205,7 @@ bindsym --release Shift+Print exec "maim -o -s {{destination}}/Pictures/screensh
 
 # start programs
 exec_always --no-startup-id feh --bg-fill {{destination}}/.wallpaper.1 --bg-fill {{destination}}/.wallpaper.2 --bg-fill {{destination}}/.wallpaper.3
-exec_always --no-startup-id ~/.config/polybar/{{theme_name}}/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/{{theme}}/launch.sh &
 exec_always --no-startup-id flashfocus &
 exec_always --no-startup-id dunst -config ~/.config/dunst/config &
 

@@ -1,0 +1,23 @@
+---
+- set_fact:
+    theme_name: Clean Red 
+    polybar_colors: |
+      ;; Active Colors
+      bg = #c9fbf7f6
+      fg = #0a0710
+      ac = #e42430
+      mf = #0a0710
+      
+      ;; Bars
+      bi = #e42430
+      be = #43a047
+      bf = #43a047
+      bn = #43a047
+      bm = #fdd835
+      bd = #e53935
+      
+      trans = #00000000
+      white = #FFFFFF
+      black = #000000
+
+  when: theme == "clean_red"

@@ -66,6 +66,7 @@ def download(url):
 
     exists_in_storage = fetch_in_storage(filename)
     if not os.path.exists(destination) and not exists_in_storage:
+        print(destination)
         response = requests.get(url, stream=True)
         if response.status_code == 200:
             with open(destination, "wb") as f:
@@ -112,4 +113,4 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         )
 
 
-search(colors="ffffff", current_page=2043)
+search(colors="ffffff", current_page=973)

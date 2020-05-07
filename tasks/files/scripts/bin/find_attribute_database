@@ -93,6 +93,22 @@ def search(directory_root, query):
 #     "has_color": [{"exact": "#7e584b"}],
 # }
 
+# search(
+#    os.walk(CONFIGS["wallpapers_storage"]),
+#    {
+#        "primary_color": {
+#            "range": {
+#                "min": {"r": 230, "g": 230, "b": 230},
+#                "max": {"r": 255, "g": 255, "b": 255},
+#            }
+#        },
+#        "has_color": [
+#            # hsla(357, 97%, 73%, 1)
+#            # {"range": {"min": {"h": 218, "s": 0.6}, "max": {"h": 236, "s": 0.71}}}
+#            # {"range": {"min": {"h": 350, "s": 0.7}, "max": {"h": 360, "s": 0.8}}}
+#        ],
+#    },
+# )
 search(
     os.walk(CONFIGS["wallpapers_storage"]),
     {
@@ -103,9 +119,7 @@ search(
             }
         },
         "has_color": [
-            # hsla(357, 97%, 73%, 1)
-            {"range": {"min": {"h": 218, "s": 0.6}, "max": {"h": 236, "s": 0.71}}}
-            # {"range": {"min": {"h": 350, "s": 0.7}, "max": {"h": 360, "s": 0.8}}}
+            {"range": {"min": {"h": 295, "s": 0.1}, "max": {"h": 310, "s": 0.80}}}
         ],
     },
 )

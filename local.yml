@@ -5,7 +5,7 @@
   environment:
     PATH: "/opt/node/bin:{{ ansible_env.PATH }}"
   tasks:
-    - include: themes/clean.yml
+    - include: themes/clean_red.yml
     - include: themes/default.yml
     - include: tasks/debug.yml
     - include: tasks/packages.yml

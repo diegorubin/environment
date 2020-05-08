@@ -1,6 +1,15 @@
 ---
 - set_fact:
     theme_name: Clean Red 
+    i3_colors: |
+      client.focused          #e42430     #e42430     #0a0710  #000000       #e42430
+      client.focused_inactive #e42430     #e42430     #fbf7f6  #000000       #e42430
+      client.unfocused        #e42430     #e42430     #fbf7f6  #000000       #e42430
+      client.urgent           #e42430     #ff0000     #fbf7f6  #ff0000       #e42430
+      client.placeholder      #e42430     #e42430     #fbf7f6  #000000       #e42430
+      
+      client.background       #e42430
+
     polybar_colors: |
       ;; Active Colors
       bg = #c9fbf7f6

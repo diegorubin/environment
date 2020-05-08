@@ -1,6 +1,15 @@
 ---
 - set_fact:
     theme_name: Default Theme
+    i3_colors: |
+      client.focused          #039be5     #039be5     #0a0710  #000000       #039be5
+      client.focused_inactive #039be5     #039be5     #fbf7f6  #000000       #039be5
+      client.unfocused        #039be5     #039be5     #fbf7f6  #000000       #039be5
+      client.urgent           #039be5     #ff0000     #fbf7f6  #ff0000       #039be5
+      client.placeholder      #039be5     #039be5     #fbf7f6  #000000       #039be5
+      
+      client.background       #039be5
+
     polybar_colors: |
       ;; Active Colors
       bg = #c90a0710

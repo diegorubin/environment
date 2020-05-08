@@ -109,6 +109,7 @@ call plug#begin()
   Plug 'christophermca/meta5'
   Plug 'tomasr/molokai'
   Plug 'morhetz/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
 " }
 
 " V Plugins {
@@ -286,16 +287,6 @@ call plug#end()
   let g:gutentags_cache_dir='~/.tags'
 " }
 
-" Theme Options {
-  colorscheme molokai
-  let g:airline_theme='molokai'
-  set guifont=Fantasque\ Sans\ Mono\ 12
-  if exists('g:GtkGuiLoaded')
-  else
-    hi Normal guibg=NONE ctermbg=NONE
-  end
-" }
-
 " Window Configurations {
   let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
 " }
@@ -323,6 +314,10 @@ call plug#end()
   if exists('$OPEN_TREE')
     autocmd VimEnter * NERDTree
   end
+" }
+
+" Load private settings {
+  source ~/.config/nvim/theme.vim
 " }
 
 " Load private settings {

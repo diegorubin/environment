@@ -18,6 +18,8 @@
   copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim owner={{user}} group={{user}} mode=0664
 - name: copy coc-settings.json
   copy: src=config/nvim/coc-settings.json dest={{destination}}/.config/nvim owner={{user}} group={{user}} mode=0664
+- name: copy theme config
+  copy: src=config/nvim/themes/{{theme}}.vim dest={{destination}}/.config/nvim/theme.vim owner={{user}} group={{user}} mode=0664
 - pip:
     name: neovim
     extra_args: --user

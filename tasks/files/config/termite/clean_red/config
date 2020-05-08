@@ -5,7 +5,7 @@ scrollback_lines = -1
 [colors]
 foreground          = #0a0710
 foreground_bold     = #000000
-cursor              = #fbf7f6
+cursor              = #222222
 cursor_foreground   = #555555
 background          = rgba(251, 247, 246, 0.8)
 

@@ -6,7 +6,7 @@ scrollback_lines = -1
 foreground          = #0a0710
 foreground_bold     = #000000
 cursor              = #fbf7f6
-cursor_foreground   = #cccccc
+cursor_foreground   = #555555
 background          = rgba(251, 247, 246, 0.8)
 
 # 16 color space
@@ -30,8 +30,8 @@ color3  = #f4bf75
 color11 = #f4bf75
 
 # Blue
-color4  = #66d9ef
-color12 = #66d9ef
+color4  = #021ff9
+color12 = #021ff9
 
 # Purple
 color5  = #ae81ff

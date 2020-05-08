@@ -1,3 +1,5 @@
+set guifont=Fantasque\ Sans\ Mono\ 12
+
 set t_Co=256
 
 set background=light
@@ -10,3 +12,11 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
+
+if exists('g:GtkGuiLoaded')
+else
+  hi Normal guibg=NONE ctermbg=NONE
+end
+
+let g:airline_theme='papercolor'
+let g:lightline = { 'colorscheme': 'PaperColor' }

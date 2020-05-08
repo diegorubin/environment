@@ -22,8 +22,8 @@ color1  = #e42430
 color9  = #e42430
 
 # Green
-color2  = #a6e22e
-color10 = #a6e22e
+color2  = #06e22e
+color10 = #06e22e
 
 # Yellow
 color3  = #f4bf75
@@ -38,8 +38,8 @@ color5  = #ae81ff
 color13 = #ae81ff
 
 # Teal
-color6  = #a1efe4
-color14 = #a1efe4
+color6  = #00efe0
+color14 = #00efe0
 
 # Extra colors
 color16 = #fd971f

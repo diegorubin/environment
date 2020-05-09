@@ -22,24 +22,24 @@ color1  = #e42430
 color9  = #e42430
 
 # Green
-color2  = #06e22e
-color10 = #06e22e
+color2  = #a6e22e
+color10 = #a6e22e
 
 # Yellow
 color3  = #f4bf75
 color11 = #f4bf75
 
 # Blue
-color4  = #021ff9
-color12 = #021ff9
+color4  = #66d9ef
+color12 = #66d9ef
 
 # Purple
 color5  = #ae81ff
 color13 = #ae81ff
 
 # Teal
-color6  = #00efe0
-color14 = #00efe0
+color6  = #a1efe4
+color14 = #a1efe4
 
 # Extra colors
 color16 = #fd971f

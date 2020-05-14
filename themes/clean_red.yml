@@ -1,6 +1,9 @@
 ---
 - set_fact:
     theme_name: Clean Red 
+    dunst_frame_color: "#e42430"
+    dunst_background : "#fbf7f6"
+    dunst_urgency_foreground : "#191311"
     i3_colors: |
       client.focused          #e42430     #e42430     #0a0710  #000000       #e42430
       client.focused_inactive #e42430     #e42430     #fbf7f6  #000000       #e42430

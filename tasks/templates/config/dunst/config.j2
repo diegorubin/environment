@@ -24,7 +24,7 @@
     horizontal_padding = 14
 
     # The frame color and width of the notification
-    frame_color = "#039be5"
+    frame_color = "{{dunst_frame_color}}"
     frame_width = 2
     line_height = 0
 
@@ -70,17 +70,17 @@
 
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
-    background = "#191311"
-    foreground = "#039be5"
+    background = "{{dunst_background}}"
+    foreground = "{{dunst_frame_color}}"
     timeout = 4
 [urgency_normal]
-    background = "#191311"
-    foreground = "#039be5"
+    background = "{{dunst_background}}"
+    foreground = "{{dunst_frame_color}}"
     timeout = 6
 [urgency_critical]
     background = "#cc2421"
-    foreground = "#fbf7f6"
-    frame_color = "#039be5"
+    foreground = "{{dunst_urgency_foreground}}"
+    frame_color = "{{dunst_frame_color}}"
     timeout = 5
 # vim:ft=cfg
 

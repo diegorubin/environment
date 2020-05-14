@@ -49,4 +49,6 @@
 - name: copy i3 compton.conf
   copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} group={{user}} mode=0664
 - name: copy dunst config
-  copy: src=config/dunst/config dest={{destination}}/.config/dunst/config owner={{user}} group={{user}} mode=0664
+  template:
+    src: config/dunst/config.j2
+    dest: "{{destination}}/.config/dunst/config"

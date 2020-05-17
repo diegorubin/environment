@@ -4,6 +4,11 @@
     dunst_frame_color: "#e42430"
     dunst_background : "#191311"
     dunst_urgency_foreground : "#fbf7f6"
+    rofi_background: "#1d2021c5"
+    rofi_background_alt: "#e4243098"
+    rofi_text_color: "#fbf7f6"
+    rofi_primary: "#e42430"
+    rofi_urgent: "#e53935"
     i3_colors: |
       client.focused          #e42430     #e42430     #0a0710  #000000       #e42430
       client.focused_inactive #e42430     #e42430     #fbf7f6  #000000       #e42430

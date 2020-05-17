@@ -17,6 +17,7 @@
     - include: tasks/fonts.yml
     - include: tasks/i3-gaps.yml
     - include: tasks/polybar.yml
+    - include: tasks/rofi.yml
     - include: tasks/user.yml
     - include: tasks/conky.yml
     - include: tasks/scripts.yml

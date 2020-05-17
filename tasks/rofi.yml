@@ -1,0 +1,7 @@
+---
+- name: Copy Rofi Configs
+  copy: src=config/rofi dest={{destination}}/.config owner={{user}} group={{user}}
+- name: copy default configs
+  template:
+    src: config/rofi/config.rasi.j2
+    dest: "{{destination}}/.config/rofi/config.rasi"

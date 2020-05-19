@@ -1,0 +1,20 @@
+---
+- name: Check for flutter installation
+  stat: path=/opt/flutter
+  register: flutter
+- name: Download Flutter
+  become_user: root
+  command: "curl -fLo /opt/flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.17.1-stable.tar.xz"
+  when: not flutter.stat.exists
+- name: Extract Flutter
+  become_user: root
+  command: "tar xf /opt/flutter.tar.xz -C /opt"
+  when: not flutter.stat.exists
+- name: Create Link for Flutter
+  become_user: root
+  command: "ln -s /opt/flutter_linux_1.17.1-stable /opt/flutter"
+  when: not flutter.stat.exists
+- name: Change Owner for Node
+  become_user: root
+  command: "chown -R {{user}} /opt/flutter"
+  when: not flutter.stat.exists

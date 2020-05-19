@@ -22,3 +22,4 @@
     - include: tasks/conky.yml
     - include: tasks/scripts.yml
     - include: tasks/configs.yml
+    - include: tasks/flutter.yml

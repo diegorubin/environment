@@ -69,6 +69,11 @@ call plug#begin()
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " }
 
+" FlutterPlugins
+  Plug 'dart-lang/dart-vim-plugin'
+  Plug 'thosakwe/vim-flutter'
+" }
+
 " JavaPlugins {
   Plug 'artur-shaik/vim-javacomplete2'
 " }

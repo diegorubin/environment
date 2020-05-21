@@ -42,6 +42,7 @@ call plug#begin()
   " Snippets
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
+  Plug 'kristijanhusak/vim-carbon-now-sh'
   " Syntaxe checking on save
   Plug 'neomake/neomake'
   " Tagbar

@@ -16,7 +16,7 @@ alias k=kubectl
 
 # Screen functions
 home_screen_layout() {
-  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --auto --left-of eDP-1-1 --output DP-1-1 --auto --left-of HDMI-0 --rotate left
+  xrandr --output eDP-1-1  --auto --output HDMI-0 --primary --auto --left-of eDP-1-1 --output DP-1-1 --auto --above HDMI-0
 }
 
 work_screen_layout() {

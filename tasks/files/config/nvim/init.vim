@@ -7,6 +7,8 @@
   set number 
   set relativenumber
   set autoread
+  set undofile
+  set undodir="~/.vim/undo/"
 
   " copy to clipboard
   set clipboard+=unnamedplus
@@ -21,6 +23,8 @@ call plug#begin()
   Plug 'sbdchd/neoformat'
   " Colors
   Plug 'norcalli/nvim-colorizer.lua'
+  " Debugger
+  Plug 'puremourning/vimspector', {'for': ['java']}
   " Format tables
   Plug 'godlygeek/tabular'
   " Git integration
@@ -151,6 +155,12 @@ call plug#end()
 " }
 
 " COC {
+  let g:coc_global_extensions = [
+    \ 'coc-java',
+    \ 'coc-snippets',
+    \ 'coc-java-debug',
+    \ 'coc-lists'
+    \ ]
 " }  
 
 " Remap keys for gotos
@@ -313,6 +323,10 @@ call plug#end()
   " Windows {
     map <C-t> :tabNext<CR>
     map <leader>p :NERDTreeToggle<CR>
+    noremap <down> :resize +2<Cr>
+    noremap <up> :resize -2<cr>
+    noremap <right> :vertical resize +2<CR>
+    noremap <left> :vertical resize -2<CR>
   " }
 " }
 

@@ -20,6 +20,7 @@
     - wallpaper-cli
     - find_attribute
     - find_colors
+    - change-java-version
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
@@ -31,3 +32,4 @@
     - wallpaper-cli
     - find_attribute
     - find_colors
+    - change-java-version

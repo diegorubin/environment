@@ -1,0 +1,13 @@
+#!/bin/bash
+
+VERSION_8="/opt/jdk1.8.0_221"
+VERSION_11="/opt/jdk-11.0.6"
+
+COMPLETE="VERSION_$1"
+
+VERSION="${!COMPLETE}"
+
+echo "java -> $VERSION"
+
+sudo rm -rf /opt/java
+sudo ln -s $VERSION /opt/java

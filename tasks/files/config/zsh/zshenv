@@ -4,6 +4,7 @@ export EDITOR=nvim
 export PATH="/opt/java/bin:$PATH"
 export PATH="$PATH:/opt/node/bin"
 export PATH="$PATH:/opt/flutter/bin"
+export PATH="$PATH:/opt/gradle/bin"
 export PATH="$PATH:/opt/maven/bin"
 export PATH="$PATH:/opt/istio/bin"
 export PATH="$PATH:$HOME/.local/bin"

@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+import dbus
+import gi
+from gi.repository import Gtk
+
+gi.require_version("Gtk", "3.0")
+
+
+def show_in_completion(completion, current_value, item):
+    value = completion.get_model()[item][0].lower()
+    return current_value.lower() in value
+
+
+class Dialog(Gtk.Dialog):
+    def __init__(self, question):
+        Gtk.Dialog.__init__(
+            self,
+            "Nova tarefa",
+            None,
+            0,
+            (
+                Gtk.STOCK_CANCEL,
+                Gtk.ResponseType.CANCEL,
+                Gtk.STOCK_OK,
+                Gtk.ResponseType.OK,
+            ),
+        )
+
+        self.set_default_size(150, 100)
+
+        label = Gtk.Label(question)
+
+        self.entry = Gtk.Entry()
+        self.entry.set_activates_default(True)
+        self.__build_autocomplete()
+        self.entry.set_completion(self.completion)
+        self.completion.complete()
+
+        ok_button = self.get_widget_for_response(response_id=Gtk.ResponseType.OK)
+        ok_button.set_can_default(True)
+        ok_button.grab_default()
+        ok_button.connect("clicked", self.on_button_clicked)
+
+        cancel_button = self.get_widget_for_response(
+            response_id=Gtk.ResponseType.CANCEL
+        )
+        cancel_button.connect("clicked", self.on_button_clicked)
+
+        box = self.get_content_area()
+        box.add(label)
+        box.add(self.entry)
+        self.show_all()
+        Gtk.main()
+
+    def on_button_clicked(self, widget):
+        self.hide()
+        Gtk.main_quit()
+
+    def __build_autocomplete(self):
+        self.liststore = Gtk.ListStore(str)
+        self.completion = Gtk.EntryCompletion()
+        self.completion.set_model(self.liststore)
+        self.completion.set_text_column(0)
+        self.completion.set_match_func(show_in_completion)
+
+        with open("/home/diegorubin/.opened_tasks") as tasks:
+            line = tasks.readline()
+            while line:
+                self.liststore.append((line[:-1],))
+                line = tasks.readline()
+
+        with open("/home/diegorubin/.pessoas") as tasks:
+            line = tasks.readline()
+            while line:
+                l = "[APOIO] - Conversa com {}".format(line[:-1])
+                self.liststore.append((l,))
+                line = tasks.readline()
+
+    def value(self):
+        return self.entry.get_text()
+
+
+dialog = Dialog("Nome da nova tarefa:")
+task = dialog.value()
+
+bus = dbus.SessionBus()
+remote_object = bus.get_object("com.diegorubin.Gnomato", "/com/diegorubin/Gnomato")
+
+dbus_interface = "com.diegorubin.Gnomato"
+
+exists = remote_object.TaskExists("HOJE", task, dbus_interface=dbus_interface)
+
+if exists == "false":
+    remote_object.CreateTask("HOJE", task, dbus_interface=dbus_interface)

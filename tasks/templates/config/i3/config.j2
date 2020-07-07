@@ -188,6 +188,7 @@ bindsym $mod+b exec setxkbmap -layout us
 bindsym $mod+Shift+b exec setxkbmap -layout us -variant intl
 
 bindsym $mod+o exec {{destination}}/.scripts/bin/open-ssh
+bindsym $mod+c exec {{destination}}/.scripts/bin/create-task
 
 # media
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause

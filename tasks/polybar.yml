@@ -61,3 +61,4 @@
     - player-mpris-simple.sh
     - pysense-isrunning.sh
     - nextevent.sh
+    - gnomato-log.sh

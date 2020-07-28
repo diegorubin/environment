@@ -305,6 +305,9 @@ call plug#end()
 
 " Window Configurations {
   let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
+
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#branch#enabled = 0
 " }
 
 " Map Options {

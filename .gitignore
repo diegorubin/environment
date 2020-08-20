@@ -1,3 +1,4 @@
 .nproject
+.vagrant
 tasks/files/config/conky/spotify/current
 tasks/files/config/conky/spotify/covers

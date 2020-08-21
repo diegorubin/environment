@@ -22,6 +22,8 @@
       - xcb-util-wm-devel
       - xcb-util-cursor-devel
       - xcb-util-xrm-devel
+      - jsoncpp
+      - jsoncpp-devel
     state: latest
   when: ansible_distribution == 'Fedora' 
 - name: Install lyrics package globally.
@@ -56,7 +58,6 @@
     - lyrics
     - powermenu
     - translate_lyrics
-    - menu
     - dropbox-isrunning.sh
     - player-mpris-simple.sh
     - pysense-isrunning.sh

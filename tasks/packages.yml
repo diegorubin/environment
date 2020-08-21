@@ -1,3 +1,16 @@
+---
+- name: "[Fedora] Enable the RPM Fusion repository free"
+  become_user: root
+  dnf:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_distribution_major_version}}.noarch.rpm"
+    state: present
+  when: ansible_distribution == 'Fedora'
+- name: "[Fedora] Enable the RPM Fusion repository nonfree"
+  become_user: root
+  dnf:
+    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_distribution_major_version}}.noarch.rpm"
+    state: present
+  when: ansible_distribution == 'Fedora'
 - name: "[Fedora] Update System"
   become_user: root
   dnf:

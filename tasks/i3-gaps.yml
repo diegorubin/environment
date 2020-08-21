@@ -1,13 +1,8 @@
 ---
-- name: "[Fedora] Enable Fedora Copr for i3-gaps"
-  become_user: root
-  command: "dnf copr enable -y nforro/i3-gaps"
-  when: ansible_distribution == 'Fedora' 
-- name: "[Fedora] Install i3-gaps"
+- name: "[Fedora] Install i3-gaps dependencies"
   become_user: root
   dnf:
     name:
-      - i3-gaps
       - compton
       - dunst
       - maim
@@ -27,9 +22,28 @@
       - xcb-util-devel
       - xcb-util-image
       - xcb-util-image-devel
-      - meld
+      - startup-notification
+      - startup-notification-devel
+      - xcb-util-cursor-devel
+      - xcb-util-keysyms-devel
+      - xcb-util-wm-devel
+      - xcb-util-xrm-devel
+      - yajl
+      - yajl-devel
     state: latest
   when: ansible_distribution == 'Fedora'
+- name: Clone i3-gaps repository
+  git:
+    repo: 'https://github.com/Airblader/i3.git'
+    dest: /tmp/i3
+  when: ansible_distribution == 'Fedora' 
+- name: copy i3 build script
+  copy: src=build/build-i3.sh dest=/tmp/i3 owner={{user}} group={{user}} mode=0774
+  when: ansible_distribution == 'Fedora' 
+- name: Make and Install i3-gaps
+  become_user: root
+  command: "/tmp/i3/build-i3.sh"
+  when: ansible_distribution == 'Fedora' 
 - name: Install Flashfocus
   become_user: root
   pip:

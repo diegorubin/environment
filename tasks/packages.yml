@@ -49,3 +49,38 @@
       - aspell-pt_BR
     state: latest
   when: ansible_distribution == 'Fedora'
+- name: "[Ubuntu] Install System Packages"
+  become_user: root
+  apt:
+    update_cache: yes
+    pkg:
+      - htop
+      - fonts-powerline
+      - tidy
+      - autoconf
+      - gitk
+      - xscreensaver
+      - cmake
+      - build-essential
+      - g++
+      - astyle
+      - conky
+      - xdotool
+      - pavucontrol
+      - automake
+      - python3-dev
+      - python3-pip
+      - python-pip
+      - libgtkmm-3.0-dev
+      - libsqlite3-dev
+      - libnotify-dev
+      - intltool
+      - libboost1.65-all-dev
+      - blueman
+      - cppcheck
+      - uncrustify
+      - meld
+      - aspell
+      - aspell-pt-br
+    state: latest
+  when: ansible_distribution == 'Ubuntu'

@@ -23,6 +23,10 @@ sudo ansible-pull -e user=<user> -e destination=<local dir> -e theme=default -U 
 
 ## Content
 
+### TODO
+
+- [Ubuntu] Install ripgrep
+
 ### Done
 
 - NeoVim (with plug)

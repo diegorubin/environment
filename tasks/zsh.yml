@@ -5,7 +5,14 @@
     name:
       - zsh
     state: latest
-  when: ansible_distribution == 'Fedora' 
+  when: ansible_distribution == 'Fedora'
+- name: "[Ubuntu] Install zsh"
+  become_user: root
+  apt:
+    pkg:
+      - zsh
+    state: latest
+  when: ansible_distribution == 'Ubuntu'
 - name: Check for oh-my-zsh installation
   stat: path={{destination}}/.oh-my-zsh
   register: ohmyzsh

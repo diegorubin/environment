@@ -3,11 +3,6 @@
   become_user: root
   dnf:
     name:
-      - compton
-      - dunst
-      - maim
-      - feh
-      - rofi
       - cairo-devel
       - libev
       - libev-devel
@@ -36,14 +31,32 @@
   git:
     repo: 'https://github.com/Airblader/i3.git'
     dest: /tmp/i3
-  when: ansible_distribution == 'Fedora' 
+  when: ansible_distribution == 'Fedora'
 - name: copy i3 build script
   copy: src=build/build-i3.sh dest=/tmp/i3 owner={{user}} group={{user}} mode=0774
-  when: ansible_distribution == 'Fedora' 
+  when: ansible_distribution == 'Fedora'
 - name: Make and Install i3-gaps
   become_user: root
   command: "/tmp/i3/build-i3.sh"
-  when: ansible_distribution == 'Fedora' 
+  when: ansible_distribution == 'Fedora'
+- name: "[Ubuntu] Install ppa to i3-gaps"
+  become_user: root
+  apt_repository:
+    repo: ppa:kgilmer/speed-ricer
+  when: ansible_distribution == 'Ubuntu'
+- name: "[Ubuntu] Install i3-gaps"
+  become_user: root
+  apt:
+    update_cache: yes
+    pkg:
+      - i3-gaps
+      - compton
+      - dunst
+      - maim
+      - feh
+      - rofi
+    state: latest
+  when: ansible_distribution == 'Ubuntu'
 - name: Install Flashfocus
   become_user: root
   pip:

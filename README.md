@@ -7,11 +7,17 @@ My Environment
 
 This project uses ansible to install configurations.
 
+Supported distros: 
+
+[![Fedora Logo](https://distrowatch.com/images/yvzhuwbpy/fedora.png)](https://distrowatch.com/table.php?distribution=fedora)
+[![Ubuntu Logo](https://distrowatch.com/images/yvzhuwbpy/ubuntu.png)](https://distrowatch.com/table.php?distribution=ubuntu)
+
+
 ## Screenshots
 
 ![NeoVim](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/nvim.png)
 
-![Conky](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/conky.png)
+![Desktop](https://raw.githubusercontent.com/diegorubin/environment/master/screenshots/desktop.png)
 
 
 ## Execution

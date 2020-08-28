@@ -2,8 +2,8 @@
 - set_fact:
     theme_name: Default Theme
     dunst_frame_color: "#00c0ff"
-    dunst_background : "#191311"
-    dunst_urgency_foreground : "#fbf7f6"
+    dunst_background: "#191311"
+    dunst_urgency_foreground: "#fbf7f6"
     rofi_background: "#1d2021c5"
     rofi_background_alt: "#035be598"
     rofi_text_color: "#fbf7f6"

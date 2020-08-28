@@ -2,3 +2,9 @@
 - name: "Ansible Distribution"
   debug:
     msg: "The operating system is {{ ansible_distribution }}"
+- name: "Selected theme"
+  debug:
+    msg: "The current theme is {{ theme }}"
+- name: "Main monitor"
+  debug:
+    msg: "{{ main_monitor }}"

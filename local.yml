@@ -5,10 +5,10 @@
   environment:
     PATH: "/opt/node/bin:{{ ansible_env.PATH }}"
   tasks:
+    - include: tasks/debug.yml
     - include: themes/clean_red.yml
     - include: themes/dark_red.yml
     - include: themes/default.yml
-    - include: tasks/debug.yml
     - include: tasks/packages.yml
     - include: tasks/node.yml
     - include: tasks/termite.yml

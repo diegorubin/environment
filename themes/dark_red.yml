@@ -1,9 +1,9 @@
 ---
 - set_fact:
-    theme_name: Dark Red 
+    theme_name: Dark Red
     dunst_frame_color: "#e42430"
-    dunst_background : "#191311"
-    dunst_urgency_foreground : "#fbf7f6"
+    dunst_background: "#191311"
+    dunst_urgency_foreground: "#fbf7f6"
     rofi_background: "#1d2021c5"
     rofi_background_alt: "#e4243098"
     rofi_text_color: "#fbf7f6"

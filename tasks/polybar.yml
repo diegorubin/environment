@@ -25,7 +25,36 @@
       - jsoncpp
       - jsoncpp-devel
     state: latest
-  when: ansible_distribution == 'Fedora' 
+  when: ansible_distribution == 'Fedora'
+- name: "[Ubuntu] Install dependencies for polybar"
+  become_user: root
+  apt:
+    update_cache: yes
+    pkg:
+      - cmake
+      - cmake-data
+      - libcairo2-dev
+      - libxcb1-dev
+      - libxcb-ewmh-dev
+      - libxcb-icccm4-dev
+      - libxcb-image0-dev
+      - libxcb-randr0-dev
+      - libxcb-util0-dev
+      - libxcb-xkb-dev
+      - libxcb-composite0-dev
+      - pkg-config
+      - python-xcbgen
+      - xcb-proto
+      - libxcb-xrm-dev
+      - libasound2-dev
+      - libmpdclient-dev
+      - libiw-dev
+      - libcurl4-openssl-dev
+      - libpulse-dev
+      - libjsoncpp1
+      - libjsoncpp-dev
+    state: latest
+  when: ansible_distribution == 'Ubuntu'
 - name: Install lyrics package globally.
   become_user: root
   npm:
@@ -35,20 +64,25 @@
   git:
     repo: 'https://github.com/polybar/polybar.git'
     dest: /tmp/polybar
-  when: ansible_distribution == 'Fedora' 
 - name: copy polybar build script
   copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} group={{user}} mode=0774
-  when: ansible_distribution == 'Fedora' 
 - name: Make and Install Polybar
   become_user: root
   command: "/tmp/polybar/build-polybar.sh"
-  when: ansible_distribution == 'Fedora' 
 - name: Copy Polybar Configs
   copy: src=config/polybar dest={{destination}}/.config owner={{user}} group={{user}}
-- name: copy polybar default colors 
+- name: copy polybar default colors
   template:
     src: config/polybar/default/colors.ini.j2
     dest: "{{destination}}/.config/polybar/default/colors.ini"
+- name: copy polybar top menu
+  template:
+    src: config/polybar/default/top.ini.j2
+    dest: "{{destination}}/.config/polybar/default/top.ini"
+- name: copy polybar bottom menu
+  template:
+    src: config/polybar/default/bottom.ini.j2
+    dest: "{{destination}}/.config/polybar/default/bottom.ini"
 - name: Copy Default Launcher Script
   copy: src=config/polybar/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} group={{user}} mode=0774
 - name: Change scripts permission

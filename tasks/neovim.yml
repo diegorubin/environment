@@ -10,6 +10,19 @@
       - neovim
     state: latest
   when: ansible_distribution == 'Fedora'
+- name: "[Ubuntu] Install ppa to neovim"
+  become_user: root
+  apt_repository:
+    repo: ppa:neovim-ppa/stable
+  when: ansible_distribution == 'Ubuntu'
+- name: "[Ubuntu] Install neovim from ppa"
+  become_user: root
+  apt:
+    update_cache: yes
+    pkg:
+      - neovim
+    state: latest
+  when: ansible_distribution == 'Ubuntu'
 - name: Create NeoVim Base
   command: "mkdir -p {{destination}}/.config/nvim/"
 - name: Install Plug for NeoVim Plugins

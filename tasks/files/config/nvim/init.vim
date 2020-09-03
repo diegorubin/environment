@@ -302,6 +302,7 @@ call plug#end()
 
 " Tags {
   let g:gutentags_cache_dir='~/.tags'
+  let g:gutentags_ctags_exclude=['node_modules']
 " }
 
 " Window Configurations {

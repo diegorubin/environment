@@ -4,13 +4,7 @@
   copy:
     src: "bin/{{item}}"
     dest: "/usr/bin/{{item}}"
-  with_items:
-    - lock
-    - set_playback
-    - unset_playback
-- name: Change scripts permission
-  become_user: root
-  command: "chmod +x /usr/bin/{{item}}"
+    mode: "733"
   with_items:
     - lock
     - set_playback

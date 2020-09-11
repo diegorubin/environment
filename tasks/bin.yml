@@ -4,7 +4,7 @@
   copy:
     src: "bin/{{item}}"
     dest: "/usr/bin/{{item}}"
-    mode: "733"
+    mode: "755"
   with_items:
     - lock
     - set_playback

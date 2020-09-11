@@ -20,5 +20,6 @@
     - include: tasks/rofi.yml
     - include: tasks/conky.yml
     - include: tasks/scripts.yml
+    - include: tasks/bin.yml
     - include: tasks/configs.yml
     - include: tasks/flutter.yml

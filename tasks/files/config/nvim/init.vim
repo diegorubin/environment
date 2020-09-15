@@ -205,6 +205,7 @@ call plug#end()
     autocmd BufWritePre * Neoformat
   augroup END
   let g:neoformat_enabled_jinja = []
+  let g:neoformat_enabled_csv = []
 " }
 
 " Neosnippet Options {

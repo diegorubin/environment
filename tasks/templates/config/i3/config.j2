@@ -190,6 +190,9 @@ bindsym $mod+Shift+b exec setxkbmap -layout us -variant intl
 bindsym $mod+o exec {{destination}}/.scripts/bin/open-ssh
 bindsym $mod+c exec {{destination}}/.scripts/bin/create-task
 
+bindsym $mod+t exec --no-startup-id termite -e {{destination}}/.cargo/bin/navi --role floating_term
+for_window [window_role=floating_term] floating enable
+
 # media
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next

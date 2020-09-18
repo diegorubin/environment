@@ -61,6 +61,10 @@
   become_user: root
   pip:
     name: flashfocus
+- name: Install i3-resurrect
+  become_user: root
+  pip:
+    name: i3-resurrect
 - name: Creates i3 config directory
   file:
     path: "{{destination}}/.config/i3"

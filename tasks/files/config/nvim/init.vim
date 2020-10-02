@@ -206,6 +206,7 @@ call plug#end()
   augroup END
   let g:neoformat_enabled_jinja = []
   let g:neoformat_enabled_csv = []
+  let g:neoformat_enabled_scss = []
 " }
 
 " Neosnippet Options {

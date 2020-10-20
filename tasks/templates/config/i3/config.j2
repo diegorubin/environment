@@ -32,7 +32,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+q kill
@@ -190,7 +190,7 @@ bindsym $mod+Shift+b exec setxkbmap -layout us -variant intl
 bindsym $mod+o exec {{destination}}/.scripts/bin/open-ssh
 bindsym $mod+c exec {{destination}}/.scripts/bin/create-task
 
-bindsym $mod+t exec --no-startup-id termite -e {{destination}}/.cargo/bin/navi --role floating_term
+bindsym $mod+t exec --no-startup-id terminator -e {{destination}}/.cargo/bin/navi --role floating_term
 for_window [window_role=floating_term] floating enable
 
 # media

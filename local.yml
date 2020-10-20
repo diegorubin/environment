@@ -12,6 +12,7 @@
     - include: tasks/packages.yml
     - include: tasks/node.yml
     - include: tasks/termite.yml
+    - include: tasks/terminator.yml
     - include: tasks/zsh.yml
     - include: tasks/neovim.yml
     - include: tasks/fonts.yml

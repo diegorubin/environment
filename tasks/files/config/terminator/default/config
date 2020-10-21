@@ -1,5 +1,7 @@
 [global_config]
 [keybindings]
+  new_tab = <Primary><Shift>i
+  new_window = <Primary><Shift>t
 [profiles]
   [[default]]
     icon_bell = False

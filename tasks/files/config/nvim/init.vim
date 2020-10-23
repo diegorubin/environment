@@ -45,6 +45,7 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'jremmen/vim-ripgrep'
   " Snippets
+  Plug 'honza/vim-snippets'
   Plug 'kristijanhusak/vim-carbon-now-sh'
   " Syntaxe checking on save
   Plug 'neomake/neomake'

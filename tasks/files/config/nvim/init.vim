@@ -25,6 +25,7 @@ call plug#begin()
   Plug 'norcalli/nvim-colorizer.lua'
   " Debugger
   Plug 'puremourning/vimspector', {'for': ['java']}
+  Plug 'metakirby5/codi.vim'
   " Format tables
   Plug 'godlygeek/tabular'
   " Git integration
@@ -44,8 +45,6 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'jremmen/vim-ripgrep'
   " Snippets
-  Plug 'Shougo/neosnippet.vim'
-  Plug 'Shougo/neosnippet-snippets'
   Plug 'kristijanhusak/vim-carbon-now-sh'
   " Syntaxe checking on save
   Plug 'neomake/neomake'
@@ -209,29 +208,24 @@ call plug#end()
   let g:neoformat_enabled_scss = []
 " }
 
-" Neosnippet Options {
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
+" coc-snippets Options {
+  " Use <C-l> for trigger snippet expand.
+  imap <C-l> <Plug>(coc-snippets-expand)
   
-  " SuperTab like snippets behavior.
-  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-  "imap <expr><TAB>
-  " \ pumvisible() ? "\<C-n>" :
-  " \ neosnippet#expandable_or_jumpable() ?
-  " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  " Use <C-j> for select text for visual placeholder of snippet.
+  vmap <C-j> <Plug>(coc-snippets-select)
   
-  " For conceal markers.
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-
-  " For open file in last edited line
-  if has("autocmd")
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-  endif
+  " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+  let g:coc_snippet_next = '<c-j>'
+  
+  " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+  let g:coc_snippet_prev = '<c-k>'
+  
+  " Use <C-j> for both expand and jump (make expand higher priority.)
+  imap <C-j> <Plug>(coc-snippets-expand-jump)
+  
+  " Use <leader>x for convert visual selected code to snippet
+  xmap <leader>x  <Plug>(coc-convert-snippet)
 " }
 
 " C Configurations {

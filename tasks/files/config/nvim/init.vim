@@ -323,6 +323,7 @@ call plug#end()
   " }
 
   " Windows {
+    map <C-o> :FloatermNew<CR>
     map <C-t> :tabNext<CR>
     map <leader>p :NERDTreeToggle<CR>
     noremap <down> :resize +2<Cr>

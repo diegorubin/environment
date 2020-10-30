@@ -82,5 +82,6 @@
       - meld
       - aspell
       - aspell-pt-br
+      - ctags
     state: latest
   when: ansible_distribution == 'Ubuntu'

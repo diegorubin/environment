@@ -11,4 +11,4 @@
     path: "{{destination}}/.config/terminator"
     state: directory
 - name: copy terminator config
-  copy: src=config/terminator/{{theme}}/config dest={{destination}}/.config/terminator/config owner={{user}} group={{user}} mode=0664
+  copy: src=config/terminator/{{theme}}/config dest={{destination}}/.config/terminator/config owner={{user}} mode=0664

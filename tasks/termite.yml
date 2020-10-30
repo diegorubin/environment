@@ -15,4 +15,4 @@
     path: "{{destination}}/.config/termite"
     state: directory
 - name: copy termite config
-  copy: src=config/termite/{{theme}}/config dest={{destination}}/.config/termite/config owner={{user}} group={{user}} mode=0664
+  copy: src=config/termite/{{theme}}/config dest={{destination}}/.config/termite/config owner="{{user}}" mode=0664

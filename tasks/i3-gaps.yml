@@ -33,7 +33,7 @@
     dest: /tmp/i3
   when: ansible_distribution == 'Fedora'
 - name: copy i3 build script
-  copy: src=build/build-i3.sh dest=/tmp/i3 owner={{user}} group={{user}} mode=0774
+  copy: src=build/build-i3.sh dest=/tmp/i3 owner={{user}} mode=0774
   when: ansible_distribution == 'Fedora'
 - name: Make and Install i3-gaps
   become_user: root
@@ -78,7 +78,7 @@
     src: config/i3/config.j2
     dest: "{{destination}}/.config/i3/config"
 - name: copy i3 compton.conf
-  copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} group={{user}} mode=0664
+  copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} mode=0664
 - name: copy dunst config
   template:
     src: config/dunst/config.j2

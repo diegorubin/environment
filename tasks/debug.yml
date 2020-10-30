@@ -8,3 +8,7 @@
 - name: "Main monitor"
   debug:
     msg: "{{ main_monitor }}"
+- name: "Optional Tasks"
+  debug:
+    msg: "{{ optional_tasks }}"
+  when: optional_tasks is defined

@@ -65,12 +65,12 @@
     repo: 'https://github.com/polybar/polybar.git'
     dest: /tmp/polybar
 - name: copy polybar build script
-  copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} group={{user}} mode=0774
+  copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} mode=0774
 - name: Make and Install Polybar
   become_user: root
   command: "/tmp/polybar/build-polybar.sh"
 - name: Copy Polybar Configs
-  copy: src=config/polybar dest={{destination}}/.config owner={{user}} group={{user}}
+  copy: src=config/polybar dest={{destination}}/.config owner={{user}}
 - name: copy polybar default colors
   template:
     src: config/polybar/default/colors.ini.j2
@@ -84,7 +84,7 @@
     src: config/polybar/default/bottom.ini.j2
     dest: "{{destination}}/.config/polybar/default/bottom.ini"
 - name: Copy Default Launcher Script
-  copy: src=config/polybar/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} group={{user}} mode=0774
+  copy: src=config/polybar/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} mode=0774
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
   with_items:

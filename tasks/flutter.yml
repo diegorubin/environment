@@ -5,16 +5,16 @@
 - name: Download Flutter
   become_user: root
   command: "curl -fLo /opt/flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.17.1-stable.tar.xz"
-  when: not flutter.stat.exists
+  when: (not flutter.stat.exists) and (optional_tasks is defined)
 - name: Extract Flutter
   become_user: root
   command: "tar xf /opt/flutter.tar.xz -C /opt"
-  when: not flutter.stat.exists
+  when: (not flutter.stat.exists) and (optional_tasks is defined)
 - name: Create Link for Flutter
   become_user: root
   command: "ln -s /opt/flutter_linux_1.17.1-stable /opt/flutter"
-  when: not flutter.stat.exists
-- name: Change Owner for Node
+  when: (not flutter.stat.exists) and (optional_tasks is defined)
+- name: Change Owner for Flutter
   become_user: root
   command: "chown -R {{user}} /opt/flutter"
-  when: not flutter.stat.exists
+  when: (not flutter.stat.exists) and (optional_tasks is defined)

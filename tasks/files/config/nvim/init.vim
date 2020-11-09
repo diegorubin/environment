@@ -26,6 +26,9 @@ call plug#begin()
   " Debugger
   Plug 'puremourning/vimspector', {'for': ['java']}
   Plug 'metakirby5/codi.vim'
+  " Editor
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'Yggdroot/indentLine'
   " Format tables
   Plug 'godlygeek/tabular'
   " Git integration
@@ -59,6 +62,7 @@ call plug#begin()
   Plug 'camspiers/animate.vim'
   Plug 'camspiers/lens.vim'
   Plug 'voldikss/vim-floaterm'
+  Plug 'szw/vim-maximizer' 
 " }
 
 " API Rest Plugins {

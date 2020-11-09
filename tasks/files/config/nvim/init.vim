@@ -120,6 +120,7 @@ call plug#begin()
   Plug 'tomasr/molokai'
   Plug 'morhetz/gruvbox'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'YorickPeterse/vim-paper'
 " }
 
 " V Plugins {
@@ -159,7 +160,8 @@ call plug#end()
     \ 'coc-java',
     \ 'coc-snippets',
     \ 'coc-java-debug',
-    \ 'coc-lists'
+    \ 'coc-lists',
+    \ 'coc-python'
     \ ]
 " }  
 

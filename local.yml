@@ -6,6 +6,7 @@
     PATH: "/opt/node/bin:{{ ansible_env.PATH }}"
   tasks:
     - include: tasks/debug.yml
+    - include: themes/paper.yml
     - include: themes/clean_red.yml
     - include: themes/dark_red.yml
     - include: themes/default.yml

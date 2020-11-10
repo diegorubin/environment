@@ -13,7 +13,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#000000:#cc3e28:#216609:#b58900:#1e6fcc:#5c21a5:#158c86:#aaaaaa:#555555:#cc3e28:#216609:#b58900:#1e6fcc:#5c21a5:#158c86:#aaaaaa"
+    palette = "#000000:#cc3e28:#216609:#b58900:#1e6fcc:#ad7fa8:#158c86:#aaaaaa:#555555:#cc3e28:#216609:#b58900:#1e6fcc:#5c21a5:#158c86:#aaaaaa"
     use_system_font = False
   [[gruvebox]]
     cursor_color = "#aaaaaa"

@@ -52,6 +52,7 @@ call plug#begin()
   Plug 'kristijanhusak/vim-carbon-now-sh'
   " Syntaxe checking on save
   Plug 'neomake/neomake'
+  Plug 'nvim-treesitter/nvim-treesitter'
   " Tagbar
   Plug 'majutsushi/tagbar'
   " Varnish
@@ -63,6 +64,8 @@ call plug#begin()
   Plug 'camspiers/lens.vim'
   Plug 'voldikss/vim-floaterm'
   Plug 'szw/vim-maximizer' 
+  " Wiki
+  Plug 'vimwiki/vimwiki'
 " }
 
 " API Rest Plugins {

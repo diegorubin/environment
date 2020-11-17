@@ -47,6 +47,7 @@
       - meld
       - aspell
       - aspell-pt_BR
+      - meson
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

@@ -1,7 +1,7 @@
 ---
 - name: "Ansible Distribution"
   debug:
-    msg: "The operating system is {{ ansible_distribution }}"
+    msg: "The operating system is {{ ansible_distribution }} {{ ansible_distribution_major_version }}"
 - name: "Selected theme"
   debug:
     msg: "The current theme is {{ theme }}"

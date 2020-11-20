@@ -1,15 +1,17 @@
 ---
+- name: "[Fedora] download free"
+  command: "curl -fLo /tmp/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+  when: ansible_distribution == 'Fedora'
 - name: "[Fedora] Enable the RPM Fusion repository free"
   become_user: root
-  dnf:
-    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_distribution_major_version}}.noarch.rpm"
-    state: present
+  command: "dnf install -y /tmp/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+  when: ansible_distribution == 'Fedora'
+- name: "[Fedora] download free"
+  command: "curl -fLo /tmp/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   when: ansible_distribution == 'Fedora'
 - name: "[Fedora] Enable the RPM Fusion repository nonfree"
   become_user: root
-  dnf:
-    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_distribution_major_version}}.noarch.rpm"
-    state: present
+  command: "dnf install -y /tmp/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   when: ansible_distribution == 'Fedora'
 - name: "[Fedora] Update System"
   become_user: root
@@ -35,6 +37,7 @@
       - pavucontrol
       - automake
       - python3-devel
+      - python3-pip
       - gtkmm30-devel
       - sqlite-devel
       - libnotify-devel

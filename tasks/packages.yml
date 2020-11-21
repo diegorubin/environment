@@ -51,6 +51,8 @@
       - aspell
       - aspell-pt_BR
       - meson
+      - rofi
+      - perl-ExtUtils-MakeMaker
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

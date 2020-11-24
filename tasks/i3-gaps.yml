@@ -25,6 +25,9 @@
       - xcb-util-xrm-devel
       - yajl
       - yajl-devel
+      - compton
+      - dunst
+      - maim
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: Clone i3-gaps repository

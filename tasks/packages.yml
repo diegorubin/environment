@@ -54,6 +54,7 @@
       - rofi
       - perl-ExtUtils-MakeMaker
       - feh
+      - playerctl
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

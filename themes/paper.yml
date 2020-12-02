@@ -1,37 +1,62 @@
 ---
 - set_fact:
     theme_name: Paper
-    dunst_frame_color: "#e42430"
+    dunst_frame_color: "#f2eede"
     dunst_background: "#191311"
-    dunst_urgency_foreground: "#fbf7f6"
+    dunst_urgency_foreground: "#000000"
     rofi_background: "#1d2021c5"
-    rofi_background_alt: "#e4243098"
-    rofi_text_color: "#fbf7f6"
-    rofi_primary: "#e42430"
+    rofi_background_alt: "#f2eede98"
+    rofi_text_color: "#000000"
+    rofi_primary: "#f2eede"
     rofi_urgent: "#e53935"
     i3_colors: |
-      client.focused          #e42430     #e42430     #0a0710  #000000       #e42430
-      client.focused_inactive #e42430     #e42430     #fbf7f6  #000000       #e42430
-      client.unfocused        #e42430     #e42430     #fbf7f6  #000000       #e42430
-      client.urgent           #e42430     #ff0000     #fbf7f6  #ff0000       #e42430
-      client.placeholder      #e42430     #e42430     #fbf7f6  #000000       #e42430
-      
-      client.background       #e42430
+      client.focused           #000000    #f2eede    #000000    #f2eede    #000000
+      client.focused_inactive  #000000    #f2eede    #000000    #f2eede    #000000
+      client.unfocused         #000000    #f2eede    #000000    #f2eede    #000000
+      client.urgent            #000000    #ff0000    #000000    #f2eede    #ff0000
+      client.placeholder       #000000    #f2eede    #000000    #f2eede    #000000
+
+      client.background       #f2eede
 
     polybar_colors: |
       ;; Active Colors
-      bg = #c90a0710
-      fg = #fbf7f6
-      ac = #e42430
-      mf = #fbf7f6
+      bg = #fff2eede
+      fg = #000000
+      ac = #000000
+      mf = #f2eede
       
       ;; Bars
-      bi = #e42430
+      bi = #000000
       be = #43a047
       bf = #43a047
       bn = #43a047
       bm = #fdd835
       bd = #e53935
+
+      ;; i3 module
+      ;; old bg
+      i3_label_foreground = #000000
+      ;; old bi
+      i3_label_background = #f2eede
+
+      ;; old bg
+      i3_label_focused_foreground = #fffccc
+      ;; old ac
+      i3_label_focused_background = #000000
+      ;; old bf
+      i3_label_focused_underline = #43a047
+
+      i3_label_unfocused_foreground = #000000
+      i3_label_unfocused_background = #f2eede
+      ;; old bi
+      i3_label_unfocused_underline= #000000
+
+      i3_label_visible_foreground = #f2eede
+      ;; old ac
+      i3_label_visible_background = #000000
+      ;; old bf
+      i3_label_visible_underline = #43a047
+
       
       trans = #00000000
       white = #FFFFFF

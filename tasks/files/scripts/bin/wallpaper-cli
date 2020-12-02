@@ -6,12 +6,11 @@ import re
 import shutil
 import subprocess
 from pathlib import Path
-from urllib.request import urlopen
 from time import sleep
+from urllib.request import urlopen
 
 import requests
 import yaml
-
 
 CONFIGS = {
     "home": str(Path.home()),
@@ -113,4 +112,4 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         )
 
 
-search(colors="ffffff", current_page=1)
+search(colors="000000", current_page=1)

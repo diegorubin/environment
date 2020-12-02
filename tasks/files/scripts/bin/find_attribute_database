@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from pymongo import MongoClient
 import json
 import os
 import subprocess
 from pathlib import Path
 
 import yaml
+from pymongo import MongoClient
 
 MONGO_URL = "mongodb://localhost:27017/"
 CLIENT = MongoClient(MONGO_URL)
@@ -76,7 +76,7 @@ def has_conditions(options, query={}):
     return result
 
 
-def search(directory_root, query):
+def search(query):
     command = ["eog"]
     for wallpaper in wallpapers.find({}):
         if has_conditions(wallpaper["options"], query):
@@ -110,16 +110,12 @@ def search(directory_root, query):
 #    },
 # )
 search(
-    os.walk(CONFIGS["wallpapers_storage"]),
     {
         "primary_color": {
             "range": {
-                "min": {"r": 230, "g": 230, "b": 230},
-                "max": {"r": 255, "g": 255, "b": 255},
+                "min": {"r": 240, "g": 236, "b": 220},
+                "max": {"r": 243, "g": 339, "b": 223},
             }
         },
-        "has_color": [
-            {"range": {"min": {"h": 350, "s": 0.1}, "max": {"h": 360, "s": 0.80}}}
-        ],
     },
 )

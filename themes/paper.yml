@@ -9,6 +9,8 @@
     rofi_text_color: "#000000"
     rofi_primary: "#f2eede"
     rofi_urgent: "#e53935"
+    rofi_element_text_color: "#fffcee"
+    rofi_element_selected_text_color: "#f2eede"
     i3_colors: |
       client.focused           #000000    #f2eede    #000000    #f2eede    #000000
       client.focused_inactive  #000000    #f2eede    #000000    #f2eede    #000000

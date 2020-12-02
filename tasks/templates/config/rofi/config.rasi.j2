@@ -38,6 +38,7 @@ entry {
 element {
     padding:                        8px;
     orientation:                    horizontal;
+    text-color:                     {{ rofi_element_text_color }};
 }
 
 element normal.urgent, element alternate.urgent {
@@ -55,6 +56,7 @@ element selected {
     border:                         4px 4px solid 4px 4px;
     border-radius:                  8;
     border-color:                   @primary;
+    text-color:                     {{ rofi_element_selected_text_color }};
 }
 
 element selected.urgent {

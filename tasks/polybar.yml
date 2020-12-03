@@ -81,3 +81,4 @@
     - nextevent.sh
     - remaining.sh
     - gnomato-log.sh
+    - popup-calendar.sh

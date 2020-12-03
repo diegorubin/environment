@@ -193,6 +193,7 @@ bindsym $mod+c exec {{destination}}/.scripts/bin/create-task
 
 bindsym $mod+t exec --no-startup-id terminator -e {{destination}}/.cargo/bin/navi --role floating_term
 for_window [window_role=floating_term] floating enable
+for_window [class="Yad" title="yad-calendar"] floating enable
 
 # media
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause

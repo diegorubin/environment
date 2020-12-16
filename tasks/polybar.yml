@@ -82,3 +82,4 @@
     - remaining.sh
     - gnomato-log.sh
     - popup-calendar.sh
+    - check-port

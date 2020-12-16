@@ -1,19 +1,59 @@
 #!/usr/bin/env python3
 
-import re
+import json
 import os
-import yaml
+import re
 import shutil
 from pathlib import Path
+
+import yaml
+from pymongo import MongoClient
 
 CONFIGS = {
     "home": str(Path.home()),
 }
 
+MONGO_URL = "mongodb://localhost:27017/"
+CLIENT = MongoClient(MONGO_URL)
+DATABASE = CLIENT["wallpapers"]
+wallpapers = DATABASE.wallpapers
+
 with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
     configs = yaml.load(file, Loader=yaml.FullLoader)
     CONFIGS.update(configs)
 
+
+def save_or_update(query, data):
+    if wallpapers.count_documents(query):
+        wallpapers.update_one(query, {"$set": data})
+    else:
+        wallpapers.insert_one(data)
+
+
+def get_id(filename):
+    id_file = filename.replace("wallhaven-", "")
+    return re.sub(r"\..*$", "", id_file)
+
+
+def insert_into_database(file, destination):
+    try:
+        id_file = get_id(file)
+
+        options = None
+        with open(file) as configfile:
+            options = json.loads(configfile.read())
+
+        document = {
+            "wallhaven_id": id_file,
+            "path": destination.replace(
+                CONFIGS["wallpapers_storage"], ""
+            ).replace(".json", ""),
+            "options": options,
+        }
+
+        save_or_update({"wallhaven_id": id_file}, document)
+    except:
+        print("failed parse file: {}".format(file))
 
 def archive():
     for root, _dirs, files in os.walk(CONFIGS["destination_wallpapers"]):
@@ -34,10 +74,13 @@ def archive():
                 )
                 Path(destination).mkdir(parents=True, exist_ok=True)
 
+
+                insert_into_database(os.path.join(root, file), "{}/{}".format(destination, original_file))
                 shutil.move(
                     original_destination_file,
                     "{}/{}".format(destination, original_file),
                 )
+
                 shutil.move(options_destination_file, "{}/{}".format(destination, file))
 
 

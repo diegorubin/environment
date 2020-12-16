@@ -1,0 +1,40 @@
+#!/usr/bin/python
+
+import socket
+import time
+from pathlib import Path
+
+import yaml
+
+RETRY = 2
+DELAY = 1
+TIMEOUT = 3
+
+ADDRESSES_FILE = open("{}/.config/checked-servers.yaml".format(Path.home()), 'r')
+ADDRESSES = yaml.load(ADDRESSES_FILE, Loader=yaml.SafeLoader)
+
+def is_open(ip, port):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(TIMEOUT)
+    try:
+        s.connect((ip, int(port)))
+        s.shutdown(socket.SHUT_RDWR)
+        return True
+    except:
+        return False
+    finally:
+        s.close()
+
+def check_host(ip, port):
+    for _try in range(RETRY):
+        if is_open(ip, port):
+            return True
+        time.sleep(DELAY)
+    return False
+
+for name in ADDRESSES.keys():
+    values = ADDRESSES[name]
+    if check_host(values["ip"], values["port"]):
+        print("%{F#0f0}" + name, end=" ")
+    else:
+        print("%{F#f00}" + name, end=" ")

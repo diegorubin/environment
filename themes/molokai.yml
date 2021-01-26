@@ -1,0 +1,67 @@
+---
+- set_fact:
+    theme_name: Molokai
+    dunst_frame_color: "#f2eede"
+    dunst_background: "#191311"
+    dunst_urgency_foreground: "#000000"
+    rofi_background: "#1d2021c5"
+    rofi_background_alt: "#f2eede98"
+    rofi_text_color: "#000000"
+    rofi_primary: "#f2eede"
+    rofi_urgent: "#e53935"
+    rofi_element_text_color: "#fffcee"
+    rofi_element_selected_text_color: "#f2eede"
+    i3_colors: |
+      client.focused           #000000    #f2eede    #000000    #f2eede    #000000
+      client.focused_inactive  #000000    #f2eede    #000000    #f2eede    #000000
+      client.unfocused         #000000    #f2eede    #000000    #f2eede    #000000
+      client.urgent            #000000    #ff0000    #000000    #f2eede    #ff0000
+      client.placeholder       #000000    #f2eede    #000000    #f2eede    #000000
+
+      client.background       #f2eede
+
+    polybar_colors: |
+      ;; Active Colors
+      bg = #fff2eede
+      fg = #000000
+      ac = #000000
+      mf = #f2eede
+      
+      ;; Bars
+      bi = #000000
+      be = #43a047
+      bf = #43a047
+      bn = #43a047
+      bm = #fdd835
+      bd = #e53935
+
+      ;; i3 module
+      ;; old bg
+      i3_label_foreground = #000000
+      ;; old bi
+      i3_label_background = #f2eede
+
+      ;; old bg
+      i3_label_focused_foreground = #fffccc
+      ;; old ac
+      i3_label_focused_background = #000000
+      ;; old bf
+      i3_label_focused_underline = #43a047
+
+      i3_label_unfocused_foreground = #000000
+      i3_label_unfocused_background = #f2eede
+      ;; old bi
+      i3_label_unfocused_underline= #000000
+
+      i3_label_visible_foreground = #f2eede
+      ;; old ac
+      i3_label_visible_background = #000000
+      ;; old bf
+      i3_label_visible_underline = #43a047
+
+      
+      trans = #00000000
+      white = #FFFFFF
+      black = #000000
+
+  when: theme == "molokai"

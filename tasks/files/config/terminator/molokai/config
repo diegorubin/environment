@@ -1,0 +1,28 @@
+[global_config]
+[keybindings]
+  new_tab = <Primary><Shift>i
+  new_window = <Primary><Shift>t
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#121212"
+    background_darkness = 0.8
+    cursor_color = "#c20257"
+    foreground_color = "#ffffff"
+    font = FantasqueSansMono Nerd Font Mono 12
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#181915:#7a0137:#498702:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#1d71ca:#af5fff:#5cd1f8:#ffffff"
+    use_system_font = False
+  [[gruvebox]]
+    cursor_color = "#aaaaaa"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]

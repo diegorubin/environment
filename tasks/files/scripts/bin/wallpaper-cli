@@ -36,9 +36,7 @@ with open("{}/.wallhaven.yaml".format(CONFIGS["home"])) as file:
 
 
 def get_collections():
-    params = {
-        "apikey": CONFIGS["apikey"],
-    }
+    params = {"apikey": CONFIGS["apikey"]}
     response = requests.get(COLLECTIONS_URL, params=params)
     data = json.loads(response.content)
 
@@ -112,4 +110,4 @@ def search(query=None, current_page=1, ratios=None, collection_id=None, colors=N
         )
 
 
-search(colors="000000", current_page=1586)
+search(colors="000000", current_page=9256)

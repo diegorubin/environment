@@ -65,3 +65,5 @@
       black = #000000
 
   when: theme == "paper"
+  tags:
+    - configs

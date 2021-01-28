@@ -80,6 +80,9 @@
   template:
     src: config/i3/config.j2
     dest: "{{destination}}/.config/i3/config"
+  tags:
+    - configs
+    - i3
 - name: copy i3 compton.conf
   copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} mode=0664
 - name: copy dunst config

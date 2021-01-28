@@ -38,3 +38,5 @@
       black = #000000
 
   when: theme == "dark_red"
+  tags:
+    - configs

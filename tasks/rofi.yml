@@ -5,3 +5,6 @@
   template:
     src: config/rofi/config.rasi.j2
     dest: "{{destination}}/.config/rofi/config.rasi"
+  tags:
+    - configs
+    - rofi

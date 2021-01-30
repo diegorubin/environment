@@ -54,20 +54,35 @@
   when: ansible_distribution == 'Ubuntu'
 - name: Copy Polybar Configs
   copy: src=config/polybar dest={{destination}}/.config owner={{user}}
+  tags:
+    - configs
+    - polybar
 - name: copy polybar default colors
   template:
     src: config/polybar/default/colors.ini.j2
     dest: "{{destination}}/.config/polybar/default/colors.ini"
+  tags:
+    - configs
+    - polybar
 - name: copy polybar top menu
   template:
     src: config/polybar/default/top.ini.j2
     dest: "{{destination}}/.config/polybar/default/top.ini"
+  tags:
+    - configs
+    - polybar
 - name: copy polybar bottom menu
   template:
     src: config/polybar/default/bottom.ini.j2
     dest: "{{destination}}/.config/polybar/default/bottom.ini"
+  tags:
+    - configs
+    - polybar
 - name: Copy Default Launcher Script
   copy: src=config/polybar/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} mode=0774
+  tags:
+    - configs
+    - polybar
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
   with_items:
@@ -83,3 +98,6 @@
     - gnomato-log.sh
     - popup-calendar.sh
     - check-port
+  tags:
+    - configs
+    - polybar

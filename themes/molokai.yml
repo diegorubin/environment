@@ -6,25 +6,25 @@
     dunst_urgency_foreground: "#1d71ca"
     rofi_background: "#1d2021c5"
     rofi_background_alt: "#00000098"
-    rofi_text_color: "#1d71ca"
-    rofi_primary: "#000000"
+    rofi_text_color: "#ffffff"
+    rofi_primary: "#1d71ca"
     rofi_urgent: "#e53935"
-    rofi_element_text_color: "#6dca04"
-    rofi_element_selected_text_color: "#000000"
+    rofi_element_text_color: "#ffffff"
+    rofi_element_selected_text_color: "#ffffff"
     i3_colors: |
       # <colorclass>           <border>   <background>   <text>  <indicator> <child_border>
-      client.focused           #1d71ca      #1d71ca    #ffffff    #000000    #1d71ca
-      client.focused_inactive  #1d71ca      #1d71ca    #000000    #000000    #1d71ca
-      client.unfocused         #1d71ca      #000000    #1d71ca    #000000    #1d71ca
-      client.urgent            #1d71ca      #ff0000    #1d71ca    #000000    #ff0000
-      client.placeholder       #1d71ca      #000000    #1d71ca    #000000    #1d71ca
+      client.focused           #1d71ca      #1d71ca    #ffffff    #1d71ca    #1d71ca
+      client.focused_inactive  #1d71ca      #1d71ca    #000000    #1d71ca    #1d71ca
+      client.unfocused         #1d71ca      #000000    #1d71ca    #1d71ca    #1d71ca
+      client.urgent            #1d71ca      #ff0000    #1d71ca    #1d71ca    #ff0000
+      client.placeholder       #1d71ca      #000000    #1d71ca    #1d71ca    #1d71ca
 
       client.background       #000000
 
     polybar_colors: |
       ;; Active Colors
       bg = #ff000000
-      fg = #1d71ca
+      fg = #ffffff
       ac = #1d71ca
       mf = #000000
       
@@ -59,11 +59,19 @@
       i3_label_visible_background = #1d71ca
       ;; old bf
       i3_label_visible_underline = #ffffff
-
-      
+ 
       trans = #1d71ca00
       white = #FFFFFF
       black = #000000
+
+      title = #ffffff
+
+      filesystem = #6dca04
+      cpu = #e00265
+      memory = #e00265
+      battery = #e6db74
+      temperature = #7a0137
+      sound = #af5fff
 
   when: theme == "molokai"
   tags:

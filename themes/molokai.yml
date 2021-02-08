@@ -72,6 +72,7 @@
       battery = #e6db74
       temperature = #7a0137
       sound = #af5fff
+      event = #3465a4
 
   when: theme == "molokai"
   tags:

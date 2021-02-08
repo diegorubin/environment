@@ -2,7 +2,7 @@
 
 nextevent=`head -n 1 ~/.nextevent`
 if [ -z "$nextevent" ]; then
-  echo "XD"
+  echo ""
 else
-  echo "( $nextevent )"
+  echo "%{u-}$nextevent%{-u}"
 fi

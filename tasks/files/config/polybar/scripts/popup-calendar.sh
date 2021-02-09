@@ -14,8 +14,7 @@ case "$1" in
     eval "$(xdotool getmouselocation --shell)"
     eval "$(xdotool getdisplaygeometry --shell)"
 
-    yad --calendar --undecorated --fixed --no-buttons \
-        --title="yad-calendar" --borders=0 >/dev/null &
+    $HOME/.config/polybar/scripts/open-calendar.sh >/dev/null &
     ;;
 *)
     echo "$DATE"

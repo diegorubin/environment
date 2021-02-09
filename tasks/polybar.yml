@@ -97,6 +97,7 @@
     - remaining.sh
     - gnomato-log.sh
     - popup-calendar.sh
+    - open-calendar.sh
     - check-port
   tags:
     - configs

@@ -1,0 +1,96 @@
+conky.config = {
+    color1 = '#00c0ff',
+    alignment = 'middle_middle',
+    background = false,
+    border_width = 10,
+    cpu_avg_samples = 2,
+    default_color = '#00c0ff',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'HeavyData Nerd Font:size=10',
+    gap_x = 0,
+    gap_y = -60,
+    minimum_height = 561,
+    minimum_width = 400,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'ConkyBar',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = '',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 2,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+conky.text = [[
+${alignc}${color1}${font HeavyData Nerd Font:size=20}${exec date +"%A, %d of %B"}
+${alignc}${color1}${font HeavyData Nerd Font Mono:size=20}${exec date +"%H:%M"}
+
+$font${color1}Battery:${color}${alignr}$color${battery BAT0}
+${battery_bar BAT0}
+${alignr}${battery_time BAT0}
+
+$font${color1}System:${alignr}$color${fs_used /} / ${fs_size /}
+${fs_bar 6 /}
+$font${color1}Home:${alignr}$color${fs_used /home} / ${fs_size /home}
+${fs_bar 6 /home}
+$font${color1}Public:${alignr}$color${fs_used /mnt/public} / ${fs_size /mnt/public}
+${fs_bar 6 /mnt/public}
+$font${color1}External:${alignr}$color${fs_used /mnt/external} / ${fs_size /mnt/external}
+${fs_bar 6 /mnt/external}
+
+${color1}${font Fantasque Sans Mono:size=12}CPU
+${color1}${font}Clock Speed:$color ${alignr}${freq_g}GHz
+
+${color1}${font}Usage:$color ${alignr}${cpu cpu0}%
+${cpubar cpu0}
+${color1}${font}CPU1:$color ${cpu cpu1}% ${goto 175}${color1}${font}CPU2:$color ${cpu cpu2}%
+${cpubar cpu1 6,155} ${cpubar cpu2}
+${color1}${font}CPU3:$color ${cpu cpu3}% ${goto 175}${color1}${font}CPU4:$color ${cpu cpu4}%
+${cpubar cpu3 6,155} ${cpubar cpu4}
+${color1}${font}CPU5:$color ${cpu cpu5}% ${goto 175}${color1}${font}CPU6:$color ${cpu cpu6}%
+${cpubar cpu5 6,155} ${cpubar cpu6}
+${color1}${font}CPU7:$color ${cpu cpu7}% ${goto 175}${color1}${font}CPU8:$color ${cpu cpu8}%
+${cpubar cpu1 7,155} ${cpubar cpu8}
+${color1}${font}CPU9:$color ${cpu cpu9}% ${goto 175}${color1}${font}CPU10:$color ${cpu cpu10}%
+${cpubar cpu9 6,155} ${cpubar cpu10}
+${color1}${font}CPU11:$color ${cpu cpu11}% ${goto 175}${color1}${font}CPU12:$color ${cpu cpu12}%
+${cpubar cpu11 6,155} ${cpubar cpu12}
+
+
+${color1}${font}Top Processes:
+${color}${font}${top name 1}${alignr}${top cpu 1}%
+${color}${font}${top name 2}${alignr}${top cpu 2}%
+${color}${font}${top name 3}${alignr}${top cpu 3}%
+${color}${font}${top name 4}${alignr}${top cpu 4}%
+${color}${font}${top name 5}${alignr}${top cpu 5}%
+
+${color1}${font Fantasque Sans Mono:size=12}Memory
+${font}Usage:${alignr}${color}${font}${mem} / ${memmax}(${memperc}%)
+${membar}
+
+${color1}${font}Top Processes:${color}
+${top_mem name 1}${alignr}${top_mem mem_res 1}
+${top_mem name 2}${alignr}${top_mem mem_res 2}
+${top_mem name 3}${alignr}${top_mem mem_res 3}
+${top_mem name 4}${alignr}${top_mem mem_res 4}
+${top_mem name 5}${alignr}${top_mem mem_res 5}
+
+]]

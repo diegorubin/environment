@@ -13,7 +13,7 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     extra_newline = false,
-    font = 'HeavyData Nerd Font:size=10',
+    font = 'Fantasque Sans Mono:size=10',
     gap_x = 0,
     gap_y = -60,
     minimum_height = 561,
@@ -40,12 +40,8 @@ conky.config = {
 }
 
 conky.text = [[
-${alignc}${color1}${font HeavyData Nerd Font:size=20}${exec date +"%A, %d of %B"}
-${alignc}${color1}${font HeavyData Nerd Font Mono:size=20}${exec date +"%H:%M"}
-
-$font${color1}Battery:${color}${alignr}$color${battery BAT0}
-${battery_bar BAT0}
-${alignr}${battery_time BAT0}
+${alignc}${color1}${font Fantasque Sans Mono:size=20}${exec date +"%A, %d of %B"}
+${alignc}${color1}${font Fantasque Sans Mono:size=20}${exec date +"%H:%M"}
 
 $font${color1}System:${alignr}$color${fs_used /} / ${fs_size /}
 ${fs_bar 6 /}

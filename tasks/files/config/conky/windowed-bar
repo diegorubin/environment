@@ -51,6 +51,8 @@ $font${color1}Public:${alignr}$color${fs_used /mnt/public} / ${fs_size /mnt/publ
 ${fs_bar 6 /mnt/public}
 $font${color1}External:${alignr}$color${fs_used /mnt/external} / ${fs_size /mnt/external}
 ${fs_bar 6 /mnt/external}
+$font${color1}Secret:${alignr}$color${fs_used /mnt/secret} / ${fs_size /mnt/secret}
+${fs_bar 6 /mnt/secret}
 
 ${color1}${font Fantasque Sans Mono:size=12}CPU
 ${color1}${font}Clock Speed:$color ${alignr}${freq_g}GHz

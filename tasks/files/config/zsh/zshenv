@@ -10,7 +10,7 @@ export PATH="$PATH:/opt/istio/bin"
 export PATH="$PATH:/opt/kafka/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.go/bin"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.scripts/bin"
 export PATH="$PATH:/snap/bin"
 

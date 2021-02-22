@@ -19,7 +19,7 @@ alias k=kubectl
 
 # Screen functions
 home_screen_layout() {
-  xrandr --output eDP-1-1  --auto --output HDMI-0 --primary --auto --left-of eDP-1-1 --output DP-1-1 --auto --above HDMI-0
+  xrandr --output eDP-1-1  --auto --output HDMI-0 --primary --auto --right-of eDP-1-1 --output DP-1-1 --auto --above HDMI-0
 }
 
 clone_hdmi_screen_layout() {

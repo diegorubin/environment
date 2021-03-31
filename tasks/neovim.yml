@@ -3,6 +3,8 @@
   become_user: root
   command: "dnf copr enable -y agriffis/neovim-nightly"
   when: ansible_distribution == 'Fedora'
+  tags:
+    - nvim
 - name: "[Fedora] Install NeoVim from negativo"
   become_user: root
   dnf:
@@ -10,11 +12,15 @@
       - neovim
     state: latest
   when: ansible_distribution == 'Fedora'
+  tags:
+    - nvim
 - name: "[Ubuntu] Install ppa to neovim"
   become_user: root
   apt_repository:
     repo: ppa:neovim-ppa/stable
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - nvim
 - name: "[Ubuntu] Install neovim from ppa"
   become_user: root
   apt:
@@ -23,16 +29,28 @@
       - neovim
     state: latest
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - nvim
 - name: Create NeoVim Base
   command: "mkdir -p {{destination}}/.config/nvim/"
+  tags:
+    - nvim
 - name: Install Plug for NeoVim Plugins
   command: "curl -fLo {{destination}}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  tags:
+    - nvim
 - name: copy init.vim
   copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim owner={{user}} mode=0664
+  tags:
+    - nvim
 - name: copy coc-settings.json
   copy: src=config/nvim/coc-settings.json dest={{destination}}/.config/nvim owner={{user}} mode=0664
+  tags:
+    - nvim
 - name: copy theme config
   copy: src=config/nvim/themes/{{theme}}.vim dest={{destination}}/.config/nvim/theme.vim owner={{user}} mode=0664
+  tags:
+    - nvim
 - pip:
     name: neovim
     extra_args: --user

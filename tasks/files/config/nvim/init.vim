@@ -78,6 +78,10 @@ call plug#begin()
   Plug 'vim-scripts/c.vim'
 " }
 
+" CrystalPlugins {
+  Plug 'vim-crystal/vim-crystal'
+" }
+
 " GolangPlugins {
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " }

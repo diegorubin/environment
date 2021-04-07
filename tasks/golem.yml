@@ -1,0 +1,20 @@
+---
+- name: Create Golem Workspace
+  tempfile:
+    suffix: golem_build
+    state: directory
+  register: golem_build
+  tags:
+    - golem
+- name: Copy scripts bin files
+  become_user: root
+  copy: src=golem dest={{golem_build.path}}
+  tags:
+    - golem
+- name: Build Golem
+  become_user: root
+  shell:
+    cmd: "make"
+    chdir: "{{golem_build.path}}/golem"
+  tags:
+    - golem

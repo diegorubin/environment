@@ -26,3 +26,4 @@
     - include: tasks/bin.yml
     - include: tasks/configs.yml
     - include: tasks/flutter.yml
+    - include: tasks/golem.yml

@@ -99,6 +99,7 @@
     - popup-calendar.sh
     - open-calendar.sh
     - check-port
+    - pulseaudio-control.sh
   tags:
     - configs
     - polybar

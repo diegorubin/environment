@@ -1,0 +1,21 @@
+name: golem
+version: 0.1.0
+
+authors:
+  - Diego Rubin <contact@diegorubin.dev>
+
+description: |
+  It does my boring tasks
+
+dependencies:
+  nats:
+    github: diegorubin/nats.cr
+  libnotify:
+    github: splattael/libnotify.cr
+    version: ~> 0.3.2
+
+targets:
+  golem:
+    main: bin/golem.cr
+
+license: MIT

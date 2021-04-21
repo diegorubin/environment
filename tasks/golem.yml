@@ -14,7 +14,12 @@
 - name: Build Golem
   become_user: root
   shell:
-    cmd: "make"
+    cmd: "shards build --ignore-crystal-version"
     chdir: "{{golem_build.path}}/golem"
+  tags:
+    - golem
+- name: Install bin file
+  become_user: root
+  copy: src={{golem_build.path}}/golem/bin/golem dest=/usr/bin mode=preserve
   tags:
     - golem

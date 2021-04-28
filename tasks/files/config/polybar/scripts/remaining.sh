@@ -1,6 +1,6 @@
 #!/bin/bash
 
-remaining=`head -n 1 ~/.remaining`
+remaining=`golem status -r`
 if [ -z "$remaining" ]; then
   echo "XD"
 else

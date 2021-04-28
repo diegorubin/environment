@@ -91,6 +91,7 @@
     - powermenu
     - translate_lyrics
     - dropbox-isrunning.sh
+    - golem-isrunning.sh
     - player-mpris-simple.sh
     - pysense-isrunning.sh
     - nextevent.sh

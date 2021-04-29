@@ -1,6 +1,6 @@
 #!/bin/bash
 
-nextevent=`head -n 1 ~/.nextevent`
+nextevent=`golem status -n`
 if [ -z "$nextevent" ]; then
   echo ""
 else

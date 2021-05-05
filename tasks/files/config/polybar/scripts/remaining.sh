@@ -1,6 +1,6 @@
 #!/bin/bash
 
-remaining=`golem status -r`
+remaining=`golem workday remaining`
 if [ -z "$remaining" ]; then
   echo "XD"
 else

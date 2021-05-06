@@ -101,6 +101,7 @@
     - open-calendar.sh
     - check-port
     - pulseaudio-control.sh
+    - pulseaudio-input-control.sh
     - countdown.sh
   tags:
     - configs

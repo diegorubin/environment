@@ -7,5 +7,6 @@
     mode: "755"
   with_items:
     - lock
+    - status-bar
     - set_playback
     - unset_playback

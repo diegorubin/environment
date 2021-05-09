@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/.config/conky
+conky -c windowed-bar

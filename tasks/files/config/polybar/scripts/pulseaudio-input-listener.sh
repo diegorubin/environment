@@ -1,15 +1,14 @@
 #!/bin/bash
 
 LANGUAGE=en_US
-COLOR_MUTED="%{F#6b6b6b}"
 
 function output() {
     volume=$(golem get default input volume)
     muted=$(golem is default input muted)
     if [ "$muted" = "yes" ]; then
-        echo "- mic: $volume"
+        echo "%{F#6b6b6b}$volume mic%{F-}"
     else
-        echo "mic: $volume"
+        echo "$volume mic"
     fi
 }
 

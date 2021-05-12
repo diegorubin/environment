@@ -16,7 +16,7 @@ conky.config = {
     font = 'Fantasque Sans Mono:size=10',
     gap_x = 0,
     gap_y = -60,
-    minimum_height = 561,
+    minimum_height = 1000,
     minimum_width = 400,
     net_avg_samples = 2,
     no_buffers = true,
@@ -89,5 +89,7 @@ ${top_mem name 4}${alignr}${top_mem mem_res 4}
 ${top_mem name 5}${alignr}${top_mem mem_res 5}
 
 ${exec cat $HOME/.notes}
+
+${image /tmp/screen.png -p 0,700 -s 400x240 -f 86400}
 
 ]]

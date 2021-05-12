@@ -329,6 +329,11 @@ EOF
   let g:rustfmt_autosave=1
 " }
 
+" Ripgrep Configuration {
+  let g:rg_highlight = 1
+  let g:rg_root_types = ['.git', 'node_modules', 'venv']
+" }
+
 " Tags {
   let g:gutentags_cache_dir='~/.tags'
   let g:gutentags_ctags_exclude=['node_modules']

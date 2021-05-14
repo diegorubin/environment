@@ -90,6 +90,6 @@ ${top_mem name 5}${alignr}${top_mem mem_res 5}
 
 ${exec cat $HOME/.notes}
 
-${image /tmp/screen.png -p 0,700 -s 400x240 -f 86400}
+${image /tmp/screen -p 0,700 -s 400x280 -n }
 
 ]]

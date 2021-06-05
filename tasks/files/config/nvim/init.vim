@@ -370,6 +370,11 @@ EOF
   " }
 " }
 
+" Wiki {
+  let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" }
+
 " Settings from environment {
   if exists('$OPEN_TREE')
     autocmd VimEnter * NERDTree

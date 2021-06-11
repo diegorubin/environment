@@ -28,11 +28,6 @@ sudo ansible-pull -e user=<user> -e destination=<local dir> -e theme=default -e 
 
 ## Content
 
-### WIP
-
-- Mopidy
-- neovim-gtk
-
 ## Sources
 
 - Polybar theme base from [https://github.com/adi1090x/polybar-themes](https://github.com/adi1090x/polybar-themes)

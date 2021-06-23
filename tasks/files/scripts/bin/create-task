@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import subprocess
-
 import dbus
+import re
 import gi
 from gi.repository import Gtk
 
@@ -11,7 +10,8 @@ gi.require_version("Gtk", "3.0")
 
 def show_in_completion(completion, current_value, item):
     value = completion.get_model()[item][0].lower()
-    return current_value.lower() in value
+    pattern = current_value.lower().replace(" ", ".*?")
+    return re.findall(pattern, value)
 
 
 class Dialog(Gtk.Dialog):
@@ -72,10 +72,10 @@ class Dialog(Gtk.Dialog):
                 self.liststore.append((line[:-1],))
                 line = tasks.readline()
 
-        with open("/home/diegorubin/.pessoas") as tasks:
+        with open("/home/diegorubin/.common_tasks") as tasks:
             line = tasks.readline()
             while line:
-                l = "[APOIO] - Conversa com {}".format(line[:-1])
+                l = "{}".format(line[:-1])
                 self.liststore.append((l,))
                 line = tasks.readline()
 

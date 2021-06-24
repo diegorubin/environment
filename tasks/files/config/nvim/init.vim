@@ -108,6 +108,7 @@ call plug#begin()
   Plug 'vim-scripts/indentpython.vim'
   Plug 'nvie/vim-flake8'
   Plug 'tell-k/vim-autopep8'
+  Plug 'psf/black'
 " }
 
 " RustPlugins {

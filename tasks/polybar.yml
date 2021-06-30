@@ -103,6 +103,7 @@
     - pulseaudio-control.sh
     - pulseaudio-input-listener.sh
     - countdown.sh
+    - lifeguard.sh
   tags:
     - configs
     - polybar

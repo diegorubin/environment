@@ -88,8 +88,6 @@ ${top_mem name 3}${alignr}${top_mem mem_res 3}
 ${top_mem name 4}${alignr}${top_mem mem_res 4}
 ${top_mem name 5}${alignr}${top_mem mem_res 5}
 
-${exec cat $HOME/.notes}
-
-${image /tmp/screen -p 0,700 -s 400x280 -n }
+${exec cat /tmp/golem/visits}
 
 ]]

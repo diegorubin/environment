@@ -90,4 +90,8 @@ ${top_mem name 5}${alignr}${top_mem mem_res 5}
 
 ${exec cat /tmp/golem/visits}
 
+${exec cat /tmp/golem/status-visits | head -n 5}
+
+${exec cat /tmp/golem/today-status-visits | head -n 5}
+
 ]]

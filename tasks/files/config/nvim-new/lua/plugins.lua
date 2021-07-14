@@ -2,6 +2,15 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- autocomplete
+  use { 'hrsh7th/nvim-compe' }
+
+  -- formatters
+  use { 'sbdchd/neoformat' }  
+
+  -- language servers
+  use { 'neovim/nvim-lspconfig' }  
+
   -- linters
   use { 'neomake/neomake' }  
 

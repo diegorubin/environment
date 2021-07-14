@@ -17,8 +17,15 @@ return require('packer').startup(function()
   -- syntax
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
+  -- themes
+  use { 'tomasr/molokai' }
+
   -- ui
   use { 'kyazdani42/nvim-web-devicons' }  
   use { 'kyazdani42/nvim-tree.lua' }  
+  use { 'jbyuki/venn.nvim' }  
+
+  -- wiki
+  use { 'vimwiki/vimwiki' }
 
 end)

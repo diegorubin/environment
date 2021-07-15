@@ -89,6 +89,14 @@
   copy: src=config/nvim-new/lua/autocomplete.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:
     - nvim-new
+- name: copy bufferline-config.lua
+  copy: src=config/nvim-new/lua/bufferline-config.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
+  tags:
+    - nvim-new
+- name: copy theme.lua
+  copy: src=config/nvim-new/lua/theme.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
+  tags:
+    - nvim-new
 - name: copy tree.lua
   copy: src=config/nvim-new/lua/tree.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:

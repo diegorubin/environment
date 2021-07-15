@@ -4,6 +4,12 @@ lua require('languages-configs')
 
 lua require('autocomplete')
 
+lua require('theme')
+
+lua require('lualine')
+
+lua require('bufferline-config')
+
 " General Configuration {
   let mapleader=","
   filetype off
@@ -35,22 +41,22 @@ lua require('autocomplete')
   set clipboard+=unnamedplus
 " }
 
+" neoformat Configuration {
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+  augroup END
+" }
+
+" neomake Configuration {
+  call neomake#configure#automake('nw', 750)
+" }
+
 " nvim-tree Configuration { 
   nnoremap <leader>p :NvimTreeToggle<CR>
   nnoremap <leader>r :NvimTreeRefresh<CR>
   let g:nvim_tree_hide_dotfiles = 1
   lua require('tree')
-" }
-
-" Theme Configuration {
-  colorscheme molokai
-  let g:molokai_original = 1
-  let g:airline_theme='molokai'
-  set guifont=Fantasque\ Sans\ Mono\ 12
-  if exists('g:GtkGuiLoaded')
-  else
-    hi Normal guibg=NONE ctermbg=NONE
-  end
 " }
 
 " Window configurations {

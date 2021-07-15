@@ -1,31 +1,43 @@
 return require('packer').startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  -- autocomplete
-  use { 'hrsh7th/nvim-compe' }
+    -- autocomplete
+    use {'hrsh7th/nvim-compe'}
 
-  -- formatters
-  use { 'sbdchd/neoformat' }  
+    -- formatters
+    use {'sbdchd/neoformat'}
 
-  -- language servers
-  use { 'neovim/nvim-lspconfig' }  
+    -- language servers
+    use {'neovim/nvim-lspconfig'}
 
-  -- linters
-  use { 'neomake/neomake' }  
+    -- linters
+    use {'neomake/neomake'}
 
-  -- syntax
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- search
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
 
-  -- themes
-  use { 'tomasr/molokai' }
+    -- syntax
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-  -- ui
-  use { 'kyazdani42/nvim-web-devicons' }  
-  use { 'kyazdani42/nvim-tree.lua' }  
-  use { 'jbyuki/venn.nvim' }  
+    -- themes
+    use {'tomasr/molokai'}
+    use {'folke/tokyonight.nvim'}
 
-  -- wiki
-  use { 'vimwiki/vimwiki' }
+    -- ui
+    use {'kyazdani42/nvim-web-devicons'}
+    use {'kyazdani42/nvim-tree.lua'}
+    use {'jbyuki/venn.nvim'}
+    use {'akinsho/nvim-bufferline.lua'}
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
+    -- wiki
+    use {'vimwiki/vimwiki'}
 
 end)

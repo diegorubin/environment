@@ -8,11 +8,14 @@ return require('packer').startup(function()
     -- formatters
     use {'sbdchd/neoformat'}
 
+    -- git
+    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+
     -- languages servers
     use {'neovim/nvim-lspconfig'}
 
     -- languages support
-    use { 'vim-crystal/vim-crystal' }
+    use {'vim-crystal/vim-crystal'}
 
     -- linters
     use {'neomake/neomake'}

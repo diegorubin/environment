@@ -1,14 +1,12 @@
 lua require('plugins')
 
-lua require('languages-configs')
-
 lua require('autocomplete')
-
+lua require('bufferline-config')
+lua require('gitsigns-config')
+lua require('languages-configs')
+lua require('lualine')
 lua require('theme')
 
-lua require('lualine')
-
-lua require('bufferline-config')
 
 " General Configuration {
   let mapleader=","
@@ -36,6 +34,8 @@ lua require('bufferline-config')
   set cursorline
   set cursorcolumn
   set tw=0
+  set nobackup
+  set noswapfile
 
   set wildignore+=.git/** 
   set clipboard+=unnamedplus
@@ -57,6 +57,13 @@ lua require('bufferline-config')
   nnoremap <leader>r :NvimTreeRefresh<CR>
   let g:nvim_tree_hide_dotfiles = 1
   lua require('tree')
+" }
+
+" nvim-telescope Configuration {
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }
 
 " Window configurations {

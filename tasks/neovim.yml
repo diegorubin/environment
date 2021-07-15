@@ -81,6 +81,10 @@
   copy: src=config/nvim-new/lua/plugins.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:
     - nvim-new
+- name: copy gitsigns-config.lua
+  copy: src=config/nvim-new/lua/gitsigns-config.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
+  tags:
+    - nvim-new
 - name: copy languages-configs.lua
   copy: src=config/nvim-new/lua/languages-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:

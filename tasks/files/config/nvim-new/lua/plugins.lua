@@ -8,8 +8,11 @@ return require('packer').startup(function()
     -- formatters
     use {'sbdchd/neoformat'}
 
-    -- language servers
+    -- languages servers
     use {'neovim/nvim-lspconfig'}
+
+    -- languages support
+    use { 'vim-crystal/vim-crystal' }
 
     -- linters
     use {'neomake/neomake'}

@@ -60,9 +60,6 @@ require('bufferline').setup {
     separator_style = "slant",
     enforce_regular_tabs = false,
     always_show_bufferline = true,
-    sort_by = function(buffer_a, buffer_b)
-      -- add custom logic
-      return buffer_a.modified > buffer_b.modified
-    end
+    sort_by = "directory"
   }
 }

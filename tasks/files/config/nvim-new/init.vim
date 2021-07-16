@@ -66,6 +66,16 @@ lua require('theme')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }
 
+" {
+  if has('termguicolors')
+    set termguicolors
+  endif
+  set background=dark
+
+  let g:everforest_background = 'hard'
+  colorscheme everforest
+" }
+
 " Window configurations {
   noremap <down> :resize +2<Cr>
   noremap <up> :resize -2<cr>

@@ -32,6 +32,7 @@ return require('packer').startup(function()
     -- themes
     use {'tomasr/molokai'}
     use {'folke/tokyonight.nvim'}
+    use {'sainnhe/everforest'}
 
     -- ui
     use {'kyazdani42/nvim-web-devicons'}

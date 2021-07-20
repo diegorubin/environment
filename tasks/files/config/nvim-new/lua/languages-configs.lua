@@ -3,3 +3,5 @@ require'lspconfig'.pyright.setup {}
 
 -- javascript configuration
 require'lspconfig'.denols.setup {}
+
+require"lsp_signature".setup()

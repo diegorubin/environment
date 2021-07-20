@@ -13,6 +13,7 @@ return require('packer').startup(function()
 
     -- languages servers
     use {'neovim/nvim-lspconfig'}
+    use {'ray-x/lsp_signature.nvim'}
 
     -- languages support
     use {'vim-crystal/vim-crystal'}

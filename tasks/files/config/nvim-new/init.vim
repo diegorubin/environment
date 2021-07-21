@@ -67,7 +67,7 @@ lua require('theme')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }
 
-" {
+" theme Configuration {
   if has('termguicolors')
     set termguicolors
   endif
@@ -75,6 +75,11 @@ lua require('theme')
 
   let g:everforest_background = 'hard'
   colorscheme everforest
+" }
+
+" ui Configuration {
+  command! Ranger FloatermNew ranger
+  command! Screenshots FloatermNew ranger --cmd="cd $HOME/Pictures/screenshots"
 " }
 
 " Window configurations {

@@ -7,6 +7,8 @@ lua require('languages-configs')
 lua require('lualine')
 lua require('theme')
 
+" Private settings
+lua require('private')
 
 " General Configuration {
   let mapleader=","

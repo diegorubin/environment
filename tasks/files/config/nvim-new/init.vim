@@ -69,6 +69,11 @@ lua require('private')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }
 
+" Tags {
+  let g:gutentags_cache_dir='~/.tags'
+  let g:gutentags_ctags_exclude=['node_modules', 'venv']
+" }
+
 " theme Configuration {
   if has('termguicolors')
     set termguicolors

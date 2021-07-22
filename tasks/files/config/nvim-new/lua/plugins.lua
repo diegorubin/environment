@@ -7,6 +7,8 @@ return require('packer').startup(function()
 
     -- formatters
     use {'sbdchd/neoformat'}
+    use {'godlygeek/tabular'}
+    use {'psf/black'}
 
     -- git
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
@@ -20,6 +22,9 @@ return require('packer').startup(function()
 
     -- linters
     use {'neomake/neomake'}
+
+    -- navigation
+    use {'ludovicchabant/vim-gutentags'}
 
     -- search
     use {

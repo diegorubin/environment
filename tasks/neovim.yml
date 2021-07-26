@@ -97,6 +97,10 @@
   copy: src=config/nvim-new/lua/bufferline-config.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:
     - nvim-new
+- name: copy mutmut-configs.lua
+  copy: src=config/nvim-new/lua/mutmut-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
+  tags:
+    - nvim-new
 - name: copy theme.lua
   copy: src=config/nvim-new/lua/theme.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:

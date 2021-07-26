@@ -22,6 +22,7 @@ return require('packer').startup(function()
 
     -- linters
     use {'neomake/neomake'}
+    use {'diegorubin/mutmut.nvim'}
 
     -- navigation
     use {'ludovicchabant/vim-gutentags'}

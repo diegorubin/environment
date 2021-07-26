@@ -5,6 +5,7 @@ lua require('bufferline-config')
 lua require('gitsigns-config')
 lua require('languages-configs')
 lua require('lualine')
+lua require('mutmut-configs')
 lua require('theme')
 
 " Private settings

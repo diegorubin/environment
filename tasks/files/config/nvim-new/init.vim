@@ -55,6 +55,10 @@ lua require('private')
   call neomake#configure#automake('nw', 750)
 " }
 
+" {
+  nnoremap <leader>S :lua require('spectre').open()<CR>
+" }
+
 " nvim-tree Configuration { 
   nnoremap <leader>p :NvimTreeToggle<CR>
   nnoremap <leader>r :NvimTreeRefresh<CR>

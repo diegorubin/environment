@@ -35,7 +35,9 @@ require'lspconfig'.sumneko_lua.setup {
 require"lsp_signature".setup()
 
 -- ruby configuration
-require'lspconfig'.sorbet.setup {
-    cmd = {"srb", "tc", "--lsp"},
-    filetypes = {"ruby"}
+require'lspconfig'.solargraph.setup {
+    cmd = {"solargraph", "stdio"},
+    filetypes = {"ruby"},
+    init_options = {formatting = true},
+    settings = {solargraph = {diagnostics = true}}
 }

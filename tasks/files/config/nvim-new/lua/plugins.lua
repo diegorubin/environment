@@ -9,6 +9,7 @@ return require('packer').startup(function()
     use {'sbdchd/neoformat'}
     use {'godlygeek/tabular'}
     use {'psf/black'}
+    use {'ntpeters/vim-better-whitespace'}
 
     -- git
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
@@ -41,6 +42,7 @@ return require('packer').startup(function()
 
     -- syntax
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'lukas-reineke/indent-blankline.nvim'}
 
     -- themes
     use {'tomasr/molokai'}

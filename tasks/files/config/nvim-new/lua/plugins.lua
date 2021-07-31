@@ -43,6 +43,7 @@ return require('packer').startup(function()
     -- syntax
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'lukas-reineke/indent-blankline.nvim'}
+    use {'andymass/vim-matchup'}
 
     -- themes
     use {'tomasr/molokai'}

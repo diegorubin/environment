@@ -89,6 +89,10 @@
   copy: src=config/nvim-new/lua/languages-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:
     - nvim-new
+- name: copy todo-comments-configs.lua
+  copy: src=config/nvim-new/lua/todo-comments-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
+  tags:
+    - nvim-new
 - name: copy autocomplete.lua
   copy: src=config/nvim-new/lua/autocomplete.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
   tags:

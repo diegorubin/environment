@@ -7,6 +7,7 @@ lua require('languages-configs')
 lua require('lualine')
 lua require('mutmut-configs')
 lua require('theme')
+lua require('todo-comments-configs')
 
 " Private settings
 lua require('private')
@@ -17,7 +18,7 @@ lua require('private')
   set encoding=utf-8
   set history=1000
   set mouse=a
-  set number 
+  set number
   set relativenumber
   set autoread
   set undofile
@@ -40,7 +41,7 @@ lua require('private')
   set nobackup
   set noswapfile
 
-  set wildignore+=.git/** 
+  set wildignore+=.git/**
   set clipboard+=unnamedplus
 " }
 
@@ -67,7 +68,7 @@ lua require('private')
   nnoremap <leader>S :lua require('spectre').open()<CR>
 " }
 
-" nvim-tree Configuration { 
+" nvim-tree Configuration {
   nnoremap <leader>p :NvimTreeToggle<CR>
   nnoremap <leader>r :NvimTreeRefresh<CR>
   let g:nvim_tree_hide_dotfiles = 1

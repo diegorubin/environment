@@ -29,6 +29,7 @@ return require('packer').startup(function()
 
     -- navigation
     use {'ludovicchabant/vim-gutentags'}
+    use {'folke/todo-comments.nvim'}
 
     -- search
     use {

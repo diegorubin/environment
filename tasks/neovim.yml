@@ -77,40 +77,21 @@
   copy: src=config/nvim-new/init.vim dest={{destination}}/.config/nvim-new/init.vim owner={{user}} mode=0664
   tags:
     - nvim-new
-- name: copy plugins.lua
-  copy: src=config/nvim-new/lua/plugins.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy gitsigns-config.lua
-  copy: src=config/nvim-new/lua/gitsigns-config.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy languages-configs.lua
-  copy: src=config/nvim-new/lua/languages-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy todo-comments-configs.lua
-  copy: src=config/nvim-new/lua/todo-comments-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy autocomplete.lua
-  copy: src=config/nvim-new/lua/autocomplete.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy bufferline-config.lua
-  copy: src=config/nvim-new/lua/bufferline-config.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy mutmut-configs.lua
-  copy: src=config/nvim-new/lua/mutmut-configs.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy theme.lua
-  copy: src=config/nvim-new/lua/theme.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
-  tags:
-    - nvim-new
-- name: copy tree.lua
-  copy: src=config/nvim-new/lua/tree.lua dest={{destination}}/.config/nvim-new/lua owner={{user}} mode=0664
+- name: copy lua files
+  copy:
+    src: "config/nvim-new/lua/{{item}}"
+    dest: "{{destination}}/.config/nvim-new/lua"
+  with_items:
+    - plugins.lua
+    - gitsigns-config.lua
+    - languages-configs.lua
+    - todo-comments-configs.lua
+    - autocomplete.lua
+    - bufferline-config.lua
+    - mutmut-configs.lua
+    - theme.lua
+    - tree.lua
+    - twilight-configs.lua
   tags:
     - nvim-new
 

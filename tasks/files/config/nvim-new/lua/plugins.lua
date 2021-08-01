@@ -45,6 +45,7 @@ return require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'lukas-reineke/indent-blankline.nvim'}
     use {'andymass/vim-matchup'}
+    use {'folke/twilight.nvim'}
 
     -- themes
     use {'tomasr/molokai'}

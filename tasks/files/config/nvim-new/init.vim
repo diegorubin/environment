@@ -8,6 +8,7 @@ lua require('lualine')
 lua require('mutmut-configs')
 lua require('theme')
 lua require('todo-comments-configs')
+lua require('twilight-configs')
 
 " Private settings
 lua require('private')

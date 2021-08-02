@@ -4,7 +4,7 @@
   set encoding=utf-8
   set history=1000
   set mouse=a
-  set number 
+  set number
   set relativenumber
   set autoread
   set undofile
@@ -64,7 +64,7 @@ call plug#begin()
   Plug 'camspiers/animate.vim'
   Plug 'camspiers/lens.vim'
   Plug 'voldikss/vim-floaterm'
-  Plug 'szw/vim-maximizer' 
+  Plug 'szw/vim-maximizer'
   " Wiki
   Plug 'vimwiki/vimwiki'
 " }
@@ -165,7 +165,7 @@ call plug#end()
   set cursorcolumn
   set tw=0
 
-  set wildignore+=.git/** 
+  set wildignore+=.git/**
 " }
 
 " COC {
@@ -176,7 +176,7 @@ call plug#end()
     \ 'coc-lists',
     \ 'coc-python'
     \ ]
-" }  
+" }
 
 " Remap keys for gotos
   nmap <silent> gd <Plug>(coc-definition)
@@ -187,7 +187,7 @@ call plug#end()
 
 " Devicons {
   let g:DevIconsEnableFoldersOpenClose = 1
-  
+
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
@@ -196,7 +196,7 @@ call plug#end()
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
-  
+
   let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
   let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
@@ -212,12 +212,12 @@ call plug#end()
 
 " Navigation {
 lua <<EOF
-require('specs').setup { 
+require('specs').setup {
   show_jumps  = true,
   min_jump = 30,
   popup = {
       delay_ms = 0, -- delay before popup displays
-      inc_ms = 10, -- time increments used for fade/resize effects 
+      inc_ms = 10, -- time increments used for fade/resize effects
       blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
       width = 10,
       winhl = "PMenu",
@@ -245,19 +245,19 @@ EOF
 " coc-snippets Options {
   " Use <C-l> for trigger snippet expand.
   imap <C-l> <Plug>(coc-snippets-expand)
-  
+
   " Use <C-j> for select text for visual placeholder of snippet.
   vmap <C-j> <Plug>(coc-snippets-select)
-  
+
   " Use <C-j> for jump to next placeholder, it's default of coc.nvim
   let g:coc_snippet_next = '<c-j>'
-  
+
   " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
   let g:coc_snippet_prev = '<c-k>'
-  
+
   " Use <C-j> for both expand and jump (make expand higher priority.)
   imap <C-j> <Plug>(coc-snippets-expand-jump)
-  
+
   " Use <leader>x for convert visual selected code to snippet
   xmap <leader>x  <Plug>(coc-convert-snippet)
 " }
@@ -285,7 +285,7 @@ EOF
 " }
 
 " Javascript Configurations {
-  set wildignore+=node_modules/** 
+  set wildignore+=node_modules/**
 " }
 
 " HTML Configurations {
@@ -299,7 +299,7 @@ EOF
 " }
 
 " Ruby Configurations {
-  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
   let g:reek_always_show = 0
   if !exists("rvm_loaded")
@@ -319,7 +319,7 @@ EOF
   au BufReadPost *.py set fileformat=unix
   au BufReadPost *.robot set tw=0
   set wildignore+=venv/**
-  set wildignore+=*.pyc 
+  set wildignore+=*.pyc
 " }
 
 " Rest Configurations {
@@ -353,7 +353,7 @@ EOF
     map <leader>< :bprevious<CR>
   " }
   " Search {
-    " Start file search 
+    " Start file search
     map <leader>f :FZF<CR>
     " Show next result after vimgrep
     map <leader>n :cn!<CR>

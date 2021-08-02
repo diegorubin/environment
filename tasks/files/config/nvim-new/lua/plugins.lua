@@ -31,6 +31,9 @@ return require('packer').startup(function()
     use {'ludovicchabant/vim-gutentags'}
     use {'folke/todo-comments.nvim'}
 
+    -- rest
+    use {'diepm/vim-rest-console'}
+
     -- search
     use {
         'nvim-telescope/telescope.nvim',

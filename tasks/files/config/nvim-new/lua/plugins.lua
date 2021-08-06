@@ -55,6 +55,9 @@ return require('packer').startup(function()
     use {'folke/tokyonight.nvim'}
     use {'sainnhe/everforest'}
 
+    -- tests
+    use {'diegorubin/nose2coverage.nvim'}
+
     -- ui
     use {'kyazdani42/nvim-web-devicons'}
     use {'kyazdani42/nvim-tree.lua'}

@@ -115,3 +115,7 @@ lua require('private')
   let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 " }
+
+" Load private settings {
+  source ~/.config/nvim/private.vim
+" }

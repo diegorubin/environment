@@ -89,6 +89,7 @@
     - autocomplete.lua
     - bufferline-config.lua
     - mutmut-configs.lua
+    - nose2coverage-configs.lua
     - theme.lua
     - tree.lua
     - twilight-configs.lua

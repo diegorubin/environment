@@ -1,8 +1,4 @@
-local function coverage()
-    local result = require'nose2coverage'.total_coverage()
-    vim.api.nvim_echo({{result}}, false, {})
-    return result
-end
+local function coverage() return require'nose2coverage'.total_coverage() end
 
 require'lualine'.setup {
     options = {

@@ -88,6 +88,7 @@
     - todo-comments-configs.lua
     - autocomplete.lua
     - bufferline-config.lua
+    - lualine-configs.lua
     - mutmut-configs.lua
     - nose2coverage-configs.lua
     - theme.lua

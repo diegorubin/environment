@@ -54,6 +54,7 @@ return require('packer').startup(function()
     use {'tomasr/molokai'}
     use {'folke/tokyonight.nvim'}
     use {'sainnhe/everforest'}
+    use {'mhartington/oceanic-next'}
 
     -- tests
     use {'diegorubin/nose2coverage.nvim'}

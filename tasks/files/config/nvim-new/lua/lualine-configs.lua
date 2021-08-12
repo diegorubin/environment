@@ -3,7 +3,7 @@ local function coverage() return require'nose2coverage'.total_coverage() end
 require'lualine'.setup {
     options = {
         icons_enabled = true,
-        theme = 'everforest',
+        theme = 'oceanicnext',
         component_separators = {'', ''},
         section_separators = {'', ''},
         disabled_filetypes = {}

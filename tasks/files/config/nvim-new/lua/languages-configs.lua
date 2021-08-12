@@ -1,3 +1,6 @@
+-- bash configuration
+require'lspconfig'.bashls.setup {}
+
 -- python configuration
 require'lspconfig'.pyright.setup {}
 

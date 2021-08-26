@@ -10,6 +10,7 @@ lua require('nose2coverage-configs')
 lua require('theme')
 lua require('todo-comments-configs')
 lua require('twilight-configs')
+lua require('ui-configs')
 
 " Private settings
 lua require('private')

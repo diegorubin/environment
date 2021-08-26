@@ -94,6 +94,7 @@
     - theme.lua
     - tree.lua
     - twilight-configs.lua
+    - ui-configs.lua
   tags:
     - nvim-new
 

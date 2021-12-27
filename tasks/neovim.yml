@@ -34,49 +34,24 @@
 - pip:
     name: neovim
     extra_args: --user
-# Current NeoVim Configuration
-- name: Create Current NeoVim Base
-  command: "mkdir -p {{destination}}/.config/nvim-current/"
-  tags:
-    - nvim-current
-- name: Install Plug for NeoVim Plugins
-  command: "curl -fLo {{destination}}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  tags:
-    - nvim-current
-- name: copy init.vim
-  copy: src=config/nvim-current/init.vim dest={{destination}}/.config/nvim-current owner={{user}} mode=0664
-  tags:
-    - nvim-current
-- name: copy coc-settings.json
-  copy: src=config/nvim-current/coc-settings.json dest={{destination}}/.config/nvim-current owner={{user}} mode=0664
-  tags:
-    - nvim-current
-- name: copy theme config
-  copy: src=config/nvim-current/themes/{{theme}}.vim dest={{destination}}/.config/nvim-current/theme.vim owner={{user}} mode=0664
-  tags:
-    - nvim-current
-
-# New NeoVim Configuration
 - name: Check for packer installation
   stat: path=~/.local/share/nvim/site/pack/packer/start/packer.nvim
   register: packer
   tags:
-    - nvim-new
-
+    - nvim
 - name: Install Packer for NeoVim Plugins
   command: "git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
   when: not packer.stat.exists
   tags:
-    - nvim-new
-
+    - nvim
 - name: Create New NeoVim Base
   command: "mkdir -p {{destination}}/.config/nvim-new/lua"
   tags:
-    - nvim-new
+    - nvim
 - name: copy init.vim
   copy: src=config/nvim-new/init.vim dest={{destination}}/.config/nvim-new/init.vim owner={{user}} mode=0664
   tags:
-    - nvim-new
+    - nvim
 - name: copy lua files
   copy:
     src: "config/nvim-new/lua/{{item}}"
@@ -96,19 +71,13 @@
     - twilight-configs.lua
     - ui-configs.lua
   tags:
-    - nvim-new
-
+    - nvim
 # Creating link for selected nvim configuration
 - name: Remove old link
   command: "rm -f {{destination}}/.config/nvim"
   tags:
-    - nvim-current
-    - nvim-new
-- name: Create Link for Current NeoVim Configuration
-  command: "ln -s {{destination}}/.config/nvim-current {{destination}}/.config/nvim"
-  tags:
-    - nvim-current
+    - nvim
 - name: Create Link for New NeoVim Configuration
   command: "ln -s {{destination}}/.config/nvim-new {{destination}}/.config/nvim"
   tags:
-    - nvim-new
+    - nvim

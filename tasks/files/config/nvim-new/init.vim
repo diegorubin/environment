@@ -74,8 +74,6 @@ lua require('private')
 " nvim-tree Configuration {
   nnoremap <leader>p :NvimTreeToggle<CR>
   nnoremap <leader>r :NvimTreeRefresh<CR>
-  let g:nvim_tree_hide_dotfiles = 1
-  let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache', '__pycache__' ]
   lua require('tree')
 " }
 

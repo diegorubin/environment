@@ -55,6 +55,7 @@
       - perl-ExtUtils-MakeMaker
       - feh
       - playerctl
+      - xfce4-notifyd
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

@@ -19,15 +19,15 @@ alias k=kubectl
 
 # Screen functions
 home_screen_layout() {
-  xrandr --output eDP-1-1  --auto --output HDMI-0 --primary --auto --right-of eDP-1-1 --output DP-1-1 --auto --above HDMI-0
+  xrandr --output eDP-1  --auto --output HDMI-1-4 --primary --auto --left-of eDP-1 --output DP-1 --auto --above HDMI-1-4
 }
 
 clone_hdmi_screen_layout() {
-  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --auto
+  xrandr --output eDP-1 --primary --auto --output HDMI-1-4 --auto
 }
 
 disable_external_monitors() {
-  xrandr --output eDP-1-1 --primary --auto --output HDMI-0 --off --output DP-1-1 --off
+  xrandr --output eDP-1 --primary --auto --output HDMI-1-4 --off --output DP-1 --off
 }
 
 # Docker Functions
@@ -40,7 +40,7 @@ clear_images() {
 	docker rmi -f $(docker images -a -q)
 }
 
-# Open Mapper 
+# Open Mapper
 open_private() {
   sudo cryptsetup -v luksOpen /dev/sda2 private
 }

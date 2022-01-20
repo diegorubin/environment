@@ -1,6 +1,6 @@
 [bar/bottom]
 monitor = {{ main_monitor }}
-monitor-fallback = eDP-1-1
+monitor-fallback = eDP-1
 monitor-strict = false
 override-redirect = false
 bottom = true
@@ -32,7 +32,7 @@ font-0 = "Ubuntu Condensed:size=10;2"
 font-1 = "icomoon\-feather:size=10;2"
 font-2 = "xos4 Terminus:size=12;1"
 
-modules-left = 
+modules-left =
 modules-center = countdown player-mpris-simple
 modules-right = lifeguard golem-isrunning check-port network keyboard
 
@@ -50,11 +50,11 @@ dim-value = 1.0
 ; If the value is empty or undefined, the atom value
 ; will be created from the following template: polybar-[BAR]_[MONITOR]
 ; NOTE: The placeholders are not available for custom values
-wm-name = 
+wm-name =
 
 ; Locale used to localize various module data (e.g. date)
 ; Expects a valid libc locale, for example: sv_SE.UTF-8
-locale = 
+locale =
 
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
@@ -65,7 +65,7 @@ locale =
 ;   center
 ;   right
 ;   none
-tray-position = left 
+tray-position = left
 
 ; If true, the bar will not shift its
 ; contents when the tray changes
@@ -80,7 +80,7 @@ tray-maxsize = 16
 ; background color is defined using `tray-background`
 tray-transparent = false
 
-; Background color for the tray container 
+; Background color for the tray container
 ; ARGB color (e.g. #f00, #ff992a, #ddff1023)
 ; By default the tray container will use the bar
 ; background color.
@@ -109,7 +109,7 @@ tray-scale = 1.0
 
 ; Set a DPI values used when rendering text
 ; This only affects scalable fonts
-; dpi = 
+; dpi =
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
@@ -117,8 +117,8 @@ enable-ipc = true
 
 ; Fallback click handlers that will be called if
 ; there's no matching module handler found.
-click-left = 
-click-middle = 
+click-left =
+click-middle =
 click-right =
 scroll-up =
 scroll-down =
@@ -127,5 +127,5 @@ double-click-middle =
 double-click-right =
 
 ; - ns-resize : Up and down arrows, can be used to indicate scrolling
-cursor-click = 
-cursor-scroll = 
+cursor-click =
+cursor-scroll =

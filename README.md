@@ -7,7 +7,7 @@ My Environment
 
 This project uses ansible to install configurations.
 
-Supported distros: 
+Supported distros:
 
 [![Fedora Logo](https://distrowatch.com/images/yvzhuwbpy/fedora.png)](https://distrowatch.com/table.php?distribution=fedora)
 [![Ubuntu Logo](https://distrowatch.com/images/yvzhuwbpy/ubuntu.png)](https://distrowatch.com/table.php?distribution=ubuntu)
@@ -23,7 +23,7 @@ Supported distros:
 ## Execution
 
 ```
-sudo ansible-pull -e user=<user> -e destination=<local dir> -e theme=default -e main_monitor=HDMI-0 -U https://github.com/diegorubin/environment.git
+sudo ansible-pull -e user=<user> -e destination=<local dir> -e theme=molokai -e main_monitor=HDMI-1-4 -U https://github.com/diegorubin/environment.git
 ```
 
 ## Content

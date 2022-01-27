@@ -27,7 +27,7 @@
       fg = #ffffff
       ac = #1d71ca
       mf = #000000
-      
+
       ;; Bars
       bi = #1d71ca
       be = #43a047
@@ -59,7 +59,7 @@
       i3_label_visible_background = #1d71ca
       ;; old bf
       i3_label_visible_underline = #ffffff
- 
+
       trans = #1d71ca00
       white = #FFFFFF
       black = #000000
@@ -77,3 +77,4 @@
   when: theme == "molokai"
   tags:
     - configs
+    - polybar

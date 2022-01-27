@@ -53,7 +53,7 @@
   command: "/tmp/polybar/build-polybar.sh"
   when: ansible_distribution == 'Ubuntu'
 - name: Copy Polybar Configs
-  copy: src=config/polybar/{{machine}} dest={{destination}}/.config owner={{user}}
+  copy: src=config/polybar/{{machine}}/ dest={{destination}}/.config/polybar/ owner={{user}}
   tags:
     - configs
     - polybar

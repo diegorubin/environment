@@ -26,7 +26,7 @@
       fg = #000000
       ac = #000000
       mf = #f2eede
-      
+
       ;; Bars
       bi = #000000
       be = #43a047
@@ -59,7 +59,7 @@
       ;; old bf
       i3_label_visible_underline = #43a047
 
-      
+
       trans = #00000000
       white = #FFFFFF
       black = #000000
@@ -67,3 +67,4 @@
   when: theme == "paper"
   tags:
     - configs
+    - polybar

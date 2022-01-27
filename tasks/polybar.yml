@@ -53,33 +53,33 @@
   command: "/tmp/polybar/build-polybar.sh"
   when: ansible_distribution == 'Ubuntu'
 - name: Copy Polybar Configs
-  copy: src=config/polybar dest={{destination}}/.config owner={{user}}
+  copy: src=config/polybar/{{machine}} dest={{destination}}/.config owner={{user}}
   tags:
     - configs
     - polybar
 - name: copy polybar default colors
   template:
-    src: config/polybar/default/colors.ini.j2
+    src: config/polybar/{{machine}}/default/colors.ini.j2
     dest: "{{destination}}/.config/polybar/default/colors.ini"
   tags:
     - configs
     - polybar
 - name: copy polybar top menu
   template:
-    src: config/polybar/default/top.ini.j2
+    src: config/polybar/{{machine}}/default/top.ini.j2
     dest: "{{destination}}/.config/polybar/default/top.ini"
   tags:
     - configs
     - polybar
 - name: copy polybar bottom menu
   template:
-    src: config/polybar/default/bottom.ini.j2
-    dest: "{{destination}}/.config/polybar/default/bottom.ini"
+    src: config/polybar/{{machine}}/default/bottom.ini.j2
+    dest: "{{destination}}/.config/polybar//default/bottom.ini"
   tags:
     - configs
     - polybar
 - name: Copy Default Launcher Script
-  copy: src=config/polybar/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} mode=0774
+  copy: src=config/polybar/{{machine}}/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} mode=0774
   tags:
     - configs
     - polybar

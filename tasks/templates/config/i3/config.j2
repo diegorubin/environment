@@ -213,6 +213,13 @@ exec_always --no-startup-id flashfocus &
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
 exec --no-startup-id dropbox start
 exec --no-startup-id xscreensaver
+exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
+
+{% if machine == "notebook" %}
 exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
 exec --no-startup-id xrandr --output eDP-1 --auto --primary --output DP-1 --off --output HDMI-1-4 --auto --off
-exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
+{% endif %}
+
+{% if machine == "desktop" %}
+exec --no-startup-id xrandr --output HDMI-2 --primary --auto --output DP-1 --rotate left --auto --right-of HDMI-2 --output HDMI-1-3 --auto --above HDMI-2
+{% endif %}

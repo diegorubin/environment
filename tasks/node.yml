@@ -4,7 +4,7 @@
   register: node
 - name: Download Node
   become_user: root
-  command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz"
+  command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz"
   when: not node.stat.exists
 - name: Extract Node
   become_user: root

@@ -104,6 +104,7 @@
     - pulseaudio-input-listener.sh
     - countdown.sh
     - lifeguard.sh
+    - pipewire.sh
   tags:
     - configs
     - polybar

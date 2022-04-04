@@ -1,5 +1,5 @@
 conky.config = {
-    color1 = '#00c0ff',
+    color1 = '#039BE5',
     alignment = 'middle_middle',
     background = false,
     border_width = 10,
@@ -13,7 +13,7 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     extra_newline = false,
-    font = 'HeavyData Nerd Font:size=10',
+    font = 'Fantasque Sans Mono:size=10',
     gap_x = 0,
     gap_y = -60,
     minimum_height = 561,
@@ -41,23 +41,11 @@ conky.config = {
 }
 
 conky.text = [[
-${alignc}${color1}${font HeavyData Nerd Font:size=20}${exec date +"%A, %d of %B"}
-${alignc}${color1}${font HeavyData Nerd Font Mono:size=20}${exec date +"%H:%M"}
-
-$font${color1}Battery:${color}${alignr}$color${battery BAT0}
-${battery_bar BAT0}
-${alignr}${battery_time BAT0}
+${alignc}${color1}${font Fantasque Sans Mono:size=20}${exec date +"%A, %d of %B"}
+${alignc}${color1}${font Fantasque Sans Mono:size=20}${exec date +"%H:%M"}
 
 $font${color1}System:${alignr}$color${fs_used /} / ${fs_size /}
 ${fs_bar 6 /}
-$font${color1}Home:${alignr}$color${fs_used /home} / ${fs_size /home}
-${fs_bar 6 /home}
-$font${color1}Public:${alignr}$color${fs_used /mnt/public} / ${fs_size /mnt/public}
-${fs_bar 6 /mnt/public}
-
-
-
-
 
 
 ${alignc}${cpugraph 0 25,300 000000 000000}

@@ -85,6 +85,12 @@ lua require('private')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }
 
+" rest-console {
+  let g:vrc_curl_opts = {
+    \ '-s': '',
+  \}
+" }
+
 " Syntax {
   augroup filetypedetect
       autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy

@@ -1,5 +1,6 @@
 # Exports
 export EDITOR=nvim
+export KUBE_EDITOR=vim
 
 export PATH="/opt/java/bin:$PATH"
 export PATH="$PATH:/opt/node/bin"

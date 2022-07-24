@@ -67,6 +67,7 @@
     - mutmut-configs.lua
     - nose2coverage-configs.lua
     - theme.lua
+    - octo-configs.lua
     - tree.lua
     - twilight-configs.lua
     - ui-configs.lua

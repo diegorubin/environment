@@ -15,6 +15,14 @@ return require('packer').startup(function()
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
     use {'tpope/vim-fugitive'}
     use {'junegunn/gv.vim'}
+    use {
+      'pwntester/octo.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+        'kyazdani42/nvim-web-devicons',
+      }
+    }
 
     -- languages servers
     use {'neovim/nvim-lspconfig'}

@@ -45,17 +45,17 @@
   tags:
     - nvim
 - name: Create New NeoVim Base
-  command: "mkdir -p {{destination}}/.config/nvim-new/lua"
+  command: "mkdir -p {{destination}}/.config/nvim/lua"
   tags:
     - nvim
 - name: copy init.vim
-  copy: src=config/nvim-new/init.vim dest={{destination}}/.config/nvim-new/init.vim owner={{user}} mode=0664
+  copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim/init.vim owner={{user}} mode=0664
   tags:
     - nvim
 - name: copy lua files
   copy:
-    src: "config/nvim-new/lua/{{item}}"
-    dest: "{{destination}}/.config/nvim-new/lua"
+    src: "config/nvim/lua/{{item}}"
+    dest: "{{destination}}/.config/nvim/lua"
   with_items:
     - plugins.lua
     - gitsigns-config.lua
@@ -71,14 +71,5 @@
     - tree.lua
     - twilight-configs.lua
     - ui-configs.lua
-  tags:
-    - nvim
-# Creating link for selected nvim configuration
-- name: Remove old link
-  command: "rm -f {{destination}}/.config/nvim"
-  tags:
-    - nvim
-- name: Create Link for New NeoVim Configuration
-  command: "ln -s {{destination}}/.config/nvim-new {{destination}}/.config/nvim"
   tags:
     - nvim

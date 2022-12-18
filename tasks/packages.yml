@@ -56,6 +56,12 @@
       - feh
       - playerctl
       - xfce4-notifyd
+      - lua-filesystem
+      - lua5.1-filesystem
+      - kubernetes-client
+      - fzf
+      - libevent-devel
+      - pcre-devel
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

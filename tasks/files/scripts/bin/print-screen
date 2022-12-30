@@ -1,0 +1,7 @@
+#!/bin/bash
+
+file="$HOME/Pictures/screenshots/$(date +%s).png"
+echo $file
+
+maim -o $file
+xclip -selection clipboard -t image/png -i $file

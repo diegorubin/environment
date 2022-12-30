@@ -202,8 +202,8 @@ bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-bindsym --release Print exec "maim -o {{destination}}/Pictures/screenshots/$(date +%s).png"
-bindsym --release Shift+Print exec "maim -o -s {{destination}}/Pictures/screenshots/$(date +%s).png"
+bindsym --release Print exec {{destination}}/.scripts/bin/print-screen
+bindsym --release Shift+Print exec {{destination}}/.scripts/bin/print-screen-selection
 
 # start programs
 exec_always --no-startup-id feh --bg-fill {{destination}}/.wallpaper.1 --bg-fill {{destination}}/.wallpaper.2 --bg-fill {{destination}}/.wallpaper.3 --bg-fill {{destination}}/.wallpaper.4

@@ -22,6 +22,7 @@
     - find_colors
     - change-java-version
     - create-task
+    - print-screen
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
@@ -35,3 +36,4 @@
     - find_colors
     - change-java-version
     - create-task
+    - print-screen

@@ -3,5 +3,5 @@
 file="$HOME/Pictures/screenshots/$(date +%s).png"
 echo $file
 
-maim -o -s $file
+maim -o -s -d 0.5 $file
 xclip -selection clipboard -t image/png -i $file

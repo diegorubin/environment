@@ -62,6 +62,7 @@
       - fzf
       - libevent-devel
       - pcre-devel
+      - terraform-ls
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

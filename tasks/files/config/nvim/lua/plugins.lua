@@ -67,6 +67,9 @@ return require('packer').startup(function()
     -- tests
     use {'diegorubin/nose2coverage.nvim'}
 
+    -- terraform
+    use {'hashivim/vim-terraform'}
+
     -- ui
     use {'kyazdani42/nvim-web-devicons'}
     use {'kyazdani42/nvim-tree.lua'}

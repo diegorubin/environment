@@ -4,6 +4,7 @@ return require('packer').startup(function()
 
     -- autocomplete
     use {'hrsh7th/nvim-compe'}
+    use {'github/copilot.vim'}
 
     -- formatters
     use {'sbdchd/neoformat'}

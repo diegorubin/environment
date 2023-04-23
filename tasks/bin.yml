@@ -10,3 +10,4 @@
     - status-bar
     - set_playback
     - unset_playback
+  when: machine == 'desktop'

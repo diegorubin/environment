@@ -14,23 +14,18 @@
   when: ansible_distribution == 'Fedora'
   tags:
     - nvim
-- name: "[Ubuntu] Install ppa to neovim"
-  become_user: root
-  apt_repository:
-    repo: ppa:neovim-ppa/stable
+- name: "[Ubuntu] Check for neovim installation"
+  stat: path=/opt/nvim.appimage-0.9.0
+  register: neovim
   when: ansible_distribution == 'Ubuntu'
-  tags:
-    - nvim
-- name: "[Ubuntu] Install neovim from ppa"
+- name: "[Ubuntu] download neovim app image"
   become_user: root
-  apt:
-    update_cache: yes
-    pkg:
-      - neovim
-    state: latest
-  when: ansible_distribution == 'Ubuntu'
-  tags:
-    - nvim
+  command: "curl -fLo /opt/nvim.appimage-0.9.0 https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage && chmod +x /opt/nvim.appimage-0.9.0"
+  when: (not neovim.stat.exists) and ansible_distribution == 'Ubuntu'
+- name: "[Ubuntu] create link"
+  become_user: root
+  command: "ln -s /opt/nvim.appimage-0.9.0 /usr/bin/nvim"
+  when: (not neovim.stat.exists) and ansible_distribution == 'Ubuntu'
 - pip:
     name: neovim
     extra_args: --user

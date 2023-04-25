@@ -23,7 +23,9 @@
       - libxcb-xkb-dev
       - libxcb-composite0-dev
       - pkg-config
-      - python-xcbgen
+      - python3-xcbgen
+      - python3-sphinx
+      - libuv1-dev
       - xcb-proto
       - libxcb-xrm-dev
       - libasound2-dev
@@ -31,7 +33,6 @@
       - libiw-dev
       - libcurl4-openssl-dev
       - libpulse-dev
-      - libjsoncpp1
       - libjsoncpp-dev
     state: latest
   when: ansible_distribution == 'Ubuntu'

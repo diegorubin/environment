@@ -30,36 +30,50 @@
       - maim
     state: latest
   when: ansible_distribution == 'Fedora'
-- name: Clone i3-gaps repository
-  git:
-    repo: 'https://github.com/Airblader/i3.git'
-    dest: /tmp/i3
-  when: ansible_distribution == 'Fedora'
-- name: copy i3 build script
-  copy: src=build/build-i3.sh dest=/tmp/i3 owner={{user}} mode=0774
-  when: ansible_distribution == 'Fedora'
-- name: Make and Install i3-gaps
-  become_user: root
-  command: "/tmp/i3/build-i3.sh"
-  when: ansible_distribution == 'Fedora'
-- name: "[Ubuntu] Install ppa to i3-gaps"
-  become_user: root
-  apt_repository:
-    repo: ppa:kgilmer/speed-ricer
-  when: ansible_distribution == 'Ubuntu'
 - name: "[Ubuntu] Install i3-gaps"
   become_user: root
   apt:
     update_cache: yes
     pkg:
-      - i3-gaps
       - compton
       - dunst
       - maim
       - feh
       - rofi
+      - ninja-build
+      - meson
+      - libstartup-notification0
+      - libstartup-notification0-dev
+      - libxcb-xinerama0
+      - libxcb-xinerama0-dev
+      - libxcb-cursor0
+      - libxcb-cursor-dev
+      - libxcb-keysyms1
+      - libxcb-keysyms1-dev
+      - libxcb1-dev
+      - libpango1.0-dev
+      - libxcb-util0-dev
+      - libxcb-icccm4-dev
+      - libyajl-dev
+      - libxcb-randr0-dev
+      - libev-dev
+      - libxcb-xkb-dev
+      - libxkbcommon-dev
+      - libxkbcommon-x11-dev
+      - xutils-dev
+      - libtool
+      - libxcb-shape0-dev
     state: latest
   when: ansible_distribution == 'Ubuntu'
+- name: Clone i3-gaps repository
+  git:
+    repo: 'https://github.com/Airblader/i3.git'
+    dest: /tmp/i3
+- name: copy i3 build script
+  copy: src=build/build-i3.sh dest=/tmp/i3 owner={{user}} mode=0774
+- name: Make and Install i3-gaps
+  become_user: root
+  command: "/tmp/i3/build-i3.sh"
 - name: Install Flashfocus
   become_user: root
   pip:

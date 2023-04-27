@@ -32,7 +32,13 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
+{% if machine == "desktop" %}
 bindsym $mod+Return exec termite
+{% endif %}
+
+{% if machine == "notebook" %}
+bindsym $mod+Return exec terminator
+{% endif %}
 
 # kill focused window
 bindsym $mod+q kill

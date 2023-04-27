@@ -95,5 +95,6 @@
       - aspell
       - aspell-pt-br
       - python3-pip
+      - xfce4-notifyd
     state: latest
   when: ansible_distribution == 'Ubuntu'

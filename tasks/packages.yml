@@ -96,5 +96,6 @@
       - aspell-pt-br
       - python3-pip
       - xfce4-notifyd
+      - exuberant-ctags
     state: latest
   when: ansible_distribution == 'Ubuntu'

@@ -1,6 +1,4 @@
-require'nvim-tree'.setup ()
-
-local function on_attach(bufnr)
+local function my_on_attach(bufnr)
   local api = require('nvim-tree.api')
 
   local function opts(desc)
@@ -54,7 +52,6 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'q',     api.tree.close,                        opts('Close'))
   vim.keymap.set('n', 'r',     api.fs.rename,                         opts('Rename'))
   vim.keymap.set('n', 'R',     api.tree.reload,                       opts('Refresh'))
-  vim.keymap.set('n', 's',     api.node.run.system,                   opts('Run System'))
   vim.keymap.set('n', 'S',     api.tree.search_node,                  opts('Search'))
   vim.keymap.set('n', 'U',     api.tree.toggle_custom_filter,         opts('Toggle Hidden'))
   vim.keymap.set('n', 'W',     api.tree.collapse_all,                 opts('Collapse'))
@@ -104,3 +101,5 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Help'))
 
 end
+
+require'nvim-tree'.setup({on_attach = my_on_attach})

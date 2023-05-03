@@ -1,0 +1,80 @@
+---
+- set_fact:
+    theme_name: Simple
+    dunst_frame_color: "#000000"
+    dunst_background: "#191311"
+    dunst_urgency_foreground: "#1d71ca"
+    rofi_background: "#1d2021c5"
+    rofi_background_alt: "#00000098"
+    rofi_text_color: "#ffffff"
+    rofi_primary: "#1d71ca"
+    rofi_urgent: "#e53935"
+    rofi_element_text_color: "#ffffff"
+    rofi_element_selected_text_color: "#ffffff"
+    i3_colors: |
+      # <colorclass>           <border>   <background>   <text>  <indicator> <child_border>
+      client.focused           #ffffff      #1d71ca    #ffffff    #1d71ca    #ffffff
+      client.focused_inactive  #aaaaaa      #1d71ca    #000000    #1d71ca    #aaaaaa
+      client.unfocused         #000000      #000000    #1d71ca    #1d71ca    #000000
+      client.urgent            #ff0000      #ff0000    #1d71ca    #1d71ca    #ff0000
+      client.placeholder       #ffffff      #000000    #1d71ca    #1d71ca    #ffffff
+
+      client.background       #000000
+
+    polybar_colors: |
+      ;; Active Colors
+      bg = #ff000000
+      fg = #ffffff
+      ac = #ffffff
+      mf = #ffffff
+
+      ;; Bars
+      bi = #ffffff
+      be = #43a047
+      bf = #000000
+      bn = #43a047
+      bm = #fdd835
+      bd = #e53935
+
+      ;; i3 module
+      ;; old bg
+      i3_label_foreground = #1d71ca
+      ;; old bi
+      i3_label_background = #000000
+
+      ;; old bg
+      i3_label_focused_foreground = #000000
+      ;; old ac
+      i3_label_focused_background = #ffffff
+      ;; old bf
+      i3_label_focused_underline = #aaaaaa
+
+      i3_label_unfocused_foreground = #aaaaaa
+      i3_label_unfocused_background = #000000
+      ;; old bi
+      i3_label_unfocused_underline= #aaaaaa
+
+      i3_label_visible_foreground = #aaaaaa
+      ;; old ac
+      i3_label_visible_background = #ffffff
+      ;; old bf
+      i3_label_visible_underline = #000000
+
+      trans = #1d71ca00
+      white = #FFFFFF
+      black = #000000
+
+      title = #ffffff
+
+      filesystem = #ffffff
+      cpu = #ffffff
+      memory = #ffffff
+      battery = #ffffff
+      temperature = #ffffff
+      sound = #af5fff
+      event = #ffffff
+
+  when: theme == "simple"
+  tags:
+    - configs
+    - polybar

@@ -6,6 +6,8 @@
       - polybar
     state: latest
   when: ansible_distribution == 'Fedora'
+  tags:
+    - polybar
 - name: "[Ubuntu] Install dependencies for polybar"
   become_user: root
   apt:
@@ -36,23 +38,26 @@
       - libjsoncpp-dev
     state: latest
   when: ansible_distribution == 'Ubuntu'
-- name: Install lyrics package globally.
-  become_user: root
-  npm:
-    name: lyrics-cli
-    global: true
+  tags:
+    - polybar
 - name: Clone polybar repository
   git:
     repo: 'https://github.com/polybar/polybar.git'
     dest: /tmp/polybar
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - polybar
 - name: copy polybar build script
   copy: src=build/build-polybar.sh dest=/tmp/polybar owner={{user}} mode=0774
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - polybar
 - name: Make and Install Polybar
   become_user: root
   command: "/tmp/polybar/build-polybar.sh"
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - polybar
 - name: Copy Polybar Configs
   copy: src=config/polybar/{{machine}}/ dest={{destination}}/.config/polybar/ owner={{user}}
   tags:
@@ -88,9 +93,7 @@
   command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
   with_items:
     - gnomato
-    - lyrics
     - powermenu
-    - translate_lyrics
     - dropbox-isrunning.sh
     - golem-isrunning.sh
     - player-mpris-simple.sh

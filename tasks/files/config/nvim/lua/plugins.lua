@@ -82,6 +82,11 @@ return require('packer').startup(function()
     }
     use {'voldikss/vim-floaterm'}
     use {'tpope/vim-dadbod'}
+    use ({"ziontee113/color-picker.nvim",
+        config = function()
+            require("color-picker")
+        end,
+    })
 
     -- wiki
     use {'vimwiki/vimwiki'}

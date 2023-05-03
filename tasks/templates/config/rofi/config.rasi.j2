@@ -6,6 +6,7 @@ configuration {
 * {
     background-color:               transparent;
     background:                     {{ rofi_background }};
+    background-active:              {{ rofi_background_active }};
     background-alt:                 {{ rofi_background_alt }};
     text-color:                     {{ rofi_text_color }};
     primary:                        {{ rofi_primary }};
@@ -17,7 +18,6 @@ window {
     width:                          100%;
     transparency:                   "real";
     background-color:               @background;
-    
 }
 
 mainbox {
@@ -45,11 +45,16 @@ element normal.urgent, element alternate.urgent {
     background-color:               @urgent;
 }
 
-element normal.active, element alternate.active {
-    background-color:               @background-alt;
+element normal.active {
+    background-color:               @background-active;
     border:                         4px 4px solid 4px 4px;
     border-radius:                  8;
     border-color:                   transparent;
+}
+
+element selected.active {
+    background-color:               @background-color;
+    text-color:                     @primary;
 }
 
 element selected {

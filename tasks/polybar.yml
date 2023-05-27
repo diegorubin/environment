@@ -112,3 +112,14 @@
   tags:
     - configs
     - polybar
+- pip:
+    name: yahoo_fin
+    extra_args: --user
+- name: Change scripts permission (desktop only)
+  command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
+  with_items:
+    - stock
+  tags:
+    - configs
+    - polybar
+  when: machine == 'desktop'

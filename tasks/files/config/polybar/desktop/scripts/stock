@@ -1,0 +1,19 @@
+#!/usr/bin/python
+import yaml
+from yahoo_fin import stock_info
+from pathlib import Path
+
+CONFIGS = {
+    "home": str(Path.home()),
+    "tickers": [],
+}
+
+with open("{}/.stocks.yaml".format(CONFIGS["home"])) as file:
+    configs = yaml.load(file, Loader=yaml.FullLoader)
+    CONFIGS.update(configs)
+
+result = []
+for ticker in CONFIGS["tickers"]:
+    result.append("{}: {}".format(ticker, stock_info.get_live_price(ticker).round(3)))
+
+print("%{B#fff}%{B#000}" + " | ".join(result) + "%{B- F-}")

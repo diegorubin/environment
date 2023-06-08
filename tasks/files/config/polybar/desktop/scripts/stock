@@ -3,10 +3,16 @@ import yaml
 from yahoo_fin import stock_info
 from pathlib import Path
 
+from datetime import datetime, timedelta
+
 CONFIGS = {
     "home": str(Path.home()),
     "tickers": [],
+    "history": {},
 }
+
+today = datetime.now().strftime("%Y-%m-%d")
+yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
 with open("{}/.stocks.yaml".format(CONFIGS["home"])) as file:
     configs = yaml.load(file, Loader=yaml.FullLoader)
@@ -14,6 +20,24 @@ with open("{}/.stocks.yaml".format(CONFIGS["home"])) as file:
 
 result = []
 for ticker in CONFIGS["tickers"]:
-    result.append("{}: {}".format(ticker, stock_info.get_live_price(ticker).round(3)))
+    value = float(stock_info.get_live_price(ticker).round(3))
 
-print("%{B#fff}%{B#000}" + " | ".join(result) + "%{B- F-}")
+    if today not in CONFIGS["history"]:
+        CONFIGS["history"][today] = {}
+
+    CONFIGS["history"][today][ticker] = value
+    yesterday_value = CONFIGS["history"].get(yesterday, {}).get(ticker, 0.0)
+
+    if yesterday_value > value:
+        result.append(str(ticker) + ": %{F#ff0000}" + str(value) + "%{F-}")
+    elif yesterday_value < value:
+        result.append(str(ticker) + ": %{F#00ff00}" + str(value) + "%{F-}")
+    else:
+        result.append("{}: {}".format(ticker, value))
+
+# save dict into yaml file
+with open("{}/.stocks.yaml".format(CONFIGS["home"]), "w") as file:
+    yaml.dump(CONFIGS, file)
+
+
+print("%{F#fff}%{B#000}" + " | ".join(result) + "%{B- F-}")

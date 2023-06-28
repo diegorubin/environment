@@ -58,7 +58,7 @@ lua require('private')
 " }
 
 " neoformat Configuration {
-  let g:neoformat_enabled_yaml = ['pyaml']
+  let g:neoformat_enabled_yaml = ['prettier']
   augroup fmt
     autocmd!
     autocmd BufWritePre * undojoin | Neoformat

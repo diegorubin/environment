@@ -207,6 +207,9 @@ for_window [class="ConkyBar"] resize set width 440
 bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioLowerVolume exec wpctl set-volume "@DEFAULT_AUDIO_SINK@" 1%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume "@DEFAULT_AUDIO_SINK@" 1%+
+bindsym XF86AudioMute exec wpctl set-mute "@DEFAULT_AUDIO_SINK@" toggle
 
 bindsym --release Print exec {{destination}}/.scripts/bin/print-screen
 bindsym --release Shift+Print exec {{destination}}/.scripts/bin/print-screen-selection

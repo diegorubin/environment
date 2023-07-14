@@ -42,7 +42,7 @@
     - polybar
 - name: Clone polybar repository
   git:
-    repo: 'https://github.com/polybar/polybar.git'
+    repo: "https://github.com/polybar/polybar.git"
     dest: /tmp/polybar
   when: ansible_distribution == 'Ubuntu'
   tags:
@@ -119,6 +119,7 @@
   command: "chmod +x {{destination}}/.config/polybar/scripts/{{item}}"
   with_items:
     - stock
+    - pipewire
   tags:
     - configs
     - polybar

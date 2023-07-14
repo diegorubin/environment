@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+
+action = sys.argv[1]
+device = sys.argv[2]
+
+if "SINK" in device:
+    icon = ""
+else:
+    icon = "🎙️"
+
+if action == "mute":
+    subprocess.run(["wpctl", "set-mute", device, "toggle"])
+
+if action == "up":
+    subprocess.run(["wpctl", "set-volume", device, "1%+"])
+
+if action == "down":
+    subprocess.run(["wpctl", "set-volume", device, "1%-"])
+
+raw_volume = (
+    subprocess.run(["wpctl", "get-volume", device], capture_output=True)
+    .stdout.decode("utf-8")
+    .replace("Volume: ", "")
+)
+
+if "[MUTED]" in raw_volume:
+    volume = "-"
+else:
+    volume = int(float(raw_volume) * 100)
+
+print(f"{icon} {volume}%", end="")

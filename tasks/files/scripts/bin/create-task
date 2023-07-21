@@ -1,97 +1,55 @@
 #!/usr/bin/env python3
 
 import dbus
-import re
-import gi
-from gi.repository import Gtk
+import subprocess
+import sys
+from os import chdir, environ, listdir, path, system
+from os.path import isfile, join
 
-gi.require_version("Gtk", "3.0")
+entry = None
+open_in_new_window = True
 
-
-def show_in_completion(completion, current_value, item):
-    value = completion.get_model()[item][0].lower()
-    pattern = current_value.lower().replace(" ", ".*?")
-    return re.findall(pattern, value)
-
-
-class Dialog(Gtk.Dialog):
-    def __init__(self, question):
-        Gtk.Dialog.__init__(
-            self,
-            "Nova tarefa",
-            None,
-            0,
-            (
-                Gtk.STOCK_CANCEL,
-                Gtk.ResponseType.CANCEL,
-                Gtk.STOCK_OK,
-                Gtk.ResponseType.OK,
-            ),
-        )
-
-        self.set_default_size(150, 100)
-
-        label = Gtk.Label(question)
-
-        self.entry = Gtk.Entry()
-        self.entry.set_activates_default(True)
-        self.__build_autocomplete()
-        self.entry.set_completion(self.completion)
-        self.completion.complete()
-
-        ok_button = self.get_widget_for_response(response_id=Gtk.ResponseType.OK)
-        ok_button.set_can_default(True)
-        ok_button.grab_default()
-        ok_button.connect("clicked", self.on_button_clicked)
-
-        cancel_button = self.get_widget_for_response(
-            response_id=Gtk.ResponseType.CANCEL
-        )
-        cancel_button.connect("clicked", self.on_button_clicked)
-
-        box = self.get_content_area()
-        box.add(label)
-        box.add(self.entry)
-        self.show_all()
-        Gtk.main()
-
-    def on_button_clicked(self, widget):
-        self.hide()
-        Gtk.main_quit()
-
-    def __build_autocomplete(self):
-        self.liststore = Gtk.ListStore(str)
-        self.completion = Gtk.EntryCompletion()
-        self.completion.set_model(self.liststore)
-        self.completion.set_text_column(0)
-        self.completion.set_match_func(show_in_completion)
-
-        with open("/home/diegorubin/.opened_tasks") as tasks:
-            line = tasks.readline()
-            while line:
-                self.liststore.append((line[:-1],))
-                line = tasks.readline()
-
-        with open("/home/diegorubin/.common_tasks") as tasks:
-            line = tasks.readline()
-            while line:
-                l = "{}".format(line[:-1])
-                self.liststore.append((l,))
-                line = tasks.readline()
-
-    def value(self):
-        return self.entry.get_text()
+if len(sys.argv) == 2:
+    entry = sys.argv[1]
+    open_in_new_window = False
 
 
-dialog = Dialog("Nome da nova tarefa:")
-task = dialog.value()
+if not entry:
+    HOSTS_DIR = "{}/{}".format(environ.get("HOME"), ".hosts")
 
-bus = dbus.SessionBus()
-remote_object = bus.get_object("com.diegorubin.Gnomato", "/com/diegorubin/Gnomato")
+    tasks = []
 
-dbus_interface = "com.diegorubin.Gnomato"
+    hostsfiles = [f for f in listdir(HOSTS_DIR) if isfile(join(HOSTS_DIR, f))]
 
-exists = remote_object.TaskExists("HOJE", task, dbus_interface=dbus_interface)
+    for hostsfile in hostsfiles:
+        with open("/home/diegorubin/.opened_tasks") as tasks_file:
+            for line in tasks_file.readlines():
+                line = line.replace("\n", "")
+                if line:
+                    tasks.append(line)
 
-if exists == "false":
-    remote_object.CreateTask("HOJE", task, dbus_interface=dbus_interface)
+        with open("/home/diegorubin/.common_tasks") as tasks_file:
+            for line in tasks_file.readlines():
+                line = line.replace("\n", "")
+                if line:
+                    tasks.append(line)
+
+    echo = subprocess.Popen(["echo", "-e", "\n".join(tasks)], stdout=subprocess.PIPE)
+    rofi = subprocess.Popen(
+        ["rofi", "-lines", "20", "-columns", "2", "-dmenu", "-mesg", "Create Task"],
+        stdin=echo.stdout,
+        stdout=subprocess.PIPE,
+    )
+    result = rofi.communicate()[0].decode("utf-8")
+    entry = result.replace("\n", "")
+
+if entry:
+    bus = dbus.SessionBus()
+    remote_object = bus.get_object("com.diegorubin.Gnomato", "/com/diegorubin/Gnomato")
+
+    dbus_interface = "com.diegorubin.Gnomato"
+
+    exists = remote_object.TaskExists("HOJE", entry, dbus_interface=dbus_interface)
+
+    if exists == "false":
+        remote_object.CreateTask("HOJE", entry, dbus_interface=dbus_interface)

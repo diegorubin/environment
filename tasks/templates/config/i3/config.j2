@@ -195,7 +195,7 @@ bindsym $mod+b exec setxkbmap -layout us
 bindsym $mod+Shift+b exec setxkbmap -layout us -variant intl
 
 bindsym $mod+o exec {{destination}}/.scripts/bin/open-ssh
-bindsym $mod+c exec {{destination}}/.scripts/bin/create-task
+bindsym $mod+t exec {{destination}}/.scripts/bin/create-task
 
 for_window [window_role=floating_term] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
@@ -209,7 +209,7 @@ bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioLowerVolume exec wpctl set-volume "@DEFAULT_AUDIO_SINK@" 1%-
 bindsym XF86AudioRaiseVolume exec wpctl set-volume "@DEFAULT_AUDIO_SINK@" 1%+
 bindsym XF86AudioMute exec wpctl set-mute "@DEFAULT_AUDIO_SINK@" toggle
-bindsym $mod+t exec wpctl set-mute "@DEFAULT_AUDIO_SOURCE@" toggle
+bindsym $mod+m exec wpctl set-mute "@DEFAULT_AUDIO_SOURCE@" toggle
 
 bindsym --release Print exec {{destination}}/.scripts/bin/print-screen
 bindsym --release Shift+Print exec {{destination}}/.scripts/bin/print-screen-selection

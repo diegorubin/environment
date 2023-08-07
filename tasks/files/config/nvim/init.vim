@@ -86,6 +86,11 @@ lua require('private')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " }
 
+" impulse Configuration {
+  nnoremap <leader>vl :lua require("impulse").follow_link()<CR>
+  nnoremap <leader>vs :lua require("impulse").menu_search()<CR>
+" }
+
 " rest-console {
   let g:vrc_curl_opts = {
     \ '-s': '',

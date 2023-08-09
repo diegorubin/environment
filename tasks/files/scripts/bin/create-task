@@ -1,55 +1,22 @@
-#!/usr/bin/env python3
+#!/bin/bash
+termite -e "golem create task" &
+pid="$!"
 
-import dbus
-import subprocess
-import sys
-from os import chdir, environ, listdir, path, system
-from os.path import isfile, join
+# Wait for the window to open and grab its window ID
+winid=''
+while : ; do
+    winid="`wmctrl -lp | awk -vpid=$pid '$3==pid {print $1; exit}'`"
+    [[ -z "${winid}" ]] || break
+done
 
-entry = None
-open_in_new_window = True
+# Focus the window we found
+wmctrl -ia "${winid}"
 
-if len(sys.argv) == 2:
-    entry = sys.argv[1]
-    open_in_new_window = False
+# Make it float
+i3-msg floating enable > /dev/null;
 
+# Move it to the center for good measure
+i3-msg move position center > /dev/null;
 
-if not entry:
-    HOSTS_DIR = "{}/{}".format(environ.get("HOME"), ".hosts")
-
-    tasks = []
-
-    hostsfiles = [f for f in listdir(HOSTS_DIR) if isfile(join(HOSTS_DIR, f))]
-
-    for hostsfile in hostsfiles:
-        with open("/home/diegorubin/.opened_tasks") as tasks_file:
-            for line in tasks_file.readlines():
-                line = line.replace("\n", "")
-                if line:
-                    tasks.append(line)
-
-        with open("/home/diegorubin/.common_tasks") as tasks_file:
-            for line in tasks_file.readlines():
-                line = line.replace("\n", "")
-                if line:
-                    tasks.append(line)
-
-    echo = subprocess.Popen(["echo", "-e", "\n".join(tasks)], stdout=subprocess.PIPE)
-    rofi = subprocess.Popen(
-        ["rofi", "-lines", "20", "-columns", "2", "-dmenu", "-mesg", "Create Task"],
-        stdin=echo.stdout,
-        stdout=subprocess.PIPE,
-    )
-    result = rofi.communicate()[0].decode("utf-8")
-    entry = result.replace("\n", "")
-
-if entry:
-    bus = dbus.SessionBus()
-    remote_object = bus.get_object("com.diegorubin.Gnomato", "/com/diegorubin/Gnomato")
-
-    dbus_interface = "com.diegorubin.Gnomato"
-
-    exists = remote_object.TaskExists("HOJE", entry, dbus_interface=dbus_interface)
-
-    if exists == "false":
-        remote_object.CreateTask("HOJE", entry, dbus_interface=dbus_interface)
+# Wait for the application to quit
+wait "${pid}";

@@ -1,5 +1,12 @@
 #!/bin/bash
-termite -e "golem create task" &
+
+COMMAND="golem create task from ticket '$1' with description '$2'"
+if [[ -z "$1" ]]; then
+  COMMAND="golem create task"
+fi
+
+echo $COMMAND
+termite -e "$COMMAND" &
 pid="$!"
 
 # Wait for the window to open and grab its window ID

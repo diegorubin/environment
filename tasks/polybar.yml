@@ -84,6 +84,13 @@
   tags:
     - configs
     - polybar
+- name: copy polybar status menu
+  template:
+    src: config/polybar/{{machine}}/default/status.ini.j2
+    dest: "{{destination}}/.config/polybar//default/status.ini"
+  tags:
+    - configs
+    - polybar
 - name: Copy Default Launcher Script
   copy: src=config/polybar/{{machine}}/default/launch.sh dest={{destination}}/.config/polybar/default owner={{user}} mode=0774
   tags:

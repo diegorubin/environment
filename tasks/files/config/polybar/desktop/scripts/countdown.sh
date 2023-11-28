@@ -11,5 +11,5 @@ if [ -f "$FILE" ]; then
     today=`echo $(($(date --utc --date "$1" +%s)/86400))`
     target=`echo $(($(date --utc --date "$target_date" +%s)/86400))`
     days=`expr $target - $today`
-    echo "$days days until $target_name"
+    echo "$days dias para $target_name"
 fi

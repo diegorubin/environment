@@ -6,7 +6,7 @@ if [[ -z "$1" ]]; then
 fi
 
 echo $COMMAND
-termite -e "$COMMAND" &
+alacritty -e sh -c "$COMMAND" &
 pid="$!"
 
 # Wait for the window to open and grab its window ID

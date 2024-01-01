@@ -1,0 +1,23 @@
+key_bindings:
+  - { key: T, mods: Control|Shift, action: SpawnNewInstance }
+commands:
+  - { name: SpawnNewInstance, command: alacritty & disown }
+font:
+  normal:
+    family: Fantasque Sans Mono
+    style: Regular
+  bold:
+    family: Fantasque Sans Mono
+    style: Bold
+  italic:
+    family: Fantasque Sans Mono
+    style: Italic
+  size: 12.0
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0

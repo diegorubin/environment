@@ -1,0 +1,10 @@
+---
+- name: "[Fedora] Install alacritty"
+  become_user: root
+  dnf:
+    name:
+      - alacritty
+    state: latest
+  when: ansible_distribution == 'Fedora'
+- name: copy terminator config
+  copy: src=config/alacritty/{{theme}}/alacritty.yml dest={{destination}}/.alacritty owner={{user}} mode=0664

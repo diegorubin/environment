@@ -219,10 +219,9 @@ exec_always --no-startup-id feh --bg-fill {{destination}}/.wallpaper.1 --bg-fill
 exec_always --no-startup-id ~/.config/polybar/default/launch.sh &
 exec_always --no-startup-id flashfocus &
 
-exec --no-startup-id compton --config ~/.config/i3/compton.conf
 exec --no-startup-id xscreensaver
 exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
 
 {% if machine == "desktop" %}
-exec --no-startup-id xrandr --output HDMI-3 --auto --output DVI-D-1-1 --auto --right-of HDMI-1-1 --output HDMI-1-1 --auto --primary --below HDMI-3
+exec --no-startup-id xrandr --output HDMI-2 --auto --output DVI-D-1-0 --auto --right-of HDMI-1-0 --output HDMI-1-0 --auto --primary --below HDMI-2
 {% endif %}

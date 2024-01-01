@@ -14,7 +14,6 @@
     - import_tasks: themes/simple.yml
     - import_tasks: tasks/packages.yml
     - import_tasks: tasks/node.yml
-    - import_tasks: tasks/termite.yml
     - import_tasks: tasks/terminator.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/neovim.yml

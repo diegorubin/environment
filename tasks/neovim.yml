@@ -21,11 +21,11 @@
 - name: "[Ubuntu] download neovim app image"
   become_user: root
   command: "curl -fLo /opt/nvim.appimage-0.9.0 https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage && chmod +x /opt/nvim.appimage-0.9.0"
-  when: (not neovim.stat.exists) and ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu'
 - name: "[Ubuntu] create link"
   become_user: root
   command: "ln -s /opt/nvim.appimage-0.9.0 /usr/bin/nvim"
-  when: (not neovim.stat.exists) and ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu'
 - pip:
     name: neovim
     extra_args: --user

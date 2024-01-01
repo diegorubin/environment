@@ -25,7 +25,6 @@
       - xcb-util-xrm-devel
       - yajl
       - yajl-devel
-      - compton
       - dunst
       - maim
     state: latest
@@ -35,7 +34,6 @@
   apt:
     update_cache: yes
     pkg:
-      - compton
       - dunst
       - maim
       - feh
@@ -97,8 +95,6 @@
   tags:
     - configs
     - i3
-- name: copy i3 compton.conf
-  copy: src=config/i3/compton.conf dest={{destination}}/.config/i3/compton.conf owner={{user}} mode=0664
 - name: copy dunst config
   template:
     src: config/dunst/config.j2

@@ -4,7 +4,7 @@
   register: node
 - name: Download Node
   become_user: root
-  command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz"
+  command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.xz"
   when: not node.stat.exists
 - name: Extract Node
   become_user: root
@@ -12,9 +12,9 @@
   when: not node.stat.exists
 - name: Create Link for Node
   become_user: root
-  command: "ln -s /opt/node-v16.13.2-linux-x64 /opt/node"
+  command: "ln -s /opt/node-v20.10.0-linux-x64 /opt/node"
   when: not node.stat.exists
 - name: Change Owner for Node
   become_user: root
-  command: "chown -R {{user}} /opt/node-v16.13.2-linux-x64"
+  command: "chown -R {{user}} /opt/node-v20.10.0-linux-x64"
   when: not node.stat.exists

@@ -116,6 +116,7 @@
     - countdown.sh
     - lifeguard.sh
     - pipewire.sh
+    - currenttask.sh
   tags:
     - configs
     - polybar

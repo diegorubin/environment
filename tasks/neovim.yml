@@ -66,5 +66,6 @@
     - tree.lua
     - twilight-configs.lua
     - ui-configs.lua
+    - ai-configs.lua
   tags:
     - nvim

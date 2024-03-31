@@ -5,7 +5,7 @@ return require('packer').startup(function()
     -- autocomplete
     use {'hrsh7th/nvim-compe'}
     use {'github/copilot.vim'}
-    use {'aduros/ai.vim'}
+    use {'gera2ld/ai.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
     -- formatters
     use {'sbdchd/neoformat'}
@@ -88,15 +88,5 @@ return require('packer').startup(function()
             require("color-picker")
         end,
     })
-
-    -- wiki
-    use {'vimwiki/vimwiki'}
-    use {
-      "chrsm/impulse.nvim",
-      config = function()
-        require("impulse").setup({})
-      end,
-      requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-    }
 
 end)

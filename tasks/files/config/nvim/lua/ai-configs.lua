@@ -47,5 +47,12 @@ require'ai'.setup {
         result_tpl = 'Aqui está o resumo da sprint:\n\n${output}',
         require_input = true,
       },
+      execute_from_input= {
+        command = 'GeminiExecutePrompt',
+        loading_tpl = 'Loading...',
+        prompt_tpl = '${input}',
+        result_tpl = 'Resultado:\n\n${output}',
+        require_input = true,
+      },
     },
 }

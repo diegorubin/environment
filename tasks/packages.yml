@@ -2,23 +2,33 @@
 - name: "[Fedora] download free"
   command: "curl -fLo /tmp/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
 - name: "[Fedora] Enable the RPM Fusion repository free"
   become_user: root
   command: "dnf install -y /tmp/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
 - name: "[Fedora] download free"
   command: "curl -fLo /tmp/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
 - name: "[Fedora] Enable the RPM Fusion repository nonfree"
   become_user: root
   command: "dnf install -y /tmp/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
 - name: "[Fedora] Update System"
   become_user: root
   dnf:
     name: "*"
     state: latest
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
 - name: "[Fedora] Install System Packages"
   become_user: root
   dnf:
@@ -26,43 +36,52 @@
       - htop
       - powerline-fonts
       - tidy
+      - git
+      - dnf-command(copr)
       - autoconf
-      - gitk
-      - xscreensaver
       - cmake
       - gcc-c++
       - astyle
-      - conky
-      - xdotool
-      - pavucontrol
       - automake
       - python3-devel
       - python3-pip
-      - gtkmm30-devel
       - sqlite-devel
-      - libnotify-devel
       - intltool
       - boost-devel
-      - blueman
       - cppcheck
       - uncrustify
       - ripgrep
-      - meld
       - aspell
       - aspell-pt_BR
-      - meson
-      - rofi
       - perl-ExtUtils-MakeMaker
-      - feh
-      - playerctl
-      - xfce4-notifyd
       - lua-filesystem
       - lua5.1-filesystem
       - kubernetes-client
       - fzf
       - libevent-devel
       - pcre-devel
-      - terraform-ls
+    state: latest
+  when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
+- name: "[Fedora] Install UI System Packages"
+  become_user: root
+  dnf:
+    name:
+      - gitk
+      - xscreensaver
+      - conky
+      - xdotool
+      - pavucontrol
+      - gtkmm30-devel
+      - libnotify-devel
+      - blueman
+      - meld
+      - meson
+      - rofi
+      - feh
+      - playerctl
+      - xfce4-notifyd
     state: latest
   when: ansible_distribution == 'Fedora'
 - name: "[Ubuntu] Install System Packages"

@@ -2,19 +2,29 @@
 - name: Check for node installation
   stat: path=/opt/node
   register: node
+  tags:
+    - oasis
 - name: Download Node
   become_user: root
   command: "curl -fLo /opt/node.tar.xz https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.xz"
   when: not node.stat.exists
+  tags:
+    - oasis
 - name: Extract Node
   become_user: root
   command: "tar xf /opt/node.tar.xz -C /opt"
   when: not node.stat.exists
+  tags:
+    - oasis
 - name: Create Link for Node
   become_user: root
   command: "ln -s /opt/node-v20.10.0-linux-x64 /opt/node"
   when: not node.stat.exists
+  tags:
+    - oasis
 - name: Change Owner for Node
   become_user: root
   command: "chown -R {{user}} /opt/node-v20.10.0-linux-x64"
   when: not node.stat.exists
+  tags:
+    - oasis

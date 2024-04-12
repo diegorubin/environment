@@ -1,5 +1,9 @@
 ---
 - name: copy tidy config
   copy: src=config/tidyrc dest={{destination}}/.tidyrc owner={{user}} mode=0664
+  tags:
+    - oasis
 - name: copy astyle config
   copy: src=config/astylerc dest={{destination}}/.astylerc owner={{user}} mode=0664
+  tags:
+    - oasis

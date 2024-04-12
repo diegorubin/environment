@@ -5,6 +5,7 @@
   when: ansible_distribution == 'Fedora'
   tags:
     - nvim
+    - oasis
 - name: "[Fedora] Install NeoVim from negativo"
   become_user: root
   dnf:
@@ -14,6 +15,7 @@
   when: ansible_distribution == 'Fedora'
   tags:
     - nvim
+    - oasis
 - name: "[Ubuntu] Check for neovim installation"
   stat: path=/opt/nvim.appimage-0.9.0
   register: neovim
@@ -34,19 +36,23 @@
   register: packer
   tags:
     - nvim
+    - oasis
 - name: Install Packer for NeoVim Plugins
   command: "git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
   when: not packer.stat.exists
   tags:
     - nvim
+    - oasis
 - name: Create New NeoVim Base
   command: "mkdir -p {{destination}}/.config/nvim/lua"
   tags:
     - nvim
+    - oasis
 - name: copy init.vim
   copy: src=config/nvim/init.vim dest={{destination}}/.config/nvim/init.vim owner={{user}} mode=0664
   tags:
     - nvim
+    - oasis
 - name: copy lua files
   copy:
     src: "config/nvim/lua/{{item}}"
@@ -69,3 +75,4 @@
     - ai-configs.lua
   tags:
     - nvim
+    - oasis

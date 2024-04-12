@@ -6,6 +6,8 @@
       - zsh
     state: latest
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis
 - name: "[Ubuntu] Install zsh"
   become_user: root
   apt:
@@ -13,26 +15,39 @@
       - zsh
     state: latest
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - oasis
 - name: Check for oh-my-zsh installation
   stat: path={{destination}}/.oh-my-zsh
   register: ohmyzsh
+  tags:
+    - oasis
 - name: Download Oh My Zsh
   command: "curl -fLo /tmp/oh-my-zsh-install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
   when: not ohmyzsh.stat.exists
+  tags:
+    - oasis
 - name: Change Owner Oh My Zsh
   command: "chmod +x /tmp/oh-my-zsh-install.sh"
   when: not ohmyzsh.stat.exists
+  tags:
+    - oasis
 - name: Install Oh My Zsh
   command: "/tmp/oh-my-zsh-install.sh"
   when: not ohmyzsh.stat.exists
+  tags:
+    - oasis
 - name: copy zshenv
   copy: src=config/zsh/zshenv dest={{destination}}/.zshenv owner={{user}} mode=0664
   tags:
     - configs
     - zsh
+    - oasis
 - name: Setting zsh as default shell
   become_user: root
   user:
     name: "{{user}}"
     shell: /bin/zsh
   when: ansible_distribution == 'Fedora'
+  tags:
+    - oasis

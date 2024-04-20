@@ -24,6 +24,7 @@
     - create-task
     - print-screen
     - print-screen-selection
+    - git-logs-in-json
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
   with_items:
@@ -39,3 +40,4 @@
     - create-task
     - print-screen
     - print-screen-selection
+    - git-logs-in-json

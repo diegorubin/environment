@@ -1,3 +1,25 @@
-#!/bin/bash
+#!/usr/bin/python3
+import sys
+import json
+from git import Repo
 
-git log --pretty=format:'{^^^^date^^^^:^^^^%ci^^^^,^^^^abbreviated_commit^^^^:^^^^%h^^^^,^^^^subject^^^^:^^^^%s^^^^,^^^^body^^^^:^^^^%b^^^^}' | sed 's/"/\\"/g' | sed 's/\^^^^/"/g' | jq -s '.'
+repo = Repo(sys.argv[1])
+
+try:
+    commits = list(repo.iter_commits("main"))
+except:
+    commits = list(repo.iter_commits("master"))
+
+entries = []
+for commit in commits:
+    entries.append(
+        {
+            "hash": commit.hexsha,
+            "author": commit.author.name,
+            "email": commit.author.email,
+            "date": commit.authored_datetime.isoformat(),
+            "message": commit.message.strip(),
+        }
+    )
+
+print(json.dumps(entries))

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+file="$HOME/Pictures/explains/$(date +%s).png"
+echo $file
+
+maim -o -s -d 0.5 $file
+xclip -selection clipboard -t image/png -i $file
+
+tesseract $file - | xclip -selection clipboard
+
+clipboard_content=$(xclip -o -selection clipboard)
+
+content=$(echo $clipboard_content | jq -Rsa . | sed 's/^"//g' | sed 's/"$//g' | sed 's/\\n/\n/g' | sed 's/\\t/\t/g' | sed 's/\\//g' | sed 's/"/\\"/g' | tr -d '\n' )
+echo $content
+
+
+response=$(curl "https://api.openai.com/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  --data-binary @- << EOF
+  {
+    "model": "gpt-3.5-turbo",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Seu objetivo é verificar o texto enviado pelo usuário, traduzir para o português e fazer uma pequena explicação depois da tradução. Divida a tradução e a explicação utilizando a string \"\n\n---\" como divisória."
+      },
+      {
+        "role": "user",
+        "content": "TEXTO A SER TRADUZIDO: $content"
+      }
+    ]
+  }
+EOF
+)
+
+echo $response
+
+answer=$(echo $response | jq '.choices[0].message.content')
+
+echo $answer | sed 's/\\n/\n/g'
+echo $answer | sed 's/\\n/\n/g' | xclip -selection clipboard

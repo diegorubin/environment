@@ -3,14 +3,20 @@
   file:
     path: "{{destination}}/.scripts/bin"
     state: directory
+  tags:
+    - scripts
 - name: Creates scripts bin directory
   file:
     path: "{{destination}}/.scripts/bin"
     state: directory
+  tags:
+    - scripts
 - name: Copy scripts bin files
   copy:
     src: "scripts/bin/{{item}}"
     dest: "{{destination}}/.scripts/bin"
+  tags:
+    - scripts
   with_items:
     - applications_menu
     - index-projects
@@ -25,8 +31,11 @@
     - print-screen
     - print-screen-selection
     - git-logs-in-json
+    - what-is-written-here
 - name: Change scripts permission
   command: "chmod +x {{destination}}/.scripts/bin/{{item}}"
+  tags:
+    - scripts
   with_items:
     - applications_menu
     - index-projects
@@ -41,3 +50,4 @@
     - print-screen
     - print-screen-selection
     - git-logs-in-json
+    - what-is-written-here

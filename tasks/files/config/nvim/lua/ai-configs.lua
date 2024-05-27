@@ -28,7 +28,16 @@ Importante que esteja claro o que foi feito e o que foi aprendido. O texto pode 
 Revise o texto antes de enviar.]]
 
 require'ai'.setup {
-    api_key = os.getenv('GEMINI_API_KEY'),
+    models = {
+      {
+        provider = 'gemini',
+        model = 'gemini-pro',
+        result_tpl = 'Resultado: \n\n{{output}}',
+      },
+    },
+    gemini = {
+      api_key = os.getenv('GEMINI_API_KEY'),
+    },
     locale = 'pt_br',
     alternate_locale = 'en',
     result_popup_gets_focus = false,
@@ -50,8 +59,7 @@ require'ai'.setup {
       execute_from_input= {
         command = 'GeminiExecutePrompt',
         loading_tpl = 'Loading...',
-        prompt_tpl = '${input}',
-        result_tpl = 'Resultado:\n\n${output}',
+        prompt_tpl = '{{input}}',
         require_input = true,
       },
     },

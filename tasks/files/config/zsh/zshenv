@@ -1,6 +1,7 @@
 # Exports
 export EDITOR=nvim
 export KUBE_EDITOR=vim
+export TODOIST_API_KEY="$(golem remind todoist)"
 
 export PATH="/opt/java/bin:$PATH"
 export PATH="$PATH:/opt/node/bin"

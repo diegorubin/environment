@@ -26,6 +26,9 @@ return require('packer').startup(function()
       }
     }
 
+    -- integrations
+    use {'romgrk/todoist.nvim'}
+
     -- languages servers
     use {'neovim/nvim-lspconfig'}
     use {'ray-x/lsp_signature.nvim'}

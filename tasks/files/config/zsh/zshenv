@@ -16,6 +16,9 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.scripts/bin"
 export PATH="$PATH:/snap/bin"
 
+# Pass Store
+export PASSWORD_STORE_DIR="$HOME/SafeBox/passwords"
+
 # Aliases
 alias k=kubectl
 

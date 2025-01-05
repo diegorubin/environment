@@ -6,5 +6,5 @@
       - alacritty
     state: latest
   when: ansible_distribution == 'Fedora'
-- name: copy terminator config
+- name: copy alacritty config
   copy: src=config/alacritty/{{theme}}/alacritty.yml dest={{destination}}/.alacritty owner={{user}} mode=0664

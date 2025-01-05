@@ -26,3 +26,4 @@
     - import_tasks: tasks/bin.yml
     - import_tasks: tasks/configs.yml
     - import_tasks: tasks/flutter.yml
+    - import_tasks: tasks/wezterm.yml

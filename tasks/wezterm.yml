@@ -1,0 +1,23 @@
+---
+- name: "[Fedora] Install wezterm"
+  become_user: root
+  dnf:
+    name:
+      - wezterm
+    state: latest
+  when: ansible_distribution == 'Fedora'
+- name: Creates wezterm config directory if not exists
+  file: path={{destination}}/.config/wezterm state=directory
+  tags:
+    - configs
+    - wezterm
+- name: copy wezterm config
+  copy: src=config/wezterm/{{theme}}/wezterm.lua dest={{destination}}/.config/wezterm/wezterm.lua owner={{user}} mode=0664
+  tags:
+    - configs
+    - wezterm
+- name: copy wezterm background
+  copy: src=config/wezterm/{{theme}}/background.gif dest={{destination}}/.config/wezterm/background.gif owner={{user}} mode=0664
+  tags:
+    - configs
+    - wezterm

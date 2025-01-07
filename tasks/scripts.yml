@@ -20,14 +20,11 @@
   with_items:
     - applications_menu
     - index-projects
-    - init-project
-    - open-project
     - wallpaper
     - wallpaper-cli
     - find_attribute
     - find_colors
     - change-java-version
-    - create-task
     - print-screen
     - print-screen-selection
     - git-logs-in-json
@@ -39,14 +36,11 @@
   with_items:
     - applications_menu
     - index-projects
-    - init-project
-    - open-project
     - wallpaper
     - wallpaper-cli
     - find_attribute
     - find_colors
     - change-java-version
-    - create-task
     - print-screen
     - print-screen-selection
     - git-logs-in-json

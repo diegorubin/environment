@@ -1,8 +1,0 @@
-#!/bin/bash
-
-killall conky
-
-cd .config/conky
-
-sleep 1
-conky -c center &

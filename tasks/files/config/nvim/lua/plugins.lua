@@ -75,6 +75,9 @@ return require('packer').startup(function()
     -- terraform
     use {'hashivim/vim-terraform'}
 
+    -- android
+    use {'ariedov/android-nvim'}
+
     -- ui
     use {'kyazdani42/nvim-web-devicons'}
     use {'kyazdani42/nvim-tree.lua'}

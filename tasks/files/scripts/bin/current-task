@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+
+while true; do
+  current_ticket=`golem get current ticket`
+  current_task=`golem get current task`
+
+  clear
+
+  if [ -z "$current_ticket" ]; then
+    echo "$current_task"
+  else
+    echo "#$current_ticket - $current_task"
+  fi
+  sleep 1
+done

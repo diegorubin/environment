@@ -2,17 +2,15 @@
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
+current_ticket=`golem get current ticket`
+current_task=`golem get current task`
 
-while true; do
-  current_ticket=`golem get current ticket`
-  current_task=`golem get current task`
-
-  clear
-
-  if [ -z "$current_ticket" ]; then
-    echo "$current_task"
+if [ -z "$current_ticket" ]; then
+  if [ -z "$current_task" ]; then
+    echo "Nothing"
   else
-    echo "#$current_ticket - $current_task"
+    echo "$current_task"
   fi
-  sleep 1
-done
+else
+  echo "#$current_ticket - $current_task"
+fi

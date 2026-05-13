@@ -1,0 +1,20 @@
+// -*- mode: jsonc -*-
+{
+    "position": "bottom",
+    "height": 30,
+    "spacing": 4,
+    "modules-left": [
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+      "custom/current-task"
+    ],
+    "custom/current-task": {
+        "exec": "$HOME/.scripts/bin/current-task",
+        "interval": 5, // Executa a cada 5 segundos
+        "return-type": "", // Deixe vazio se o script retornar apenas texto simples
+        "format": " {} " // O '{}' será substituído pela saída do script
+    }
+  }
+}

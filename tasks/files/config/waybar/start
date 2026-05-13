@@ -1,0 +1,6 @@
+#!/bin/bash
+
+killall waybar
+
+waybar -c ~/.config/waybar/bottom.jsonc &
+waybar -c ~/.config/waybar/top.jsonc &

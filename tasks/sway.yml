@@ -1,0 +1,52 @@
+---
+- name: Create New Sway
+  command: "mkdir -p {{destination}}/.config/sway/config.d"
+  tags:
+    - sway
+- name: copy config
+  copy: src=config/sway/config dest={{destination}}/.config/sway/config owner={{user}} mode=0664
+  tags:
+    - sway
+- name: copy config.d files
+  copy:
+    src: "config/sway/config.d/{{item}}"
+    dest: "{{destination}}/.config/sway/config.d"
+  with_items:
+    - 50-rules-browser.conf
+    - 50-rules-pavucontrol.conf
+    - 50-rules-policykit-agent.conf
+    - 60-bindings-brightness.conf
+    - 60-bindings-media.conf
+    - 60-bindings-screenshot.conf
+    - 60-bindings-volume.conf
+    - 65-mode-passthrough.conf
+    - 90-swayidle.conf
+    - 95-autostart-policykit-agent.conf
+    - 95-xdg-desktop-autostart.conf
+    - 95-xdg-user-dirs.conf
+  tags:
+    - sway
+# sway bar
+- name: Create New Waybar Directory
+  command: "mkdir -p {{destination}}/.config/waybar"
+  tags:
+    - sway
+
+- name: copy waybar configs
+  copy:
+    src: "config/waybar/{{item}}"
+    dest: "{{destination}}/.config/waybar"
+  with_items:
+    - bottom.jsonc
+    - start
+    - style.css
+    - top.jsonc
+  tags:
+    - sway
+
+- name: Change scripts waybar permission
+  command: "chmod +x {{destination}}/.config/waybar/{{item}}"
+  tags:
+    - sway
+  with_items:
+    - start

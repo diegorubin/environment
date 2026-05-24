@@ -1,98 +1,107 @@
-return require('packer').startup(function()
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup({
     -- autocomplete
-    use {'hrsh7th/nvim-compe'}
-    use {'github/copilot.vim'}
-    use {'gera2ld/ai.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    'github/copilot.vim',
+    'neovim/nvim-lspconfig',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
 
     -- formatters
-    use {'sbdchd/neoformat'}
-    use {'godlygeek/tabular'}
-    use {'psf/black'}
-    use {'ntpeters/vim-better-whitespace'}
+    'sbdchd/neoformat',
+    'godlygeek/tabular',
+    'psf/black',
+    'ntpeters/vim-better-whitespace',
 
     -- git
-    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
-    use {'tpope/vim-fugitive'}
-    use {'junegunn/gv.vim'}
-    use {
+    { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+    'tpope/vim-fugitive',
+    'junegunn/gv.vim',
+    {
       'pwntester/octo.nvim',
-      requires = {
+      dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope.nvim',
         'kyazdani42/nvim-web-devicons',
       }
-    }
+    },
 
     -- integrations
-    use {'romgrk/todoist.nvim'}
+    'romgrk/todoist.nvim',
 
     -- languages servers
-    use {'neovim/nvim-lspconfig'}
-    use {'ray-x/lsp_signature.nvim'}
+    'ray-x/lsp_signature.nvim',
 
     -- languages support
-    use {'vim-crystal/vim-crystal'}
+    'vim-crystal/vim-crystal',
 
     -- linters
-    use {'neomake/neomake'}
-    use {'diegorubin/mutmut.nvim'}
+    'neomake/neomake',
+    'diegorubin/mutmut.nvim',
 
     -- navigation
-    use {'ludovicchabant/vim-gutentags'}
-    use {'folke/todo-comments.nvim'}
+    'folke/todo-comments.nvim',
 
     -- rest
-    use {'diepm/vim-rest-console'}
+    'diepm/vim-rest-console',
 
     -- search
-    use {
+    {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
-    use {
+        dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' }
+    },
+    {
         'windwp/nvim-spectre',
-        requires = {{'nvim-lua/plenary.nvim'}, 'nvim-lua/popup.nvim'}
-    }
+        dependencies = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' }
+    },
 
     -- syntax
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {'lukas-reineke/indent-blankline.nvim'}
-    use {'andymass/vim-matchup'}
-    use {'folke/twilight.nvim'}
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    'lukas-reineke/indent-blankline.nvim',
+    'andymass/vim-matchup',
+    'folke/twilight.nvim',
 
     -- themes
-    use {'tomasr/molokai'}
-    use {'folke/tokyonight.nvim'}
-    use {'sainnhe/everforest'}
-    use {'mhartington/oceanic-next'}
+    'tomasr/molokai',
+    'folke/tokyonight.nvim',
+    'sainnhe/everforest',
+    'mhartington/oceanic-next',
 
     -- tests
-    use {'diegorubin/nose2coverage.nvim'}
+    'diegorubin/nose2coverage.nvim',
 
     -- terraform
-    use {'hashivim/vim-terraform'}
+    'hashivim/vim-terraform',
 
     -- android
-    use {'ariedov/android-nvim'}
+    'ariedov/android-nvim',
 
     -- ui
-    use {'kyazdani42/nvim-web-devicons'}
-    use {'kyazdani42/nvim-tree.lua'}
-    use {'jbyuki/venn.nvim'}
-    use {'akinsho/nvim-bufferline.lua'}
-    use {
+    'kyazdani42/nvim-web-devicons',
+    'kyazdani42/nvim-tree.lua',
+    'jbyuki/venn.nvim',
+    'akinsho/nvim-bufferline.lua',
+    {
         'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
-    use {'voldikss/vim-floaterm'}
-    use {'tpope/vim-dadbod'}
-    use ({"ziontee113/color-picker.nvim",
+        dependencies = { 'kyazdani42/nvim-web-devicons' }
+    },
+    'voldikss/vim-floaterm',
+    'tpope/vim-dadbod',
+    {
+        "ziontee113/color-picker.nvim",
         config = function()
             require("color-picker")
         end,
-    })
+    }
+})
 
-end)

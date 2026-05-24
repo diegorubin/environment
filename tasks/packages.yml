@@ -60,6 +60,7 @@
       - fzf
       - libevent-devel
       - pcre-devel
+      - xclip
     state: latest
   when: ansible_distribution == 'Fedora'
   tags:

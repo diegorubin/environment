@@ -1,21 +1,26 @@
 -- bash configuration
-require'lspconfig'.bashls.setup {}
+vim.lsp.config['bashls'] = {}
 
 -- python configuration
-require'lspconfig'.pyright.setup {}
+vim.lsp.config['pyright'] = {}
 
 -- javascript configuration
-require'lspconfig'.denols.setup {}
+vim.lsp.config['denols'] = {}
 
 -- lua configuration
-require'lspconfig'.lua_ls.setup {}
+vim.lsp.config['lua_ls'] = {}
 
+-- lsp_signature setup (mantém como estava)
 require"lsp_signature".setup()
 
 -- ruby configuration
-require'lspconfig'.solargraph.setup {
+vim.lsp.config['solargraph'] = {
     cmd = {"solargraph", "stdio"},
     filetypes = {"ruby"},
     init_options = {formatting = true},
-    settings = {solargraph = {diagnostics = true}}
+    settings = {
+        solargraph = {
+            diagnostics = true
+        }
+    }
 }

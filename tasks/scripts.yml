@@ -25,7 +25,6 @@
     - wallpaper-cli
     - find_attribute
     - find_colors
-    - change-java-version
     - print-screen
     - print-screen-selection
     - git-logs-in-json
@@ -42,7 +41,6 @@
     - wallpaper-cli
     - find_attribute
     - find_colors
-    - change-java-version
     - print-screen
     - print-screen-selection
     - git-logs-in-json

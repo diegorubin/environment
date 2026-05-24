@@ -31,18 +31,6 @@
 - pip:
     name: neovim
     extra_args: --user
-- name: Check for packer installation
-  stat: path=~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  register: packer
-  tags:
-    - nvim
-    - oasis
-- name: Install Packer for NeoVim Plugins
-  command: "git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  when: not packer.stat.exists
-  tags:
-    - nvim
-    - oasis
 - name: Create New NeoVim Base
   command: "mkdir -p {{destination}}/.config/nvim/lua"
   tags:
@@ -62,7 +50,6 @@
     - gitsigns-config.lua
     - languages-configs.lua
     - todo-comments-configs.lua
-    - autocomplete.lua
     - bufferline-config.lua
     - lualine-configs.lua
     - mutmut-configs.lua
@@ -72,7 +59,6 @@
     - tree.lua
     - twilight-configs.lua
     - ui-configs.lua
-    - ai-configs.lua
   tags:
     - nvim
     - oasis

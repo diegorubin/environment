@@ -1,6 +1,5 @@
 lua require('plugins')
 
-lua require('autocomplete')
 lua require('bufferline-config')
 lua require('gitsigns-config')
 lua require('languages-configs')
@@ -12,7 +11,6 @@ lua require('theme')
 lua require('todo-comments-configs')
 lua require('twilight-configs')
 lua require('ui-configs')
-lua require('ai-configs')
 
 " Private settings
 lua require('private')

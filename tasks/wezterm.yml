@@ -5,7 +5,7 @@
     name:
       - wezterm
     state: latest
-  when: ansible_distribution == 'Fedora'
+  when: ansible_facts['distribution'] == 'Fedora'
 - name: Creates wezterm config directory if not exists
   file: path={{destination}}/.config/wezterm state=directory
   tags:

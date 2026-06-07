@@ -106,7 +106,7 @@ output * bg /usr/share/backgrounds/default.jxl fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
 #
     # Switch to workspace
@@ -133,7 +133,12 @@ output * bg /usr/share/backgrounds/default.jxl fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
+
+    bindsym $mod+Ctrl+Shift+Up move workspace to output up
+    bindsym $mod+Ctrl+Shift+Down move workspace to output down
+    bindsym $mod+Ctrl+Shift+Left move workspace to output left
+    bindsym $mod+Ctrl+Shift+Right move workspace to output right
+
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -241,5 +246,6 @@ exec swayidle -w \
     resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 000000'
 
+exec wlr-randr --output DP-1 --pos 0,0 --output eDP-1 --pos 0,1080 --output HDMI-A-1 --pos 1920,1080
 
 exec_always ~/.config/waybar/start

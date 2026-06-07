@@ -20,7 +20,6 @@
     - 60-bindings-screenshot.conf
     - 60-bindings-volume.conf
     - 65-mode-passthrough.conf
-    - 90-swayidle.conf
     - 95-autostart-policykit-agent.conf
     - 95-xdg-desktop-autostart.conf
     - 95-xdg-user-dirs.conf

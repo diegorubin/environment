@@ -1,7 +1,13 @@
 #!/bin/bash
 
 file="$HOME/Pictures/screenshots/$(date +%s).png"
-echo $file
+echo "$file"
 
-maim -o $file
-xclip -selection clipboard -t image/png -i $file
+# Cria o diretório caso ele não exista
+mkdir -p "$(dirname "$file")"
+
+# Tira o print da tela inteira nativamente no Wayland
+grim "$file"
+
+# Copia a imagem para a área de transferência
+wl-copy < "$file"

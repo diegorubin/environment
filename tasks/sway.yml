@@ -17,7 +17,6 @@
     - 50-rules-policykit-agent.conf
     - 60-bindings-brightness.conf
     - 60-bindings-media.conf
-    - 60-bindings-screenshot.conf
     - 60-bindings-volume.conf
     - 65-mode-passthrough.conf
     - 95-autostart-policykit-agent.conf

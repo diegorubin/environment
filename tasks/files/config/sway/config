@@ -57,6 +57,12 @@ output * bg /usr/share/backgrounds/default.jxl fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+input * {
+    xkb_layout "us,us"
+    xkb_variant ",intl"
+    xkb_options "grp:win_space_toggle"
+}
+
 ### Key bindings
 #
 # Basics:
@@ -144,7 +150,7 @@ output * bg /usr/share/backgrounds/default.jxl fill
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+g splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -246,6 +252,10 @@ exec swayidle -w \
     resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 000000'
 
-exec wlr-randr --output DP-1 --pos 0,0 --output eDP-1 --pos 0,1080 --output HDMI-A-1 --pos 1920,1080
+
+# keybindings
+bindsym --release Print exec {{destination}}/.scripts/bin/print-screen
+bindsym --release Shift+Print exec {{destination}}/.scripts/bin/print-screen-selection
 
 exec_always ~/.config/waybar/start
+exec_always wlr-randr --output DP-1 --pos 1920,0 --output eDP-1 --pos 0,1080 --output HDMI-A-1 --pos 1920,1080

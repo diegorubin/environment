@@ -1,7 +1,15 @@
 #!/bin/bash
 
 file="$HOME/Pictures/screenshots/$(date +%s).png"
-echo $file
+echo "$file"
 
-maim -o -s -d 0.5 $file
-xclip -selection clipboard -t image/png -i $file
+# Cria o diretório caso ele não exista
+mkdir -p "$(dirname "$file")"
+
+# Seleciona a região (slurp) e tira o print (grim)
+# O delay de 0.5s foi adicionado antes de abrir a seleção
+sleep 0.5
+grim -g "$(slurp)" "$file"
+
+# Copia a imagem para a área de transferência do Wayland
+wl-copy < "$file"

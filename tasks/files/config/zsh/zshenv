@@ -15,6 +15,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.scripts/bin"
 export PATH="$PATH:/snap/bin"
+export PATH="$PATH:$HOME/development/flutter/bin"
 
 # Pass Store
 export PASSWORD_STORE_DIR="$HOME/Secrets"
